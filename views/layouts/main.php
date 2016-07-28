@@ -20,17 +20,33 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <style>
+        .my-navbar {
+            background-color: #AAF;
+            height: 70px;
+        }
+        .navbar-fixed-top {
+            height: 70px; /* Whatever you want. */
+        }
+        .my-navbar .container, .navbar-header, .navbar-nav li a {
+            border:2px solid red;
+            height: 70px;
+        }
+    </style>
+
+
 </head>
 <body>
 <?php $this->beginBody() ?>
 
 <div class="wrap">
     <?php
+    $headerIcon = '<img src="images/logo.png" width="250px" height="20px">';
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => $headerIcon,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'my-navbar navbar-fixed-top',
         ],
     ]);
     echo Nav::widget([
@@ -55,11 +71,10 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        ]) ?>           
         <?= $content ?>
     </div>
 </div>
