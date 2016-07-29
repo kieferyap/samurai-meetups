@@ -90,38 +90,44 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
-/* Website CSS */
+/**************************
+ ****** Website CSS ******* 
+ **************************/
+
+/*****HEADER STYLING*****/
+
+/* Controls color of header */
 .my-navbar {
-    background-color: #AAF;
-    height: 70px;
+    background-color: #000;
 }
-.navbar-fixed-top {
-    height: 70px; /* Whatever you want. */
-}
+/* Controls vertical offset of the "Menu", "Language", and the logo icons*/
 .navbar-nav li a {
-    border:2px solid red;
-    height: 70px;
     padding-top: 22px;
 }
+/* Controls height and width of header logo */
 .header-logo {
-    height: 35px;
+    height: 50px;
     width: 250px;
 }
-.my-navbar .container {
-    border: 2px solid blue;
-    height: 70px;
-}
-.navbar-header {
-    border: 2px solid green;
-    height: 70px;
-}
+/* Controls position of header logo */ 
 .navbar-header a {
-    padding-top: 5px;
+    padding-top: 7px;
     padding-bottom: 5px;
     padding-right: 0px;
 }
-.round-header-icon {
+/* Controls height of header */
+.my-navbar .container, 
+.navbar-header,
+.my-navbar,
+.navbar-fixed-top,
+.navbar-nav li a
+{
+    height: 65px;
+}
+/* Controls logo dimensions */
+.navbar-nav li a img {
+    margin-top: -15px;
     width: 50px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 50px;
 }

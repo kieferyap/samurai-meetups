@@ -37,11 +37,17 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Menu1', 'url' => ['/site/index']],
-            ['label' => 'Menu2', 'url' => ['/site/about']],
-            ['label' => '<img class="round-header-icon" id="facebook-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false],
-            ['label' => '<img class="round-header-icon" id="twitter-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false],
-            ['label' => '<img class="round-header-icon" id="twitter-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false]
+            [
+                'label' => '<span class="header-menu">Menu</span>', 
+                'items' => [
+                    ['label' => 'Dropdown A', 'url' => '#'],
+                    ['label' => 'Dropdown B', 'url' => '#'],                     
+                ], 
+                'encode' => false],
+            ['label' => 'English', 'url' => ['/site/about']],
+            ['label' => '<img id="facebook-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false]
         ],
     ]);
     NavBar::end();
