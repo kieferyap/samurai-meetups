@@ -20,28 +20,13 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <style>
-        .my-navbar {
-            background-color: #AAF;
-            height: 70px;
-        }
-        .navbar-fixed-top {
-            height: 70px; /* Whatever you want. */
-        }
-        .my-navbar .container, .navbar-header, .navbar-nav li a {
-            border:2px solid red;
-            height: 70px;
-        }
-    </style>
-
-
 </head>
 <body>
 <?php $this->beginBody() ?>
 
 <div class="wrap">
     <?php
-    $headerIcon = '<img src="images/logo.png" width="250px" height="20px">';
+    $headerIcon = '<img class="header-logo" src="images/logo.png">';
     NavBar::begin([
         'brandLabel' => $headerIcon,
         'brandUrl' => Yii::$app->homeUrl,
@@ -52,21 +37,11 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+            ['label' => 'Menu1', 'url' => ['/site/index']],
+            ['label' => 'Menu2', 'url' => ['/site/about']],
+            ['label' => '<img class="round-header-icon" id="facebook-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false],
+            ['label' => '<img class="round-header-icon" id="twitter-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false],
+            ['label' => '<img class="round-header-icon" id="twitter-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false]
         ],
     ]);
     NavBar::end();
