@@ -45,9 +45,9 @@ AppAsset::register($this);
                 ], 
                 'encode' => false],
             ['label' => 'English', 'url' => ['/site/about']],
-            ['label' => '<img id="facebook-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false],
-            ['label' => '<img id="twitter-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false],
-            ['label' => '<img id="twitter-icon" src="images/logo.png">', 'url' => ['/site/contact'], 'encode' => false]
+            ['label' => '<img id="facebook-icon" src="images/facebook-logo.png">', 'url' => ['/site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="images/twitter-logo.png">', 'url' => ['/site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="images/instagram-logo.png">', 'url' => ['/site/contact'], 'encode' => false]
         ],
     ]);
     NavBar::end();
