@@ -40,8 +40,11 @@ AppAsset::register($this);
             [
                 'label' => '<span class="header-menu">Menu</span>', 
                 'items' => [
-                    ['label' => 'Dropdown A', 'url' => '#'],
-                    ['label' => 'Dropdown B', 'url' => '#'],                     
+                    ['label' => 'Upcoming Tours', 'url' => '#'],
+                    ['label' => 'About', 'url' => '#'],                     
+                    ['label' => 'Report', 'url' => '#'],                     
+                    ['label' => 'Samurai', 'url' => '#'],                     
+                    ['label' => 'Participation\'s Voice', 'url' => '#'],                     
                 ], 
                 'encode' => false],
             ['label' => 'English', 'url' => ['/site/about']],
