@@ -104,14 +104,16 @@ a.desc:after {
 .navbar-nav li a {
     padding-top: 22px;
     color: #FFF;
+    border-left: 1px solid rgba(255,255,255,0.5);
 }
 /* Hover color of "Menu", "Lanuage", and the logo icons */
 .navbar-nav li a:hover {
-    background-color: #3FC380;
-    color: #FFF;
+    background-color: #C8F7C5 !important;
+    color: #000 !important;
 }
 /* On-click color for "Menu" */
-.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus,
+.my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus {
     background-color: #26A65B;
     color: #FFF;
 }
@@ -149,11 +151,33 @@ a.desc:after {
     color: #000;
 } 
 
+.icon-bar {
+    background-color: #C8F7C5;
+}
+
+.navbar-collapse {
+    background-color: #004101;    
+}
+
+.dropdown-menu li a:focus {
+    background-color: #3FC380;
+    color: #FFF;
+    border: 0px;
+}
+
+li.open {
+    background-color: #3FC380;
+}
+
 .navbar-toggle {
-    background-color: #26A65B;
+    background-color: rgba(255,255,255,0.5);
     margin-top: 15px;
 }
 
-.icon-bar {
-    background-color: #C8F7C5;
+.navbar-collapse .navbar-nav li {
+    border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.navbar-collapse .navbar-nav {
+    margin-top: 0px;
 }
