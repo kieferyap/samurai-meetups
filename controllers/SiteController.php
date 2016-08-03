@@ -60,39 +60,48 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        // echo 'index!'; die();
         return $this->render('index');
     }
 
     /**
-     * Login action.
+     * Tours action.
      *
      * @return string
      */
-    public function actionLogin()
+    public function actionTours()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        return $this->render('tours');
     }
 
     /**
-     * Logout action.
+     * Tours action.
      *
      * @return string
      */
-    public function actionLogout()
+    public function actionReport()
     {
-        Yii::$app->user->logout();
+        return $this->render('report');
+    }
 
-        return $this->goHome();
+    /**
+     * Tours action.
+     *
+     * @return string
+     */
+    public function actionFaq()
+    {
+        return $this->render('faq');
+    }
+
+    /**
+     * Tours action.
+     *
+     * @return string
+     */
+    public function actionPrivacy()
+    {
+        return $this->render('privacy');
     }
 
     /**

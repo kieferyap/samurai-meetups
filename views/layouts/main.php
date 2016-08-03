@@ -41,17 +41,17 @@ AppAsset::register($this);
             [
                 'label' => '<span class="header-menu">Menu</span>', 
                 'items' => [
-                    ['label' => 'Upcoming Tours', 'url' => '#'],
-                    ['label' => 'About', 'url' => '#'],                     
-                    ['label' => 'Report', 'url' => '#'],                     
-                    ['label' => 'Samurai', 'url' => '#'],                     
+                    ['label' => 'Upcoming Tours', 'url' => Url::base().'?r=site/tours'],
+                    ['label' => 'About', 'url' => Url::base().'?r=site/about'],                     
+                    ['label' => 'Report', 'url' => Url::base().'?r=site/report'],                     
+                    ['label' => 'Samurai', 'url' => Url::base().'?r=site/contact'],                     
                     ['label' => 'Participation\'s Voice', 'url' => '#'],                     
                 ], 
                 'encode' => false],
-            ['label' => 'English', 'url' => ['/site/about']],
-            ['label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 'url' => ['/site/contact'], 'encode' => false],
-            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/twitter-logo.png">', 'url' => ['/site/contact'], 'encode' => false],
-            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/instagram-logo.png">', 'url' => ['/site/contact'], 'encode' => false]
+            ['label' => 'English', 'url' => [Url::base().'?r=site/about']],
+            ['label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 'url' => [Url::base().'?r=site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/twitter-logo.png">', 'url' => [Url::base().'?r=site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/instagram-logo.png">', 'url' => [Url::base().'?r=site/contact'], 'encode' => false]
         ],
     ]);
     NavBar::end();
@@ -68,10 +68,10 @@ AppAsset::register($this);
     <div class="container">
         <p class="pull-left"><img class="footer-logo" src="<?=Url::base()?>images/logo-only.png"></p>
         <p class="pull-right">
-            <a href="#">About Us</a> | 
-            <a href="#">Contact Us</a> | 
-            <a href="#">FAQ</a> | 
-            <a href="#">Privacy Policy</a>
+            <a href="?r=site/about">About Us</a> | 
+            <a href="?r=site/contact">Contact Us</a> | 
+            <a href="?r=site/faq">FAQ</a> | 
+            <a href="?r=site/privacy">Privacy Policy</a>
         </p>
     </div>
 </footer>
