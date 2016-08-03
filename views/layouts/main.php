@@ -66,10 +66,13 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <!-- <img class="header-logo" src="<?=Url::base()?>images/logo.png"> -->
-        <!-- <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p> -->
+        <p class="pull-left"><img class="footer-logo" src="<?=Url::base()?>images/logo-only.png"></p>
+        <p class="pull-right">
+            <a href="#">About Us</a> | 
+            <a href="#">Contact Us</a> | 
+            <a href="#">FAQ</a> | 
+            <a href="#">Privacy Policy</a>
+        </p>
     </div>
 </footer>
 
