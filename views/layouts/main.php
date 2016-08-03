@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -26,7 +27,7 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
-    $headerIcon = '<img class="header-logo" src="images/logo.png">';
+    $headerIcon = '<img class="header-logo" src="'.Url::base().'images/logo.png">';
     NavBar::begin([
         'brandLabel' => $headerIcon,
         'brandUrl' => Yii::$app->homeUrl,
@@ -48,9 +49,9 @@ AppAsset::register($this);
                 ], 
                 'encode' => false],
             ['label' => 'English', 'url' => ['/site/about']],
-            ['label' => '<img id="facebook-icon" src="images/facebook-logo.png">', 'url' => ['/site/contact'], 'encode' => false],
-            ['label' => '<img id="twitter-icon" src="images/twitter-logo.png">', 'url' => ['/site/contact'], 'encode' => false],
-            ['label' => '<img id="twitter-icon" src="images/instagram-logo.png">', 'url' => ['/site/contact'], 'encode' => false]
+            ['label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 'url' => ['/site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/twitter-logo.png">', 'url' => ['/site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/instagram-logo.png">', 'url' => ['/site/contact'], 'encode' => false]
         ],
     ]);
     NavBar::end();
@@ -58,7 +59,7 @@ AppAsset::register($this);
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>           
+        ]) ?>         
         <?= $content ?>
     </div>
 </div>
