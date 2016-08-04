@@ -116,11 +116,6 @@ a.desc:after {
     background-color: #26A65B;
     color: #FFF;
 }
-/* Controls height and width of header logo */
-.header-logo {
-    height: 50px;
-    width: 445px;
-}
 /* Controls position of header logo */ 
 .navbar-header a {
     padding-top: 7px;
@@ -180,6 +175,22 @@ li.open {
 @media (max-width: 991px) {
     .navbar-collapse .navbar-nav li {
         border-top: 1px solid rgba(255,255,255,0.5);
+    },
+    .carousel {
+        width: 90%;
+        height: 445px;
+    }
+    .carousel-inner > .item > img {
+        width: 100%;
+        height: 445px;
+    }
+    .navbar-brand {
+        height: 50px;
+        width: 60%;
+    }
+    .header-logo {
+        height: 50px;
+        width: 100%;
     }
 }
 
@@ -191,7 +202,23 @@ li.open {
         border-left: 0px;
         border-bottom: 1px solid rgba(255,255,255,0.5);
     }
+    .carousel-inner > .item > img,
+    .carousel {
+        width: 720px;
+        height: 445px;
+    }
+    /* Controls height and width of header logo */
+    .header-logo {
+        height: 50px;
+        width: 445px;
+    }
 }
+
+.carousel-control {
+    opacity: 1;
+    padding-top: 25%;
+    font-size: 300%;
+} 
 
 .footer {
     background-color: #004101;
@@ -207,3 +234,23 @@ li.open {
 .footer a {
     color: white;
 }
+
+.carousel-indicators {
+    background-color: rgba(0,65,1,0.6);
+    border-radius: 20px;
+    width: 130px;
+    margin-left: -65px;
+    margin-bottom: -10px;
+}
+
+.carousel-control.right {
+    background-image: linear-gradient(to right, transparent 0%, rgba(0,65,1,0.6) 100%);
+}
+
+.carousel-control.left {
+    background-image: linear-gradient(to left, transparent 0%, rgba(0,65,1,0.6) 100%);
+}
+
+/*.carousel-indicators li {
+    box-shadow: 1px 1px 5px #000000;
+}*/
