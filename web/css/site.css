@@ -272,3 +272,34 @@ li.open {
 /*.carousel-indicators li {
     box-shadow: 1px 1px 5px #000000;
 }*/
+
+.participation-voice-circle {
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 100px;
+}
+
+.participation-voice-text {
+    position: absolute;
+    top: 50%;
+    height: 100px;
+    margin-top:-30px;
+    right: 10px;
+    width: 60%;
+    font-size: 200%;
+    color: white;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.margin-top-20 {
+    /*display: block;*/
+    margin-top: 20px;
+}
+
+.float-left {
+    /*float: left;*/
+}

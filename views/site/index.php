@@ -50,4 +50,27 @@ $this->title = 'Samurai Meetups';
     <br/>
     <br/>
     <h3>Participation's Voice</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <img class="image-filled participation-voice-rectangle" src="<?=Url::base().'images/rectangle-1.png'?>"/>
+            <img class="participation-voice-circle" src="<?=Url::base().'images/round-1.png'?>"/>
+            <div class="participation-voice-text">"I learned a lot of things about Japanese Culture"</div>
+        </div>
+        <div class="col-md-6">
+            <img class="image-filled participation-voice-rectangle" src="<?=Url::base().'images/rectangle-2.png'?>"/>
+            <img class="participation-voice-circle" src="<?=Url::base().'images/round-2.png'?>"/>
+            <div class="participation-voice-text">"I made a lot of friends through Samurai Meetups"</div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="https://www.facebook.com/samuraimeetups">
+            <img class="image-filled participation-voice-rectangle" src="<?=Url::base().'images/facebook-voice-5.png'?>"/>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <img class="image-filled participation-voice-rectangle" src="<?=Url::base().'images/icon-voice.png'?>"/>
+        </div>
+    </div>
 </div>
