@@ -62,25 +62,36 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        // Image ID
+
+        $frontPageElementIds = [
+            ['front_page_image_type_id' => 1, 'limit' => 5],
+            ['front_page_image_type_id' => 2, 'limit' => 3],
+            ['front_page_image_type_id' => 3, 'limit' => 1],
+            ['front_page_image_type_id' => 4, 'limit' => 1],
+            ['front_page_image_type_id' => 5, 'limit' => 1],
+            ['front_page_image_type_id' => 6, 'limit' => 2],
+            ['front_page_image_type_id' => 7, 'limit' => 2],
+            ['front_page_image_type_id' => 8, 'limit' => 2],
+            ['front_page_image_type_id' => 9, 'limit' => 1],
+            ['front_page_image_type_id' => 10, 'limit' => 1],
+        ];
+        $frontPageElements = [];
+
         // Carousel information
-        $carouselElements = FrontPageElements::find()
-            ->where(['front_page_image_type_id' => 1])
-            ->orderBy(['inserted_on' => SORT_DESC])
-            ->asArray()
-            ->limit(5)
-            ->all();
-
-        // Tour information
-        $tourElements = FrontPageElements::find()
-            ->where(['front_page_image_type_id' => 2])
-            ->orderBy(['inserted_on' => SORT_DESC])
-            ->asArray()
-            ->limit(3)
-            ->all();
-
+        foreach($frontPageElementIds as $elementIds) {
+            $element = FrontPageElements::find()
+                ->where(['front_page_image_type_id' => $elementIds['front_page_image_type_id'])
+                ->orderBy(['inserted_on' => SORT_DESC])
+                ->asArray()
+                ->limit($elementIds['limit'])
+                ->all();
+            array_push($frontPageElements, $element);
+        }
+        
         // Testing
         echo '<pre>';
-        print_r($carouselElements); 
+        print_r($frontPageElements); 
         echo '</pre>';
         die();
         return $this->render('index');
