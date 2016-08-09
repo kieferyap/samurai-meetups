@@ -58,7 +58,7 @@ $this->title = 'Samurai Meetups';
         <br/>
         <br/>
         <br/>
-        <h3>Participation's Voice</h3>
+        <h3>Testimonies</h3>
     </div>
     <div class="row">
         <div class="col-md-6">
