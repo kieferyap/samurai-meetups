@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 30, 2016 at 12:31 PM
+-- Generation Time: Aug 09, 2016 at 11:47 AM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.17
 
@@ -27,12 +27,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `front_page_elements` (
-  `image_url` text,
-  `clickable_url` text,
+  `image_url` varchar(64) DEFAULT NULL,
+  `clickable_url` varchar(64) DEFAULT NULL,
+  `description` varchar(128) DEFAULT NULL,
   `language_id` int(11) DEFAULT NULL,
   `front_page_image_type_id` int(11) DEFAULT NULL,
   `inserted_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `front_page_elements`
+--
+
+INSERT INTO `front_page_elements` (`image_url`, `clickable_url`, `description`, `language_id`, `front_page_image_type_id`, `inserted_on`) VALUES
+('top-001.jpg', NULL, NULL, 2, 1, '2016-08-06 15:24:40'),
+('top-002.jpg', NULL, NULL, 2, 1, '2016-08-06 15:25:04'),
+('top-003.jpg', NULL, NULL, 2, 1, '2016-08-06 15:25:18'),
+('top-004.jpg', NULL, NULL, 2, 1, '2016-08-06 15:25:30'),
+('top-005.jpg', NULL, NULL, 2, 1, '2016-08-06 15:25:44');
 
 -- --------------------------------------------------------
 
@@ -42,9 +54,25 @@ CREATE TABLE IF NOT EXISTS `front_page_elements` (
 
 CREATE TABLE IF NOT EXISTS `front_page_image_types` (
   `front_page_image_type_id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` text,
+  `description` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`front_page_image_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `front_page_image_types`
+--
+
+INSERT INTO `front_page_image_types` (`front_page_image_type_id`, `description`) VALUES
+(1, 'Carousel'),
+(2, 'Upcoming Tour'),
+(3, 'About'),
+(4, 'Report'),
+(5, 'Samurai'),
+(6, 'Participation Image'),
+(7, 'Participation Person'),
+(8, 'Participation Text'),
+(9, 'Facebook Image'),
+(10, 'Icon Image');
 
 -- --------------------------------------------------------
 
@@ -56,7 +84,15 @@ CREATE TABLE IF NOT EXISTS `languages` (
   `language_id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`language_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `languages`
+--
+
+INSERT INTO `languages` (`language_id`, `description`) VALUES
+(1, 'Japanese'),
+(2, 'English');
 
 -- --------------------------------------------------------
 
