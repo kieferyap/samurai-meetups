@@ -10,6 +10,7 @@ use app\models\LoginForm;
 use yii\data\Sort;
 use app\models\ContactForm;
 use app\models\FrontPageElements;
+use app\models\Tours;
 
 class SiteController extends Controller
 {
@@ -100,7 +101,18 @@ class SiteController extends Controller
      */
     public function actionTours()
     {
-        return $this->render('tours');
+        $id = $_GET['id'];
+
+        $tourElement = Tours::find()
+                ->where(['tour_id' => $id])
+                ->asArray()
+                ->one();
+
+        // TO-DO: If ID not found, render error.
+        return $this->render('tours', [
+            'tourElement' => $tourElement,
+            'termsOfService' => Yii::$app->params['termsOfService'],
+        ]);
     }
 
     /**

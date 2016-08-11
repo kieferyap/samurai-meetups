@@ -198,6 +198,10 @@ li.open {
     .footer {
         display: none;
     }
+    .btn-join-tour {
+        width: 95%;
+        margin-left: 10px;
+    }
 }
 
 @media (min-width: 992px) {
@@ -302,4 +306,22 @@ li.open {
 
 .float-left {
     /*float: left;*/
+}
+
+.tour-banner {
+    height: 200px;
+}
+
+.terms-of-service {
+    border: 2px solid #3FC380;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.center-div {
+    display: inline-block;
+}
+
+.center-wrapper {
+    text-align: center;
 }

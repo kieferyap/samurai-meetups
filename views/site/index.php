@@ -9,8 +9,8 @@ $this->title = 'Samurai Meetups';
     <?php //TO-DO: Put the images in the database! and put those in-line styles elsewhere! ?>
     <br/>
     <div class="row">
-        <div id="wrapper" style="text-align: center">    
-            <div id="yourdiv" style="display: inline-block;">   
+        <div class="center-wrapper">    
+            <div class="center-div">   
                 <?php
                     $images = [];
                     foreach($frontPageElements['carousel'] as $element) {
@@ -36,11 +36,13 @@ $this->title = 'Samurai Meetups';
                     <?php
                     $images = [];
                     foreach($frontPageElements['tours'] as $element) {
+                        echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
                         echo '<img class="col-md-4" src="'
                             .Url::base()
                             .'images/'
                             .$element['image_url']
                             .'"/>';
+                        echo '</a>';
                     }
                     ?>
                 </div>

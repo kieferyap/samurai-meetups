@@ -3,16 +3,28 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
-
-$this->title = 'Tours';
-$this->params['breadcrumbs'][] = $this->title;
+use yii\helpers\Url;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        This is the <b>Tours</b> page. You may modify the following file to customize its content:
-    </p>
+<div class="row">
+	<img class="col-md-12 tour-banner" src="<?=Url::base().'images/'.$tourElement['image_url']?>"/>
+</div>
+<br/>
+<div class="row">
+	<div class="col-md-12">
+		<pre>
+		<?=$tourElement['description']?>
+		</pre>
+	</div>
+</div>
 
-    <code><?= __FILE__ ?></code>
+<br/>
+<div class="row">
+	<div class="col-md-12">
+		<?=$termsOfService?>
+	</div>
+</div>
+<br/>
+<div class="row">
+	<button type="button" class="btn btn-success col-md-2 col-md-offset-5 btn-join-tour">Success</button>
 </div>
