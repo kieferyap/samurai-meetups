@@ -65,7 +65,7 @@ class SiteController extends Controller
     {
         // Image ID
         $frontPageElementIds = [
-            ['id' => 'carousel', 'front_page_image_type_id' => 1, 'limit' => 4],
+            ['id' => 'carousel', 'front_page_image_type_id' => 1, 'limit' => 5],
             ['id' => 'tours', 'front_page_image_type_id' => 2, 'limit' => 3],
             ['id' => 'about', 'front_page_image_type_id' => 3, 'limit' => 1],
             ['id' => 'report', 'front_page_image_type_id' => 4, 'limit' => 1],

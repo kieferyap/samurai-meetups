@@ -4,7 +4,7 @@ return [
     'adminEmail' => 'admin@example.com',
     'termsOfService' =>
     '
-		<div class="terms-of-service">
+		<div class="col-md-12 terms-of-service">
 		<h2>
 			Web Site Terms and Conditions of Use
 		</h2>

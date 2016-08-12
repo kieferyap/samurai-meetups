@@ -313,7 +313,10 @@ li.open {
 }
 
 .terms-of-service {
-    border: 2px solid #3FC380;
+    padding: 50px;
+    background-color: rgba(200,247,197,0.3);
+    border-radius: 20px;
+    /*border: 2px solid #3FC380;*/
     height: 300px;
     overflow-y: scroll;
 }
@@ -324,4 +327,10 @@ li.open {
 
 .center-wrapper {
     text-align: center;
+}
+
+.tour-description {
+    padding: 50px;
+    background-color: rgba(200,247,197,0.3);
+    border-radius: 20px;
 }
