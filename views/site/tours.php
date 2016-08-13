@@ -23,9 +23,16 @@ use yii\helpers\Url;
 <div class="row">
 	<?=$termsOfService?>
 </div>
-<br/>
-
 
 <div class="row">
-	<button type="button" class="btn btn-success col-md-2 col-md-offset-5 btn-join-tour">Join Tour</button>
+	<div class="col-md-5 col-md-offset-4">
+		<div class="checkbox">
+		  <label><input type="checkbox" id="terms-of-service-checkbox" value="">I have read and agreed the Terms of Service stated above.</label>
+		</div>
+	</div>
+</div>
+<br/>
+
+<div class="row">
+	<button type="button" id="terms-of-service-target-button" class="btn btn-success col-md-2 col-md-offset-5 btn-join-tour" disabled="true">Join Tour</button>
 </div>
