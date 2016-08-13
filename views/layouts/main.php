@@ -41,17 +41,17 @@ AppAsset::register($this);
             [
                 'label' => '<span class="header-menu">Menu</span>', 
                 'items' => [
-                    ['label' => 'Upcoming Tours', 'url' => Url::base().'?r=site/tours'],
-                    ['label' => 'About', 'url' => Url::base().'?r=site/about'],                     
-                    ['label' => 'Report', 'url' => Url::base().'?r=site/report'],                     
-                    ['label' => 'Samurai', 'url' => Url::base().'?r=site/contact'],                     
+                    ['label' => 'Upcoming Tours', 'url' => Url::toRoute('site/tours')],
+                    ['label' => 'About', 'url' => Url::toRoute('site/about')],
+                    ['label' => 'Report', 'url' => Url::toRoute('site/report')],
+                    ['label' => 'Samurai', 'url' => Url::toRoute('site/contact')],
                     ['label' => 'Participation\'s Voice', 'url' => '#'],                     
                 ], 
                 'encode' => false],
-            ['label' => 'English', 'url' => [Url::base().'?r=site/about']],
-            ['label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 'url' => [Url::base().'?r=site/contact'], 'encode' => false],
-            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/twitter-logo.png">', 'url' => [Url::base().'?r=site/contact'], 'encode' => false],
-            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/instagram-logo.png">', 'url' => [Url::base().'?r=site/contact'], 'encode' => false]
+            ['label' => 'English', 'url' => [Url::toRoute('site/about')]],
+            ['label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 'url' => Url::toRoute('site/contact'), 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/twitter-logo.png">', 'url' => Url::toRoute('site/contact'), 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/instagram-logo.png">', 'url' => Url::toRoute('site/contact'), 'encode' => false]
         ],
     ]);
     NavBar::end();

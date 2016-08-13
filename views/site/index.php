@@ -30,43 +30,48 @@ $this->title = 'Samurai Meetups';
         <br/>
         <h3>Upcoming Tours</h3>
     </div>
-    <div id="wrapper" style="text-align: center">    
-            <div id="yourdiv" style="display: inline-block;">
-                <div class="row">
-                    <?php
-                    $images = [];
-                    foreach($frontPageElements['tours'] as $element) {
-                        echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
-                        echo '<img class="col-md-4" src="'
-                            .Url::base()
-                            .'images/'
-                            .$element['image_url']
-                            .'"/>';
-                        echo '</a>';
-                    }
-                    ?>
-                </div>
-                <div class="row">
-                <br/>
-                    <div class="col-md-4">
-                        <img class="image-filled" src="<?=Url::base().'images/'
+    <div class="center-wrapper">    
+        <div class="center-div">
+            <div class="row">
+                <?php
+                $images = [];
+                foreach($frontPageElements['tours'] as $element) {
+                    echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
+                    echo '<img class="col-md-4" src="'
+                        .Url::base()
+                        .'images/'
+                        .$element['image_url']
+                        .'"/>';
+                    echo '</a>';
+                }
+                ?>
+            </div>
+            <div class="row">
+            <br/>
+                <div class="col-md-4">
+                    <img class="image-filled" src="<?=Url::base().'images/'
                         .$frontPageElements['about'][0]['image_url']
-                        .''?>"/>
-                        <div class="mid-top-text">About</div>
-                    </div>
-                    <div class="col-md-4">
-                        <img class="image-filled" src="<?=Url::base().'images/'
-                        .$frontPageElements['report'][0]['image_url']
-                        .''?>"/>
-                        <div class="mid-top-text">Report</div>
-                    </div>
-                    <div class="col-md-4">
-                        <img class="image-filled" src="<?=Url::base().'images/'
-                        .$frontPageElements['samurai'][0]['image_url']
-                        .''?>"/>
-                        <div class="mid-top-text">Samurai</div>
-                    </div>
+                        .''?>"
+                    />
+                    <div class="mid-top-text">About</div>
                 </div>
+                <div class="col-md-4">
+                    <a href="<?=Url::toRoute('site/report')?>">
+                        <img class="image-filled" src="<?=Url::base().'images/'
+                            .$frontPageElements['report'][0]['image_url']
+                            .''?>"
+                        />
+                        <div class="mid-top-text">Report</div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <img class="image-filled" src="<?=Url::base().'images/'
+                        .$frontPageElements['samurai'][0]['image_url']
+                        .''?>"
+                    />
+                    <div class="mid-top-text">Samurai</div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">

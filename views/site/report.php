@@ -3,16 +3,17 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
-
-$this->title = 'Reports';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        This is the <b>Reports</b> page. You may modify the following file to customize its content:
-    </p>
-
-    <code><?= __FILE__ ?></code>
+<br/>
+<div class="row reports-container">
+	<div class="col-md-3 report-sidebar">
+		<div class="col-md-12 report-sidebar-element">
+			<div class="col-md-2 report-sidebar-element-photo"></div>
+			<div class="col-md-10 report-sidebar-element-text">
+				The quick brown fox jumped over the lazy dogs. The quick brown fox jumped over the lazy dogs. The quick brown fox jumped over the lazy dogs.
+			</div>
+		</div>
+	</div>
+	<div class="col-md-9 report-content">
+	</div>
 </div>
