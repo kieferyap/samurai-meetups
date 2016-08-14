@@ -1,53 +1,117 @@
 <?php
 
-/* @var $this yii\web\View */
+use yii\bootstrap\Carousel;
+use yii\helpers\Url;
 
-$this->title = 'My Yii Application';
+$this->title = 'Samurai Meetups';
 ?>
 <div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+    <?php //TO-DO: Put the images in the database! and put those in-line styles elsewhere! ?>
+    <br/>
+    <div class="row">
+        <div class="center-wrapper">    
+            <div class="center-div">   
+                <?php
+                    $images = [];
+                    foreach($frontPageElements['carousel'] as $element) {
+                        $images[] = '<img class="carousel-image" src="'
+                            .Url::base()
+                            .'images/'
+                            .$element['image_url']
+                            .'"/>';
+                    }
+                    echo Carousel::widget(['items'=>$images]);
+                ?> 
             </div>
         </div>
-
+    </div>
+    <div class="row">
+        <br/>
+        <br/>
+        <h3>Upcoming Tours</h3>
+    </div>
+    <div id="wrapper" style="text-align: center">    
+            <div id="yourdiv" style="display: inline-block;">
+                <div class="row">
+                    <?php
+                    $images = [];
+                    foreach($frontPageElements['tours'] as $element) {
+                        echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
+                        echo '<img class="col-md-4" src="'
+                            .Url::base()
+                            .'images/'
+                            .$element['image_url']
+                            .'"/>';
+                        echo '</a>';
+                    }
+                    ?>
+                </div>
+                <div class="row">
+                <br/>
+                    <div class="col-md-4">
+                        <img class="image-filled" src="<?=Url::base().'images/'
+                        .$frontPageElements['about'][0]['image_url']
+                        .''?>"/>
+                        <div class="mid-top-text">About</div>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="image-filled" src="<?=Url::base().'images/'
+                        .$frontPageElements['report'][0]['image_url']
+                        .''?>"/>
+                        <div class="mid-top-text">Report</div>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="image-filled" src="<?=Url::base().'images/'
+                        .$frontPageElements['samurai'][0]['image_url']
+                        .''?>"/>
+                        <div class="mid-top-text">Samurai</div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h3>Testimonies</h3>
+    </div>
+    <div class="row">
+        <?php
+        for($i=0; $i<count($frontPageElements['participation-image']); $i++) {
+            echo '<div class="col-md-6">';
+            echo '<img class="image-filled participation-voice-rectangle" src="'
+                .Url::base()
+                .'images/'
+                .$frontPageElements['participation-image'][$i]['image_url']
+                .'"/>';
+            echo '<img class="participation-voice-circle" src="'
+                .Url::base()
+                .'images/'
+                .$frontPageElements['participation-person'][$i]['image_url']
+                .'"/>';
+            echo '<div class="participation-voice-text">"'
+                .$frontPageElements['participation-text'][$i]['description']
+                .'"</div>';
+            echo '</div>';
+        }
+        ?>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="<?=$frontPageElements['facebook'][0]['clickable_url']?>">
+            <img class="image-filled participation-voice-rectangle" src="<?=Url::base()
+                .'images/'
+                .$frontPageElements['facebook'][0]['image_url']
+                .''?>"/>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <img class="image-filled participation-voice-rectangle" src="<?=Url::base()
+                .'images/'
+                .$frontPageElements['icon'][0]['image_url']
+                .''?>"/>
+        </div>
     </div>
 </div>
