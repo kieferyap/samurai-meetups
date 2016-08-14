@@ -227,9 +227,20 @@ li.open {
         height: 50px;
         width: 445px;
     }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
     .report-sidebar-element-text {
         margin-left: 10px;
         width: 54%;
+        padding-right: 10px;
+    }
+}
+@media (min-width: 1201px) {
+    .report-sidebar-element-text {
+        margin-left: 10px;
+        width: 63%;
+        padding-right: 10px;
     }
 }
 
@@ -378,6 +389,8 @@ li.open {
 }
 
 .report-sidebar-element-text {
+    padding-top: 10px;
     border: 1px solid orange;
     height: 80px;
+    padding-left: 0px;
 }
