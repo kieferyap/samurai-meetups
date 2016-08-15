@@ -339,6 +339,7 @@ li.open {
 }
 
 .tour-description {
+    margin-top: 10px;
     padding: 50px;
     background-color: rgba(200,247,197,0.3);
     border-radius: 20px;
