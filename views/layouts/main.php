@@ -4,6 +4,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -26,49 +27,52 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
+    $headerIcon = '<img class="header-logo" src="'.Url::base().'images/logo.png">';
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => $headerIcon,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'my-navbar navbar-fixed-top',
         ],
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+            [
+                'label' => '<span class="header-menu">Menu</span>', 
+                'items' => [
+                    ['label' => 'Upcoming Tours', 'url' => Url::base().'?r=site/tours'],
+                    ['label' => 'About', 'url' => Url::base().'?r=site/about'],                     
+                    ['label' => 'Report', 'url' => Url::base().'?r=site/report'],                     
+                    ['label' => 'Samurai', 'url' => Url::base().'?r=site/contact'],                     
+                    ['label' => 'Participation\'s Voice', 'url' => '#'],                     
+                ], 
+                'encode' => false],
+            ['label' => 'English', 'url' => [Url::base().'?r=site/about']],
+            ['label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 'url' => [Url::base().'?r=site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/twitter-logo.png">', 'url' => [Url::base().'?r=site/contact'], 'encode' => false],
+            ['label' => '<img id="twitter-icon" src="'.Url::base().'images/instagram-logo.png">', 'url' => [Url::base().'?r=site/contact'], 'encode' => false]
         ],
     ]);
     NavBar::end();
     ?>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        ]) ?>         
         <?= $content ?>
     </div>
 </div>
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left"><img class="footer-logo" src="<?=Url::base()?>images/logo-only.png"></p>
+        <p class="pull-right">
+            <a href="?r=site/about">About Us</a> | 
+            <a href="?r=site/contact">Contact Us</a> | 
+            <a href="?r=site/faq">FAQ</a> | 
+            <a href="?r=site/privacy">Privacy Policy</a>
+        </p>
     </div>
 </footer>
 

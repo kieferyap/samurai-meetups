@@ -26,7 +26,6 @@ class Languages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['language_id'], 'integer'],
             [['description'], 'string', 'max' => 16],
         ];
     }

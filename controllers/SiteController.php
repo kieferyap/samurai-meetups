@@ -7,7 +7,10 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use yii\data\Sort;
 use app\models\ContactForm;
+use app\models\FrontPageElements;
+use app\models\Tours;
 
 class SiteController extends Controller
 {
@@ -60,39 +63,86 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
-    }
+        // Image ID
+        $frontPageElementIds = [
+            ['id' => 'carousel', 'front_page_image_type_id' => 1, 'limit' => 5],
+            ['id' => 'tours', 'front_page_image_type_id' => 2, 'limit' => 3],
+            ['id' => 'about', 'front_page_image_type_id' => 3, 'limit' => 1],
+            ['id' => 'report', 'front_page_image_type_id' => 4, 'limit' => 1],
+            ['id' => 'samurai', 'front_page_image_type_id' => 5, 'limit' => 1],
+            ['id' => 'participation-image', 'front_page_image_type_id' => 6, 'limit' => 2],
+            ['id' => 'participation-person', 'front_page_image_type_id' => 7, 'limit' => 2],
+            ['id' => 'participation-text', 'front_page_image_type_id' => 8, 'limit' => 2],
+            ['id' => 'facebook', 'front_page_image_type_id' => 9, 'limit' => 1],
+            ['id' => 'icon', 'front_page_image_type_id' => 10, 'limit' => 1],
+        ];
+        $frontPageElements = [];
 
-    /**
-     * Login action.
-     *
-     * @return string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+        // Carousel information
+        foreach($frontPageElementIds as $elementIds) {
+            $element = FrontPageElements::find()
+                ->where(['front_page_image_type_id' => $elementIds['front_page_image_type_id']])
+                ->orderBy(['inserted_on' => SORT_DESC])
+                ->asArray()
+                ->limit($elementIds['limit'])
+                ->all();
+            $frontPageElements[$elementIds['id']] = $element;
         }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-        return $this->render('login', [
-            'model' => $model,
+        
+        return $this->render('index', [
+            'frontPageElements' => $frontPageElements,
         ]);
     }
 
     /**
-     * Logout action.
+     * Tours action.
      *
      * @return string
      */
-    public function actionLogout()
+    public function actionTours()
     {
-        Yii::$app->user->logout();
+        $id = $_GET['id'];
 
-        return $this->goHome();
+        $tourElement = Tours::find()
+                ->where(['tour_id' => $id])
+                ->asArray()
+                ->one();
+
+        // TO-DO: If ID not found, render error.
+        return $this->render('tours', [
+            'tourElement' => $tourElement,
+            'termsOfService' => Yii::$app->params['termsOfService'],
+        ]);
+    }
+
+    /**
+     * Tours action.
+     *
+     * @return string
+     */
+    public function actionReport()
+    {
+        return $this->render('report');
+    }
+
+    /**
+     * Tours action.
+     *
+     * @return string
+     */
+    public function actionFaq()
+    {
+        return $this->render('faq');
+    }
+
+    /**
+     * Tours action.
+     *
+     * @return string
+     */
+    public function actionPrivacy()
+    {
+        return $this->render('privacy');
     }
 
     /**
