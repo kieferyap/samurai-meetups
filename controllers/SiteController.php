@@ -11,6 +11,7 @@ use yii\data\Sort;
 use app\models\ContactForm;
 use app\models\FrontPageElements;
 use app\models\Tours;
+use app\models\Reports;
 
 class SiteController extends Controller
 {
@@ -122,7 +123,33 @@ class SiteController extends Controller
      */
     public function actionReport()
     {
-        return $this->render('report');
+        $limitCount = 7;
+
+        $lastElements = Reports::find()
+            ->select(['report_id', 'sidebar_image_url', 'short_description'])
+            ->orderBy(['inserted_on' => SORT_DESC])
+            ->asArray()
+            ->limit($limitCount)
+            ->all();
+
+        $lastElement = end($lastElements);
+
+        return $this->render('report', [
+            'reports' => $lastElements,
+            'lastElementId' => $lastElement['report_id']
+        ]);
+    }
+
+
+    /**
+     * Tours action.
+     *
+     * @return string
+     */
+    public function actionGetReport()
+    {
+        echo 'Under constructions';
+        die();
     }
 
     /**
