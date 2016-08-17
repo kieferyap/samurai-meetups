@@ -127,29 +127,62 @@ class SiteController extends Controller
 
         $lastElements = Reports::find()
             ->select(['report_id', 'sidebar_image_url', 'short_description'])
-            ->orderBy(['inserted_on' => SORT_DESC])
+            ->orderBy(['report_id' => SORT_DESC])
             ->asArray()
             ->limit($limitCount)
             ->all();
+
+        $firstElement = Reports::find()
+            ->select(['worker_image_url', 'set_image_url', 'experience_image_url', 'description'])
+            ->orderBy(['report_id' => SORT_DESC])
+            ->asArray()
+            ->one();
 
         $lastElement = end($lastElements);
 
         return $this->render('report', [
             'reports' => $lastElements,
-            'lastElementId' => $lastElement['report_id']
+            'lastElementId' => $lastElement['report_id'],
+            'elementDisplay' => $firstElement
         ]);
     }
 
 
     /**
-     * Tours action.
+     * Get Report action.
      *
      * @return string
      */
     public function actionGetReport()
     {
-        echo 'Under constructions';
-        die();
+        $limitCount = 7;
+        
+        $lastElements = Reports::find()
+            ->select(['report_id', 'sidebar_image_url', 'short_description'])
+            ->orderBy(['report_id' => SORT_DESC])
+            ->where(['<', 'report_id', $_POST['id']])
+            ->asArray()
+            ->limit($limitCount)
+            ->all();
+
+        echo json_encode($lastElements);
+    }
+
+
+    /**
+     * Report Data action.
+     *
+     * @return string
+     */
+    public function actionReportData()
+    {
+        $reportElement = Reports::find()
+            ->select(['worker_image_url', 'set_image_url', 'experience_image_url', 'description'])
+            ->where(['report_id' => $_POST['id']])
+            ->asArray()
+            ->one();
+
+        echo json_encode($reportElement);
     }
 
     /**
