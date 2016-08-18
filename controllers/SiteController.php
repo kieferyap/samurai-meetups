@@ -11,6 +11,7 @@ use yii\data\Sort;
 use app\models\ContactForm;
 use app\models\FrontPageElements;
 use app\models\Tours;
+use app\models\Reports;
 
 class SiteController extends Controller
 {
@@ -122,7 +123,66 @@ class SiteController extends Controller
      */
     public function actionReport()
     {
-        return $this->render('report');
+        $limitCount = 7;
+
+        $lastElements = Reports::find()
+            ->select(['report_id', 'sidebar_image_url', 'short_description'])
+            ->orderBy(['report_id' => SORT_DESC])
+            ->asArray()
+            ->limit($limitCount)
+            ->all();
+
+        $firstElement = Reports::find()
+            ->select(['worker_image_url', 'set_image_url', 'experience_image_url', 'description'])
+            ->orderBy(['report_id' => SORT_DESC])
+            ->asArray()
+            ->one();
+
+        $lastElement = end($lastElements);
+
+        return $this->render('report', [
+            'reports' => $lastElements,
+            'lastElementId' => $lastElement['report_id'],
+            'elementDisplay' => $firstElement
+        ]);
+    }
+
+
+    /**
+     * Get Report action.
+     *
+     * @return string
+     */
+    public function actionGetReport()
+    {
+        $limitCount = 7;
+        
+        $lastElements = Reports::find()
+            ->select(['report_id', 'sidebar_image_url', 'short_description'])
+            ->orderBy(['report_id' => SORT_DESC])
+            ->where(['<', 'report_id', $_POST['id']])
+            ->asArray()
+            ->limit($limitCount)
+            ->all();
+
+        echo json_encode($lastElements);
+    }
+
+
+    /**
+     * Report Data action.
+     *
+     * @return string
+     */
+    public function actionReportData()
+    {
+        $reportElement = Reports::find()
+            ->select(['worker_image_url', 'set_image_url', 'experience_image_url', 'description'])
+            ->where(['report_id' => $_POST['id']])
+            ->asArray()
+            ->one();
+
+        echo json_encode($reportElement);
     }
 
     /**
