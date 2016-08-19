@@ -7,6 +7,7 @@ use Yii;
 /**
  * This is the model class for table "front_page_elements".
  *
+ * @property integer $id
  * @property string $image_url
  * @property string $clickable_url
  * @property string $description
@@ -43,6 +44,7 @@ class FrontPageElements extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id' => 'ID',
             'image_url' => 'Image Url',
             'clickable_url' => 'Clickable Url',
             'description' => 'Description',
