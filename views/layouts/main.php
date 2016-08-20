@@ -16,6 +16,15 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+
+    <?php foreach($this->params['cssFiles'] as $cssFile): ?>
+        <link rel="stylesheet" href="<?= Url::base() ?>css/<?= $cssFile ?>">
+    <?php endforeach; ?>
+
+    <?php foreach($this->params['jsFiles'] as $jsFile): ?>
+        <script src="<?= Url::base() ?>js/<?= $jsFile ?>"></script>
+    <?php endforeach; ?>
+
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
