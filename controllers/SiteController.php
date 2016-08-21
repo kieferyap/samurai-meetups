@@ -3,59 +3,13 @@
 namespace app\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use yii\data\Sort;
-use app\models\ContactForm;
 use app\models\FrontPageElements;
 use app\models\Tours;
 use app\models\Reports;
 
 class SiteController extends SamuraiController
 {
-	/**
-	 * @inheritdoc
-	 */
-	public function behaviors()
-	{
-		return [
-			'access' => [
-				'class' => AccessControl::className(),
-				'only' => ['logout'],
-				'rules' => [
-					[
-						'actions' => ['logout'],
-						'allow' => true,
-						'roles' => ['@'],
-					],
-				],
-			],
-			'verbs' => [
-				'class' => VerbFilter::className(),
-				'actions' => [
-					'logout' => ['post'],
-				],
-			],
-		];
-	}
-
-	/**
-	 * @inheritdoc
-	 */
-	public function actions()
-	{
-		return [
-			'error' => [
-				'class' => 'yii\web\ErrorAction',
-			],
-			'captcha' => [
-				'class' => 'yii\captcha\CaptchaAction',
-				'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-			],
-		];
-	}
 
 	/**
 	 * Displays the homepage.
@@ -129,8 +83,8 @@ class SiteController extends SamuraiController
 	 */
 	public function actionReport()
 	{
-		$this->addCssFile('report.css');
-		$this->addJsFile('report.js');
+		$this->addCssFile('reports.css');
+		$this->addJsFile('reports.js');
 		
 		$limitCount = 7;
 
@@ -232,5 +186,16 @@ class SiteController extends SamuraiController
 	public function actionAbout()
 	{
 		return $this->renderView('about');
+	}
+
+	/**
+	 * Displays error page.
+	 *
+	 * @return string
+	 */
+	public function actionError()
+	{
+		echo 'ERROR';
+		die();
 	}
 }

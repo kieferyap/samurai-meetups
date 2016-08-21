@@ -1,12 +1,9 @@
 <?php
-
-/* @var $this yii\web\View */
-
 use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
-<br/>
 
+<br/>
 <div 
 	class="hidden" 
 	id="report-information" 
@@ -26,8 +23,8 @@ use yii\helpers\Url;
 	</div>
 </div>
 
-<div class="row reports-container">
-	<div class="col-md-4 report-sidebar">
+<div class="row" id="reports-container">
+	<div class="col-md-4" id="report-sidebar">
 		<div id="report-sidebar-elements">
 			<?php foreach($reports as $element): ?>
 			<div class="col-md-12 report-sidebar-element border-radius-10" data-id="<?=$element['report_id']?>">
@@ -45,7 +42,7 @@ use yii\helpers\Url;
 	<div class="col-md-8" id="report-content">
 		<div class="row">
 			<img 
-				class="col-md-4 report-content-image report-image-left-most" 
+				class="col-md-4 report-content-image" 
 				src="<?=Url::base()?>images/<?=$elementDisplay['worker_image_url']?>"
 				id="worker-image" 
 			/>

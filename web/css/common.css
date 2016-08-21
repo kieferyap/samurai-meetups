@@ -1,0 +1,192 @@
+
+/* Controls color of header */
+.my-navbar {
+	background-color: #004101;
+}
+/* Controls vertical offset of the "Menu", "Language", and the logo icons*/
+.navbar-nav li a {
+	padding-top: 22px;
+	color: #FFF;
+}
+/* Hover color of "Menu", "Lanuage", and the logo icons */
+.navbar-nav li a:hover {
+	background-color: #C8F7C5 !important;
+	color: #000 !important;
+}
+/* On-click color for "Menu" */
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus,
+.my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus {
+	background-color: #26A65B;
+	color: #FFF;
+}
+/* Controls position of header logo */ 
+.navbar-header a {
+	padding-top: 7px;
+	padding-bottom: 5px;
+	padding-right: 0px;
+}
+/* Controls height of header */
+.my-navbar .container, 
+.navbar-header,
+.my-navbar,
+.navbar-fixed-top,
+.navbar-nav li a
+{
+	height: 65px;
+}
+/* Controls logo dimensions */
+.navbar-nav li a img {
+	margin-top: -15px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+}
+/*Dropdown menu background color*/
+.navbar-nav li .dropdown-menu {
+	margin-top: -1px;
+	background-color: #26A65B;
+	color: #000;
+} 
+
+.icon-bar {
+	background-color: #C8F7C5;
+}
+
+.navbar-collapse {
+	background-color: #004101;    
+}
+
+.dropdown-menu li a:focus {
+	background-color: #3FC380;
+	color: #FFF;
+	border: 0px;
+}
+
+li.open {
+	background-color: #3FC380;
+}
+
+.navbar-toggle {
+	background-color: rgba(255,255,255,0.5);
+	margin-top: 15px;
+}
+
+.navbar-collapse .navbar-nav {
+	margin-top: 0px;
+}
+
+@media (max-width: 991px) {
+	.navbar-collapse .navbar-nav li {
+		border-top: 1px solid rgba(255,255,255,0.5);
+	},
+	.carousel {
+		width: 90%;
+		height: 445px;
+	}
+	.carousel-inner > .item > img {
+		width: 100%;
+		height: 445px;
+	}
+	.navbar-brand {
+		height: 50px;
+		width: 60%;
+	}
+	#header-logo {
+		height: 50px;
+		width: 100%;
+	}
+	.col-md-4 {
+		margin-top: 10px;
+	}
+	.footer {
+		display: none;
+	}
+}
+
+@media (min-width: 992px) {
+	.navbar-collapse .navbar-nav li {
+		border-left: 1px solid rgba(255,255,255,0.5);
+	}
+	.navbar-collapse .navbar-nav li ul li{
+		border-left: 0px;
+		border-bottom: 1px solid rgba(255,255,255,0.5);
+	}
+	.carousel-inner > .item > img,
+	.carousel {
+		width: 720px;
+		height: 445px;
+	}
+	/* Controls height and width of header logo */
+	#header-logo {
+		height: 50px;
+		width: 445px;
+	}
+}
+
+.carousel-control {
+	opacity: 1;
+	padding-top: 25%;
+	font-size: 300%;
+} 
+
+.footer {
+	background-color: #004101;
+	color: white;
+}
+
+.footer-logo {
+	margin-top: -15px;
+	width: 50px;
+	height: 50px;
+}
+
+.footer a {
+	color: white;
+}
+
+.carousel-indicators {
+	background-color: rgba(0,65,1,0.6);
+	border-radius: 20px;
+	width: 130px;
+	margin-left: -65px;
+	margin-bottom: -10px;
+}
+
+.carousel-control.right {
+	background-image: linear-gradient(to right, transparent 0%, rgba(0,65,1,0.6) 100%);
+}
+
+.carousel-control.left {
+	background-image: linear-gradient(to left, transparent 0%, rgba(0,65,1,0.6) 100%);
+}
+
+.mid-top-text {
+	margin-top: -40px;
+	padding-left: 10px;
+	color: white;
+	text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+	font-size: 200%;
+}
+
+
+.participation-voice-circle {
+	position: absolute;
+	left: 50px;
+	top: 20px;
+	width: 150px;
+	height: 150px;
+	border: 2px solid black;
+	border-radius: 100px;
+}
+
+.participation-voice-text {
+	position: absolute;
+	top: 50%;
+	height: 100px;
+	margin-top:-30px;
+	right: 10px;
+	width: 60%;
+	font-size: 200%;
+	color: white;
+	text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}

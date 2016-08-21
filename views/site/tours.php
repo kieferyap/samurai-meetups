@@ -8,12 +8,12 @@ use yii\helpers\Url;
 
 <br/>
 <div class="row">
-	<img class="col-md-12 tour-banner" src="<?=Url::base().'images/'.$tourElement['image_url']?>"/>
+	<img class="col-md-12" id="tour-banner" src="<?=Url::base().'images/'.$tourElement['image_url']?>"/>
 </div>
 <br/>
 <h1>Tour Information</h1>
 <div class="row">
-	<div class="col-md-12 tour-description">
+	<div class="col-md-12" id="tour-description">
 		<?=$tourElement['description']?>
 	</div>
 </div>
@@ -34,5 +34,5 @@ use yii\helpers\Url;
 <br/>
 
 <div class="row">
-	<button type="button" id="terms-of-service-target-button" class="btn btn-success col-md-2 col-md-offset-5 btn-join-tour" disabled="true">Join Tour</button>
+	<button type="button" id="btn-join-tour" class="btn btn-success col-md-2 col-md-offset-5" disabled="true">Join Tour</button>
 </div>
