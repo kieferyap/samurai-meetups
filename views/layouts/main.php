@@ -15,6 +15,9 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type"> 
+	<meta content="utf-8" http-equiv="encoding"> 
+
 	<meta charset="<?= Yii::$app->charset ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?= Html::csrfMetaTags() ?>
@@ -42,7 +45,7 @@ AppAsset::register($this);
 		'options' => ['class' => 'navbar-nav navbar-right'],
 		'items' => [
 			[
-				'label' => '<span class="header-menu">Menu</span>', 
+				'label' => '<span class="header-menu">'.Yii::t('app', 'Menu').'</span>', 
 				'items' => [
 					['label' => 'Upcoming Tours', 'url' => Url::toRoute('site/tours')],
 					['label' => 'About', 'url' => Url::toRoute('site/about')],
