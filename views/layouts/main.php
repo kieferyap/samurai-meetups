@@ -33,6 +33,7 @@ AppAsset::register($this);
 
 <div class="wrap">
 	<?php
+	Yii::$app->language = 'ja';
 	$headerIcon = '<img id="header-logo" src="'.Url::base().'images/logo.png">';
 	NavBar::begin([
 		'brandLabel' => $headerIcon,
@@ -47,7 +48,7 @@ AppAsset::register($this);
 			[
 				'label' => '<span class="header-menu">'.Yii::t('app', 'Menu').'</span>', 
 				'items' => [
-					['label' => 'Upcoming Tours', 'url' => Url::toRoute('site/tours')],
+					['label' => Yii::t('app', 'Upcoming Tours'), 'url' => Url::toRoute('site/tours')],
 					['label' => 'About', 'url' => Url::toRoute('site/about')],
 					['label' => 'Report', 'url' => Url::toRoute('site/report')],
 					['label' => 'Samurai', 'url' => Url::toRoute('site/contact')],
