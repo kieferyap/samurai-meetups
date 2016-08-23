@@ -19,7 +19,7 @@ class LocalizationFile:
 class Localization:
 
 	# Class constants
-	OUTPUT_FILE = "samurai_meetups.sql"
+	OUTPUT_FILE = "samurai_meetups_localization.sql"
 	HEADER = "<?php \n\t/* This file was generated using the localization script. Please do not make any changes to this file. */\n\n\treturn [\n"
 
 	# Database constants
