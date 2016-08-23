@@ -31,9 +31,13 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+<div id="samurai-meetups-data"
+	data-active-language-code="<?=Yii::$app->language?>"
+	data-toggle-language-url="<?=Url::toRoute('site/toggle-language')?>"
+>
+
 <div class="wrap">
 	<?php
-	Yii::$app->language = 'ja';
 	$headerIcon = '<img id="header-logo" src="'.Url::base().'images/logo.png">';
 	NavBar::begin([
 		'brandLabel' => $headerIcon,
@@ -55,7 +59,13 @@ AppAsset::register($this);
 					['label' => Yii::t('app', 'Testimonies'), 'url' => '#'],
 				], 
 				'encode' => false],
-			['label' => Yii::t('app', '日本語'), 'url' => [Url::toRoute('site/about')]],
+			[
+				'label' => Yii::t('app', '日本語'), 
+				'url' => '',
+				'options' => [
+					'id' => 'toggle-language',
+				]
+			],
 			[
 				'label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 
 				'url' => Url::toRoute('site/contact'), 
@@ -96,6 +106,7 @@ AppAsset::register($this);
 <?php foreach($this->params['jsFiles'] as $jsFile): ?>
 	<script src="<?= Url::base() ?>js/<?= $jsFile ?>"></script>
 <?php endforeach; ?>
+<script src="<?= Url::base() ?>js/index.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>

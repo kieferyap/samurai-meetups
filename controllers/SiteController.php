@@ -149,6 +149,31 @@ class SiteController extends SamuraiController
 	}
 
 	/**
+	 * Action which toggles the language
+	 *
+	 * @return string
+	 */
+	public function actionToggleLanguage() 
+	{
+		$sourceLanguageCode = $this->getSessionLanguageCode();
+		$targetLanguageCode = '';
+		switch ($sourceLanguageCode) {
+			case 'en':
+				$targetLanguageCode = 'ja';
+				break;
+			case 'ja':
+				$targetLanguageCode = 'en';
+				break;
+			default:
+				$targetLanguageCode = 'en';
+				break;
+		}
+
+		$this->setSessionLanguageCode($targetLanguageCode);
+		echo $targetLanguageCode;
+	}
+
+	/**
 	 * Tours action.
 	 *
 	 * @return string
