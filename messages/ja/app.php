@@ -17,4 +17,6 @@
 		'Tour Information' => 'ツアーの情報',
 		'I have read and agreed to the Terms of Service and Privacy Policy' => '利用規約とプライバシー ポリシーに同意します',
 		'Join Tour' => 'ジョインツアー',
+		'Show More' => 'もっと',
+		'Loading...' => 'ローディング中...',
 	];

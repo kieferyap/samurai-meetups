@@ -49,13 +49,13 @@ AppAsset::register($this);
 				'label' => '<span class="header-menu">'.Yii::t('app', 'Menu').'</span>', 
 				'items' => [
 					['label' => Yii::t('app', 'Upcoming Tours'), 'url' => Url::toRoute('site/tours')],
-					['label' => 'About', 'url' => Url::toRoute('site/about')],
-					['label' => 'Report', 'url' => Url::toRoute('site/report')],
-					['label' => 'Samurai', 'url' => Url::toRoute('site/contact')],
-					['label' => 'Participation\'s Voice', 'url' => '#'],
+					['label' => Yii::t('app', 'About'), 'url' => Url::toRoute('site/about')],
+					['label' => Yii::t('app', 'Reports'), 'url' => Url::toRoute('site/report')],
+					['label' => Yii::t('app', 'Samurai'), 'url' => Url::toRoute('site/contact')],
+					['label' => Yii::t('app', 'Testimonies'), 'url' => '#'],
 				], 
 				'encode' => false],
-			['label' => 'English', 'url' => [Url::toRoute('site/about')]],
+			['label' => Yii::t('app', '日本語'), 'url' => [Url::toRoute('site/about')]],
 			[
 				'label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 
 				'url' => Url::toRoute('site/contact'), 
@@ -84,10 +84,10 @@ AppAsset::register($this);
 	<div class="container">
 		<p class="pull-left"><img class="footer-logo" src="<?=Url::base()?>images/logo-only.png"></p>
 		<p class="pull-right">
-			<a href="?r=site/about">About Us</a> | 
-			<a href="?r=site/contact">Contact Us</a> | 
-			<a href="?r=site/faq">FAQ</a> | 
-			<a href="?r=site/privacy">Privacy Policy</a>
+			<a href="?r=site/about"><?= Yii::t('app', 'About Us')?></a> | 
+			<a href="?r=site/contact"><?= Yii::t('app', 'Contact Us')?></a> | 
+			<a href="?r=site/faq"><?= Yii::t('app', 'FAQ')?></a> | 
+			<a href="?r=site/privacy"><?= Yii::t('app', 'Privacy Policy')?></a>
 		</p>
 	</div>
 </footer>

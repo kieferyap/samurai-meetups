@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$(document).on('click', '#report-show-more-btn', function() {
-		$('#report-show-more-btn').text('Loading...').prop('disabled', true);
+		$('#report-show-more-btn').text($('#report-information').data('loading-localized')).prop('disabled', true);
 
 		$.ajax({
 			type: 'POST',
@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 					$('#report-information').data('last-report-id', reportId);
 					$('#report-show-more-btn').prop('disabled', false);
-					$('#report-show-more-btn').text('Show More');
+					$('#report-show-more-btn').text($('#report-information').data('show-more-localized'));
 				}
 
 				else {

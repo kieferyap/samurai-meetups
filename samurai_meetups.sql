@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 23, 2016 at 12:18 PM
+-- Generation Time: Aug 23, 2016 at 12:38 PM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.17
 
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `localization` (
   `en` text COLLATE utf8_unicode_ci NOT NULL,
   `ja` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`localization_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `localization`
@@ -143,7 +143,9 @@ INSERT INTO `localization` (`localization_id`, `en`, `ja`) VALUES
 (12, 'Privacy Policy', '利用規約とプライバシー ポリシー'),
 (13, 'Tour Information', 'ツアーの情報'),
 (14, 'I have read and agreed to the Terms of Service and Privacy Policy', '利用規約とプライバシー ポリシーに同意します'),
-(15, 'Join Tour', 'ジョインツアー');
+(15, 'Join Tour', 'ジョインツアー'),
+(16, 'Show More', 'もっと'),
+(17, 'Loading...', 'ローディング中...');
 
 -- --------------------------------------------------------
 

@@ -10,7 +10,10 @@ use yii\helpers\Url;
 	data-last-report-id="<?=$lastElementId?>"
 	data-show-more-url="<?=Url::toRoute('site/get-report')?>"
 	data-report-data-url="<?=Url::toRoute('site/report-data')?>"
-	data-base-image-url="<?=Url::base()?>images/">
+	data-base-image-url="<?=Url::base()?>images/"
+	data-show-more-localized="<?=Yii::t('app', 'Show More')?>"
+	data-loading-localized="<?=Yii::t('app', 'Loading...')?>"
+>
 </div>
 
 <div class="hidden" id="new-report-element">
@@ -37,7 +40,7 @@ use yii\helpers\Url;
 			</div>
 			<?php endforeach; ?>
 		</div>
-		<button type="button" id="report-show-more-btn" class="btn btn-success col-md-4 col-md-offset-4">Show More</button>
+		<button type="button" id="report-show-more-btn" class="btn btn-success col-md-4 col-md-offset-4"><?= Yii::t('app', 'Show More')?></button>
 	</div>
 	<div class="col-md-8" id="report-content">
 		<div class="row">

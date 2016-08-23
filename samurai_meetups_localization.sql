@@ -27,7 +27,7 @@ CREATE TABLE `localization` (
   `en` text COLLATE utf8_unicode_ci NOT NULL,
   `ja` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`localization_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `localization` (
 
 LOCK TABLES `localization` WRITE;
 /*!40000 ALTER TABLE `localization` DISABLE KEYS */;
-INSERT INTO `localization` VALUES (1,'Menu','メニュー'),(2,'日本語','English'),(3,'Upcoming Tours','次のツアー'),(4,'About','アバウト'),(5,'Reports','リポート'),(6,'Samurai','サムライ'),(7,'Testimonies','人証'),(8,'Facebook','Facebook'),(9,'About Us','アバウト'),(10,'Contact Us','問い合わせ'),(11,'FAQ','FAQ'),(12,'Privacy Policy','利用規約とプライバシー ポリシー'),(13,'Tour Information','ツアーの情報'),(14,'I have read and agreed to the Terms of Service and Privacy Policy','利用規約とプライバシー ポリシーに同意します'),(15,'Join Tour','ジョインツアー');
+INSERT INTO `localization` VALUES (1,'Menu','メニュー'),(2,'日本語','English'),(3,'Upcoming Tours','次のツアー'),(4,'About','アバウト'),(5,'Reports','リポート'),(6,'Samurai','サムライ'),(7,'Testimonies','人証'),(8,'Facebook','Facebook'),(9,'About Us','アバウト'),(10,'Contact Us','問い合わせ'),(11,'FAQ','FAQ'),(12,'Privacy Policy','利用規約とプライバシー ポリシー'),(13,'Tour Information','ツアーの情報'),(14,'I have read and agreed to the Terms of Service and Privacy Policy','利用規約とプライバシー ポリシーに同意します'),(15,'Join Tour','ジョインツアー'),(16,'Show More','もっと'),(17,'Loading...','ローディング中...');
 /*!40000 ALTER TABLE `localization` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-23 12:15:43
+-- Dump completed on 2016-08-23 12:32:28
