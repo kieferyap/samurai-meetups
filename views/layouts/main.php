@@ -31,9 +31,16 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+<!-- 
+The is-toggle-clicked is needed because there's an exceptionally weird bug which causes the language button to click twice, 
+and it only happens in the front page! The console log says "out of memory". 
+and yes, I have stackoverflow'd the hell out of this.
+I'm on time pressure so this hot little hack would have to do! >:U
+It's used in index.js, I believe.
+-->
 <div id="samurai-meetups-data"
-	data-active-language-code="<?=Yii::$app->language?>"
 	data-toggle-language-url="<?=Url::toRoute('site/toggle-language')?>"
+	data-is-toggle-clicked=0 
 >
 
 <div class="wrap">

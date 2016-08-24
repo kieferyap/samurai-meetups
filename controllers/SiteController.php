@@ -170,7 +170,6 @@ class SiteController extends SamuraiController
 		}
 
 		$this->setSessionLanguageCode($targetLanguageCode);
-		echo $targetLanguageCode;
 	}
 
 	/**
