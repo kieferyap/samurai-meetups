@@ -219,7 +219,6 @@ class SiteController extends SamuraiController
 	 */
 	public function actionError()
 	{
-		echo 'ERROR';
-		die();
+		return $this->renderView('error');
 	}
 }

@@ -19,4 +19,7 @@
 		'Join Tour' => 'ジョインツアー',
 		'Show More' => 'もっと',
 		'Loading...' => 'ローディング中...',
+		'Samurai Meetups' => 'サムライミートアップ',
+		'Error 404: Page Not Found' => 'エラー404：見つかりません',
+		'The above error occurred while the Web server was processing your request.' => '指定したページは、このサーバにはありません。',
 	];
