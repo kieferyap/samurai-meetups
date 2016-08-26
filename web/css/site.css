@@ -112,7 +112,7 @@ a.desc:after {
 	background-color: rgba(200,247,197,0.3);
 	border-radius: 20px;
 	height: 300px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .center-div {

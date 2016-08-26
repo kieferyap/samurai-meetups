@@ -189,7 +189,11 @@ class SiteController extends SamuraiController
 	 */
 	public function actionPrivacy()
 	{
-		return $this->renderView('privacy');
+		$this->addCssFile('privacy.css');
+		
+		return $this->renderView('privacy', [
+			'termsOfService' => Yii::$app->params['termsOfService'],
+		]);
 	}
 
 	/**
@@ -220,5 +224,16 @@ class SiteController extends SamuraiController
 	public function actionError()
 	{
 		return $this->renderView('error');
+	}
+
+
+	/**
+	 * Displays coming soon page.
+	 *
+	 * @return string
+	 */
+	public function showComingSoon()
+	{
+		return $this->renderView('coming-soon');
 	}
 }
