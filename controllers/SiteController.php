@@ -180,7 +180,20 @@ class SiteController extends SamuraiController
 	 */
 	public function actionFaq()
 	{
-		return $this->renderView('faq');
+		return $this->showComingSoon();
+		// return $this->renderView('faq');
+	}
+
+
+	/**
+	 * Tours action.
+	 *
+	 * @return string
+	 */
+	public function actionSamurai()
+	{
+		return $this->showComingSoon();
+		// return $this->renderView('samurai');
 	}
 
 	/**
@@ -204,9 +217,10 @@ class SiteController extends SamuraiController
 	 */
 	public function actionContact()
 	{
-		$model = new ContactForm();
-		return $this->render('contact', [
-			'model' => $model,
+		$adminEmailAddress = Yii::$app->params['adminEmail'];
+		$this->addJsFile('contact.js');
+		return $this->renderView('contact', [
+			'adminEmail' => $adminEmailAddress
 		]);
 	}
 

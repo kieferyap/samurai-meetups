@@ -22,4 +22,9 @@
 		'Samurai Meetups' => 'サムライミートアップ',
 		'Error 404: Page Not Found' => 'エラー404：見つかりません',
 		'The above error occurred while the Web server was processing your request.' => '指定したページは、このサーバにはありません。',
+		'Name' => '名前',
+		'Title' => 'タイトル',
+		'Message' => 'メッセージ',
+		'Send E-mail' => '送信',
+		'All fields are required.' => '全て必須項目です。',
 	];

@@ -24,9 +24,8 @@ $this->title = 'Samurai Meetups';
             </div>
         </div>
     </div>
+    <hr/>
     <div class="row">
-        <br/>
-        <br/>
         <h3><?= Yii::t('app', 'Upcoming Tours')?></h3>
     </div>
     <div class="center-wrapper">    

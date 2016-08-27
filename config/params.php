@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'adminEmail' => 'kiefer.yap@gmail.com',
+    'adminEmail' => 'test@example.com',
     'termsOfService' =>
     '
 		<div class="col-md-12 terms-of-service">
