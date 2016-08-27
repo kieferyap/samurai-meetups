@@ -8,9 +8,10 @@ use app\models\FrontPageElements;
 use app\models\Tours;
 use app\models\Reports;
 
+use app\models\ContactForm;
+
 class SiteController extends SamuraiController
 {
-
 	/**
 	 * Displays the homepage.
 	 *
@@ -203,7 +204,10 @@ class SiteController extends SamuraiController
 	 */
 	public function actionContact()
 	{
-		return $this->renderView('about');
+		$model = new ContactForm();
+		return $this->render('contact', [
+			'model' => $model,
+		]);
 	}
 
 	/**

@@ -73,11 +73,7 @@ $this->title = 'Samurai Meetups';
             </div>
         </div>
     </div>
-    <div class="row">
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+    <div class="row margin-top-20">
         <h3><?= Yii::t('app', 'Testimonies')?></h3>
     </div>
     <div class="row">

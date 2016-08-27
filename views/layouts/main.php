@@ -24,9 +24,11 @@ AppAsset::register($this);
 	<title><?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
 	
-	<?php foreach($this->params['cssFiles'] as $cssFile): ?>
-		<link rel="stylesheet" href="<?= Url::base() ?>css/<?= $cssFile ?>">
-	<?php endforeach; ?>
+	<?php if(isset($this->params['cssFiles'])): ?>
+		<?php foreach($this->params['cssFiles'] as $cssFile): ?>
+			<link rel="stylesheet" href="<?= Url::base() ?>css/<?= $cssFile ?>">
+		<?php endforeach; ?>
+	<?php endif; ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -110,9 +112,12 @@ It's used in index.js, I believe.
 </footer>
 <?php $this->endBody() ?>
 
-<?php foreach($this->params['jsFiles'] as $jsFile): ?>
-	<script src="<?= Url::base() ?>js/<?= $jsFile ?>"></script>
-<?php endforeach; ?>
+<?php if(isset($this->params['jsFiles'])): ?>
+	<?php foreach($this->params['jsFiles'] as $jsFile): ?>
+		<script src="<?= Url::base() ?>js/<?= $jsFile ?>"></script>
+	<?php endforeach; ?>
+<?php endif; ?>
+
 <script src="<?= Url::base() ?>js/index.js"></script>
 </body>
 </html>
