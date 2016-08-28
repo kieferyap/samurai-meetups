@@ -1,5 +1,23 @@
+body {
+	background-image: url("http://localhost/samurai-meetups/web/images/background.jpg");
+	background-repeat: repeat;
+}
 
 /* Controls color of header */
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+	max-height: 1000px;
+}
+/* Hover color of "Menu", "Lanuage", and the logo icons */ 
+.navbar-nav li a:hover { 
+  background-color: #C8F7C5 !important; 
+  color: #000 !important; 
+} 
+/* On-click color for "Menu" */ 
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus, 
+.my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus { 
+  background-color: #26A65B; 
+  color: #FFF; 
+} 
 .my-navbar {
 	background-color: #004101;
 }
@@ -10,13 +28,13 @@
 }
 /* Hover color of "Menu", "Lanuage", and the logo icons */
 .navbar-nav li a:hover {
-	background-color: #C8F7C5 !important;
-	color: #000 !important;
+	background-color: #C8F7C5;
+	color: #000;
 }
 /* On-click color for "Menu" */
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus,
 .my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus {
-	background-color: #26A65B;
+	background-color: #004101;
 	color: #FFF;
 }
 /* Controls position of header logo */ 
@@ -26,24 +44,15 @@
 	padding-right: 0px;
 }
 /* Controls height of header */
-.my-navbar .container, 
-.navbar-header,
-.my-navbar,
-.navbar-fixed-top,
-.navbar-nav li a
-{
-	height: 65px;
-}
 /* Controls logo dimensions */
 .navbar-nav li a img {
-	margin-top: -15px;
-	width: 50px;
-	height: 50px;
+	margin-top: -10px;
+	width: 30px;
+	height: 30px;
 	border-radius: 50px;
 }
 /*Dropdown menu background color*/
 .navbar-nav li .dropdown-menu {
-	margin-top: -1px;
 	background-color: #26A65B;
 	color: #000;
 } 
@@ -62,10 +71,6 @@
 	border: 0px;
 }
 
-li.open {
-	background-color: #3FC380;
-}
-
 .navbar-toggle {
 	background-color: rgba(255,255,255,0.5);
 	margin-top: 15px;
@@ -76,9 +81,6 @@ li.open {
 }
 
 @media (max-width: 991px) {
-	.navbar-collapse .navbar-nav li {
-		border-top: 1px solid rgba(255,255,255,0.5);
-	},
 	.carousel {
 		width: 90%;
 		height: 445px;
@@ -104,12 +106,8 @@ li.open {
 }
 
 @media (min-width: 992px) {
-	.navbar-collapse .navbar-nav li {
-		border-left: 1px solid rgba(255,255,255,0.5);
-	}
 	.navbar-collapse .navbar-nav li ul li{
 		border-left: 0px;
-		border-bottom: 1px solid rgba(255,255,255,0.5);
 	}
 	.carousel-inner > .item > img,
 	.carousel {
@@ -123,6 +121,10 @@ li.open {
 	}
 }
 
+#header-logo {
+	margin-top: -2px;
+}
+
 .carousel-control {
 	opacity: 1;
 	padding-top: 25%;
@@ -132,6 +134,7 @@ li.open {
 .footer {
 	background-color: #004101;
 	color: white;
+	height: 67px;
 }
 
 .footer-logo {
@@ -153,11 +156,19 @@ li.open {
 }
 
 .carousel-control.right {
-	background-image: linear-gradient(to right, transparent 0%, rgba(0,65,1,0.6) 100%);
+	background-image: linear-gradient(to right, transparent 0%, rgba(0,65,1,0.1) 100%);
+}
+
+.carousel-control.right:hover {
+	background-image: linear-gradient(to right, transparent 0%, rgba(0,65,1,0.5) 100%);
 }
 
 .carousel-control.left {
-	background-image: linear-gradient(to left, transparent 0%, rgba(0,65,1,0.6) 100%);
+	background-image: linear-gradient(to left, transparent 0%, rgba(0,65,1,0.1) 100%);
+}
+
+.carousel-control.left:hover {
+	background-image: linear-gradient(to left, transparent 0%, rgba(0,65,1,0.5) 100%);
 }
 
 .mid-top-text {

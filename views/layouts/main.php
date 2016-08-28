@@ -61,11 +61,11 @@ It's used in index.js, I believe.
 			[
 				'label' => '<span class="header-menu">'.Yii::t('app', 'Menu').'</span>', 
 				'items' => [
-					['label' => Yii::t('app', 'Upcoming Tours'), 'url' => Url::toRoute('site/tours')],
+					['label' => Yii::t('app', 'Upcoming Tours'), 'url' => Url::base().'#upcoming-tours'],
 					['label' => Yii::t('app', 'About'), 'url' => Url::toRoute('site/about')],
 					['label' => Yii::t('app', 'Reports'), 'url' => Url::toRoute('site/report')],
-					['label' => Yii::t('app', 'Samurai'), 'url' => Url::toRoute('site/contact')],
-					['label' => Yii::t('app', 'Testimonies'), 'url' => '#'],
+					['label' => Yii::t('app', 'Samurai'), 'url' => Url::toRoute('site/coming-soon')],
+					['label' => Yii::t('app', 'Testimonies'), 'url' => Url::toRoute('site/contact')],
 				], 
 				'encode' => false],
 			[

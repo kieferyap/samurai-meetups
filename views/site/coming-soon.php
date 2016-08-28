@@ -4,10 +4,9 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('app', 'Coming Soon');
 ?>
 
-<div class="jumbotron">
-Coming soon.
-</div>
+<div class="jumbotron"> 
+    <h1><?=Yii::t('app', 'Coming Soon')?></h1>  
+</div> 

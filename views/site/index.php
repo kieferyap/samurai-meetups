@@ -23,6 +23,7 @@ $this->title = 'Samurai Meetups';
                 ?> 
             </div>
         </div>
+        <span class="hidden" id="upcoming-tours"></span>
     </div>
     <hr/>
     <div class="row">
@@ -35,7 +36,7 @@ $this->title = 'Samurai Meetups';
                 $images = [];
                 foreach($frontPageElements['tours'] as $element) {
                     echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
-                    echo '<img class="col-md-4" src="'
+                    echo '<img class="col-md-4 bordered-image-triple" src="'
                         .Url::base()
                         .'images/'
                         .$element['image_url']
@@ -46,14 +47,14 @@ $this->title = 'Samurai Meetups';
             </div>
             <div class="row">
             <br/>
-                <div class="col-md-4">
+                <div class="col-md-4 bordered-image-triple">
                     <img class="image-filled" src="<?=Url::base().'images/'
                         .$frontPageElements['about'][0]['image_url']
                         .''?>"
                     />
                     <div class="mid-top-text"><?= Yii::t('app', 'About')?></div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 bordered-image-triple">
                     <a href="<?=Url::toRoute('site/report')?>">
                         <img class="image-filled" src="<?=Url::base().'images/'
                             .$frontPageElements['report'][0]['image_url']
@@ -62,7 +63,7 @@ $this->title = 'Samurai Meetups';
                         <div class="mid-top-text"><?= Yii::t('app', 'Reports')?></div>
                     </a>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 bordered-image-triple">
                     <img class="image-filled" src="<?=Url::base().'images/'
                         .$frontPageElements['samurai'][0]['image_url']
                         .''?>"
