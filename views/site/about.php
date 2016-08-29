@@ -4,8 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'About');
 ?>
 <div class="site-about">
     <h1><?= Yii::t('app', 'About') ?></h1>

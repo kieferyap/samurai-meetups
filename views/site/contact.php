@@ -6,7 +6,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Contact';
+$this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Contact Us');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

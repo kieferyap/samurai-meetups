@@ -7,7 +7,7 @@
 
 use yii\helpers\Html;
 
-$this->title = $name;
+$this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('yii', 'Error');
 ?>
 <div class="site-error">
     <h1><?= Yii::t('app', 'Error 404: Page Not Found')?></h1>

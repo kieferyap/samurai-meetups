@@ -3,7 +3,7 @@
 use yii\bootstrap\Carousel;
 use yii\helpers\Url;
 
-$this->title = 'Samurai Meetups';
+$this->title = Yii::t('app', 'Samurai Meetups');
 ?>
 <div class="site-index">
     <br/>
@@ -73,6 +73,7 @@ $this->title = 'Samurai Meetups';
             </div>
         </div>
     </div>
+    <hr/>
     <div class="row margin-top-20">
         <h3><?= Yii::t('app', 'Testimonies')?></h3>
     </div>

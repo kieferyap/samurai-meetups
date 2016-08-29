@@ -28,7 +28,7 @@ class Tours extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description'], 'string'],
+            [['description', 'google_doc_url'], 'string'],
             [['inserted_on'], 'safe'],
             [['image_url'], 'string', 'max' => 64],
         ];
@@ -42,6 +42,7 @@ class Tours extends \yii\db\ActiveRecord
         return [
             'tour_id' => 'Tour ID',
             'image_url' => 'Image Url',
+            'google_doc_url' => 'Google Doc Url',
             'description' => 'Description',
             'inserted_on' => 'Inserted On',
         ];

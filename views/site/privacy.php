@@ -4,8 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Privacy Policy';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Privacy Policy');
 ?>
 <div class="site-about">
     <h1><?= Yii::t('app', 'Privacy Policy')?></h1>

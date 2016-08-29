@@ -122,15 +122,3 @@ a.desc:after {
 .center-wrapper {
 	text-align: center;
 }
-
-.bordered-image-triple {
-	border: 5px solid #999;
-	margin-left: 10px;
-	padding: 0px;
-	width: 32%;
-	border-radius: 10px;
-}
-
-.bordered-image-triple:hover {
-	border: 5px solid black;
-}

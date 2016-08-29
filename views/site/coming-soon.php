@@ -4,7 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = Yii::t('app', 'Coming Soon');
+$this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Coming Soon');
 ?>
 
 <div class="jumbotron"> 

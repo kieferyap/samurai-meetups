@@ -28,4 +28,5 @@
 		'Send E-mail' => '送信',
 		'All fields are required.' => '全て必須項目です。',
 		'Coming Soon' => '工事中...',
+		'Samurai Meetups' => 'サムライミートアップ',
 	];

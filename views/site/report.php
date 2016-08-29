@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+
+$this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 ?>
 
 <br/>
