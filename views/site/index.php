@@ -48,11 +48,13 @@ $this->title = Yii::t('app', 'Samurai Meetups');
             <div class="row">
             <br/>
                 <div class="col-md-4 bordered-image-triple">
-                    <img class="image-filled" src="<?=Url::base().'images/'
-                        .$frontPageElements['about'][0]['image_url']
-                        .''?>"
-                    />
-                    <div class="mid-top-text"><?= Yii::t('app', 'About')?></div>
+                    <a href="<?=Url::toRoute('site/about')?>">
+                        <img class="image-filled" src="<?=Url::base().'images/'
+                            .$frontPageElements['about'][0]['image_url']
+                            .''?>"
+                        />
+                        <div class="mid-top-text"><?= Yii::t('app', 'About')?></div>
+                    </a>
                 </div>
                 <div class="col-md-4 bordered-image-triple">
                     <a href="<?=Url::toRoute('site/report')?>">
@@ -64,11 +66,13 @@ $this->title = Yii::t('app', 'Samurai Meetups');
                     </a>
                 </div>
                 <div class="col-md-4 bordered-image-triple">
-                    <img class="image-filled" src="<?=Url::base().'images/'
-                        .$frontPageElements['samurai'][0]['image_url']
-                        .''?>"
-                    />
-                    <div class="mid-top-text"><?= Yii::t('app', 'Samurai')?></div>
+                    <a href="<?=Url::toRoute('site/samurai')?>">
+                        <img class="image-filled" src="<?=Url::base().'images/'
+                            .$frontPageElements['samurai'][0]['image_url']
+                            .''?>"
+                        />
+                        <div class="mid-top-text"><?= Yii::t('app', 'Samurai')?></div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -109,10 +113,12 @@ $this->title = Yii::t('app', 'Samurai Meetups');
             </a>
         </div>
         <div class="col-md-6">
+            <a href="<?=Url::toRoute('site/samurai')?>">
             <img class="image-filled participation-voice-rectangle" src="<?=Url::base()
                 .'images/'
                 .$frontPageElements['icon'][0]['image_url']
                 .''?>"/>
+            </a>
         </div>
     </div>
 </div>

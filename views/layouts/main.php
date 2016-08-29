@@ -61,11 +61,11 @@ It's used in index.js, I believe.
 			[
 				'label' => '<span class="header-menu">'.Yii::t('app', 'Menu').'</span>', 
 				'items' => [
-					['label' => Yii::t('app', 'Upcoming Tours'), 'url' => Url::base().'#upcoming-tours'],
+					['label' => Yii::t('app', 'Upcoming Tours'), 'url' => Url::base()],
 					['label' => Yii::t('app', 'About'), 'url' => Url::toRoute('site/about')],
 					['label' => Yii::t('app', 'Reports'), 'url' => Url::toRoute('site/report')],
-					['label' => Yii::t('app', 'Samurai'), 'url' => Url::toRoute('site/coming-soon')],
-					['label' => Yii::t('app', 'Testimonies'), 'url' => Url::toRoute('site/contact')],
+					['label' => Yii::t('app', 'Samurai'), 'url' => Url::toRoute('site/samurai')],
+					['label' => Yii::t('app', 'Testimonies'), 'url' => Url::toRoute('site/samurai')],
 				], 
 				'encode' => false],
 			[
@@ -77,17 +77,17 @@ It's used in index.js, I believe.
 			],
 			[
 				'label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 
-				'url' => Url::toRoute('site/contact'), 
+				'url' => 'https://www.facebook.com/samuraimeetups', 
 				'encode' => false
 			],
 			[
 				'label' => '<img id="twitter-icon" src="'.Url::base().'images/twitter-logo.png">', 
-				'url' => Url::toRoute('site/contact'), 
+				'url' => Url::toRoute('site/samurai'), 
 				'encode' => false
 			],
 			[
 				'label' => '<img id="twitter-icon" src="'.Url::base().'images/instagram-logo.png">', 
-				'url' => Url::toRoute('site/contact'), 
+				'url' => Url::toRoute('site/samurai'), 
 				'encode' => false
 			]
 		],
