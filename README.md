@@ -19,7 +19,10 @@ The specifications document is located [here](https://github.com/kieferyap/samur
 	- Design: Tatsuaki Itoh
 	- Implementation: Kiefer Yap
 - Browser View:
+
 ![Browser View](https://github.com/kieferyap/samurai-meetups/blob/feature/03-contact/web/images/demo-full.gif "Browser View")
+
 - Mobile View:
+
 ![Mobile View](https://github.com/kieferyap/samurai-meetups/blob/feature/03-contact/web/images/demo-responsive.gif "Mobile View")
 
