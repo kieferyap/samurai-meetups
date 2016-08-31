@@ -26,9 +26,6 @@
 	.report-content-image {
 		width: 100%;
 	}
-	#report-show-more-btn {
-		width: 100%;
-	}
 }
 
 @media (min-width: 992px) {
@@ -37,9 +34,6 @@
 	}
 	.report-content-image {
 		height: 150px;
-	}
-	#report-show-more-btn {
-		width: 150px;
 	}
 }
 
@@ -103,6 +97,7 @@
 	color: white;
 	text-align: center;
 	margin-top: 15px;
+	width: 100%;
 }
 
 .report-content-image {

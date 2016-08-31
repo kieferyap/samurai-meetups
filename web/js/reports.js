@@ -65,7 +65,7 @@ $(document).ready(function() {
 					scrollTop: $("#report-content").offset().top+scrollOffset
 				}, scrollTimeMilliseconds);
 
-				if ($('#report-sidebar').height() < $('#report-content').height()) {
+				if ($('#report-sidebar').height() < $('#report-content').height() && $(document).width() > 990) {
 					$('#report-sidebar').height($('#report-content').height());
 				}
 			},
