@@ -2,7 +2,7 @@
 
 Samurai Meetups is a non-profit organization which was launched with the strong desire to serve people who have always loved the Japanese culture but has never had the chance to experience it. For more information, visit the following [website](http://www.meetup.com/en-US/https-www-facebook-com-samuraimeetups/)
 
-The specifications document is located [here](https://github.com/kieferyap/samurai-meetups/blob/develop/specifications-document.pdf), with an external link located [here](https://docs.google.com/document/d/13UPnuC5yzWI8EqlRiTqM4Mfo5KutagmE5YJbLtW9Awo/edit) for the devs at Samurai Meetups.
+The specifications document is located [here](https://github.com/kieferyap/samurai-meetups/blob/feature/03-contact/specifications-document.pdf), with an external link located [here](https://docs.google.com/document/d/13UPnuC5yzWI8EqlRiTqM4Mfo5KutagmE5YJbLtW9Awo/edit) for the devs at Samurai Meetups.
 -----------------------
 
 ## Project Specification Overview:
@@ -18,6 +18,8 @@ The specifications document is located [here](https://github.com/kieferyap/samur
 - Credits:
 	- Design: Tatsuaki Itoh
 	- Implementation: Kiefer Yap
-- Browser View: (Coming Soon)
-- Mobile View: (Coming Soon)
+- Browser View:
+![Browser View](https://github.com/kieferyap/samurai-meetups/blob/feature/03-contact/web/images/demo-full.gif "Browser View")
+- Mobile View:
+![Mobile View](https://github.com/kieferyap/samurai-meetups/blob/feature/03-contact/web/images/demo-responsive.gif "Mobile View")
 
