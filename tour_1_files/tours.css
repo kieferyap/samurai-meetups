@@ -1,0 +1,22 @@
+@media (max-width: 991px) {
+	#btn-join-tour {
+		width: 95%;
+		margin-left: 10px;
+	}
+	#tour-banner {
+		width: 100%;
+		height: 200px;
+	}
+}
+
+#tour-description {
+	margin-top: 10px;
+	padding: 50px;
+	background-color: rgba(200,247,197,0.3);
+	border-radius: 20px;
+}
+
+#tour-banner {
+	width: 100%;
+	height: 200px;
+}
