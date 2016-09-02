@@ -8,3 +8,7 @@ Samurai Meetups is a non-profit organization which was launched with the strong 
 - **Language:** PHP 5.5.12
 - **Framework:** Yii 2.0.9
 - **Database:** MySQL 5.7.13
+
+
+
+
