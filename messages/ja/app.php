@@ -8,7 +8,7 @@
 		'About' => 'アバウト',
 		'Reports' => 'リポート',
 		'Samurai' => 'サムライ',
-		'Testimonies' => '人証',
+		'Voice' => '人証',
 		'Facebook' => 'Facebook',
 		'About Us' => 'アバウト',
 		'Contact Us' => '問い合わせ',

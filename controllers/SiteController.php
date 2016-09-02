@@ -25,7 +25,7 @@ class SiteController extends SamuraiController
 		// Image ID
 		$frontPageElementIds = [
 			['id' => 'carousel', 'front_page_image_type_id' => 1, 'limit' => 5],
-			['id' => 'tours', 'front_page_image_type_id' => 2, 'limit' => 3],
+			['id' => 'tour-1', 'front_page_image_type_id' => 2, 'limit' => 1],
 			['id' => 'about', 'front_page_image_type_id' => 3, 'limit' => 1],
 			['id' => 'report', 'front_page_image_type_id' => 4, 'limit' => 1],
 			['id' => 'samurai', 'front_page_image_type_id' => 5, 'limit' => 1],
@@ -34,6 +34,8 @@ class SiteController extends SamuraiController
 			['id' => 'participation-text', 'front_page_image_type_id' => 8, 'limit' => 2],
 			['id' => 'facebook', 'front_page_image_type_id' => 9, 'limit' => 1],
 			['id' => 'icon', 'front_page_image_type_id' => 10, 'limit' => 1],
+			['id' => 'tour-2', 'front_page_image_type_id' => 11, 'limit' => 1],
+			['id' => 'tour-3', 'front_page_image_type_id' => 12, 'limit' => 1],
 		];
 		$frontPageElements = [];
 
@@ -253,5 +255,10 @@ class SiteController extends SamuraiController
 	public function showComingSoon()
 	{
 		return $this->renderView('coming-soon');
+	}
+
+	public function actionStarbucks()
+	{
+		return $this->renderView('starbucks');
 	}
 }

@@ -106,7 +106,8 @@ It's used in index.js, I believe.
 			<a href="?r=site/about"><?= Yii::t('app', 'About Us')?></a> | 
 			<a href="?r=site/contact"><?= Yii::t('app', 'Contact Us')?></a> | 
 			<a href="?r=site/faq"><?= Yii::t('app', 'FAQ')?></a> | 
-			<a href="?r=site/privacy"><?= Yii::t('app', 'Privacy Policy')?></a>
+			<a href="?r=site/privacy"><?= Yii::t('app', 'Privacy Policy')?></a> |
+			<a href=""><?= Yii::t('app', 'Special ~~ law')?></a>
 		</p>
 	</div>
 </footer>

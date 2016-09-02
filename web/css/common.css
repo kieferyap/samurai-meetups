@@ -19,7 +19,7 @@ body {
   color: #FFF; 
 } 
 .my-navbar {
-	background-color: #004101;
+	background-color: #5DAC81;
 }
 /* Controls vertical offset of the "Menu", "Language", and the logo icons*/
 .navbar-nav li a {
@@ -34,7 +34,7 @@ body {
 /* On-click color for "Menu" */
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus,
 .my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus {
-	background-color: #004101;
+	background-color: #5DAC81;
 	color: #FFF;
 }
 /* Controls position of header logo */ 
@@ -54,7 +54,7 @@ body {
 /*Dropdown menu background color*/
 .navbar-nav li .dropdown-menu {
 	background-color: #26A65B;
-	color: #000;
+	color: #5DAC81;
 } 
 
 .icon-bar {
@@ -62,7 +62,7 @@ body {
 }
 
 .navbar-collapse {
-	background-color: #004101;    
+	background-color: #5DAC81;    
 }
 
 .dropdown-menu li a:focus {
@@ -125,7 +125,7 @@ body {
 }
 
 .footer {
-	background-color: #004101;
+	background-color: #5DAC81;
 	color: white;
 	height: 67px;
 }

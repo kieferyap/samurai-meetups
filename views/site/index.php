@@ -34,7 +34,27 @@ $this->title = Yii::t('app', 'Samurai Meetups');
             <div class="row">
                 <?php
                 $images = [];
-                foreach($frontPageElements['tours'] as $element) {
+                foreach($frontPageElements['tour-1'] as $element) {
+                    echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
+                    echo '<img class="col-md-4 bordered-image-triple" src="'
+                        .Url::base()
+                        .'images/'
+                        .$element['image_url']
+                        .'"/>';
+                    echo '</a>';
+                }
+
+                foreach($frontPageElements['tour-2'] as $element) {
+                    echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
+                    echo '<img class="col-md-4 bordered-image-triple" src="'
+                        .Url::base()
+                        .'images/'
+                        .$element['image_url']
+                        .'"/>';
+                    echo '</a>';
+                }
+
+                foreach($frontPageElements['tour-3'] as $element) {
                     echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
                     echo '<img class="col-md-4 bordered-image-triple" src="'
                         .Url::base()
@@ -76,7 +96,7 @@ $this->title = Yii::t('app', 'Samurai Meetups');
     </div>
     <hr/>
     <div class="row margin-top-20">
-        <h3><?= Yii::t('app', 'Testimonies')?></h3>
+        <h3><?= Yii::t('app', 'Voice')?></h3>
     </div>
     <div class="row">
         <?php
@@ -96,6 +116,7 @@ $this->title = Yii::t('app', 'Samurai Meetups');
                 .$frontPageElements['participation-text'][$i]['description']
                 .'"</div>';
             echo '</div>';
+
         }
         ?>
     </div>
