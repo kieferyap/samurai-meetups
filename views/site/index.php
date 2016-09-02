@@ -62,7 +62,6 @@ $this->title = Yii::t('app', 'Samurai Meetups');
                             .$frontPageElements['report'][0]['image_url']
                             .''?>"
                         />
-                        <div class="mid-top-text"><?= Yii::t('app', 'Reports')?></div>
                     </a>
                 </div>
                 <div class="col-md-4 bordered-image-triple">
@@ -71,7 +70,6 @@ $this->title = Yii::t('app', 'Samurai Meetups');
                             .$frontPageElements['samurai'][0]['image_url']
                             .''?>"
                         />
-                        <div class="mid-top-text"><?= Yii::t('app', 'Samurai')?></div>
                     </a>
                 </div>
             </div>
