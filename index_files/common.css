@@ -1,0 +1,141 @@
+body {
+	background-image: url("http://localhost/samurai-meetups/web/images/background.jpg");
+	background-repeat: repeat;
+}
+
+/* Controls color of header */
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+	max-height: 1000px;
+}
+/* Hover color of "Menu", "Lanuage", and the logo icons */ 
+.navbar-nav li a:hover { 
+  background-color: #C8F7C5 !important; 
+  color: #000 !important; 
+} 
+/* On-click color for "Menu" */ 
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus, 
+.my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus { 
+  background-color: #26A65B; 
+  color: #FFF; 
+} 
+.my-navbar {
+	background-color: #004101;
+}
+/* Controls vertical offset of the "Menu", "Language", and the logo icons*/
+.navbar-nav li a {
+	padding-top: 18px;
+	color: #FFF;
+}
+/* Hover color of "Menu", "Lanuage", and the logo icons */
+.navbar-nav li a:hover {
+	background-color: #C8F7C5;
+	color: #000;
+}
+/* On-click color for "Menu" */
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus,
+.my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus {
+	background-color: #004101;
+	color: #FFF;
+}
+/* Controls position of header logo */ 
+.navbar-header a {
+	padding-top: 4px;
+	padding-bottom: 5px;
+	padding-right: 0px;
+}
+/* Controls height of header */
+/* Controls logo dimensions */
+.navbar-nav li a img {
+	margin-top: -10px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+}
+/*Dropdown menu background color*/
+.navbar-nav li .dropdown-menu {
+	background-color: #26A65B;
+	color: #000;
+} 
+
+.icon-bar {
+	background-color: #C8F7C5;
+}
+
+.navbar-collapse {
+	background-color: #004101;    
+}
+
+.dropdown-menu li a:focus {
+	background-color: #3FC380;
+	color: #FFF;
+	border: 0px;
+}
+
+.navbar-toggle {
+	background-color: rgba(255,255,255,0.5);
+	margin-top: 15px;
+}
+
+.navbar-collapse .navbar-nav {
+	margin-top: 0px;
+}
+
+@media (max-width: 770px) {
+	.navbar-header {
+		width: 100%;
+	}
+	.navbar-brand {
+		width: 70%;
+	}
+}
+
+
+@media (min-width: 771px) and (max-width: 991px) {
+	.navbar-header {
+		width: 50%;
+	}
+}
+
+@media (max-width: 991px) {
+	.navbar-brand {
+		height: 50px;
+		
+	}
+	#header-logo {
+		height: 50px;
+		width: 100%;
+	}
+	.col-md-4 {
+		margin-top: 10px;
+	}
+}
+
+@media (min-width: 992px) {
+	.navbar-collapse .navbar-nav li ul li{
+		border-left: 0px;
+	}
+	#header-logo {
+		height: 50px;
+		width: 445px;
+	}
+}
+
+#header-logo {
+	margin-top: -2px;
+}
+
+.footer {
+	background-color: #004101;
+	color: white;
+	height: 67px;
+}
+
+.footer-logo {
+	margin-top: -15px;
+	width: 50px;
+	height: 50px;
+}
+
+.footer a {
+	color: white;
+}
