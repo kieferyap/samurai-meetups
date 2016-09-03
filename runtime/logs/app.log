@@ -1,0 +1,288 @@
+2016-09-03 13:06:16 [127.0.0.1][-][86r58eccbibgidm3j8jvnbcpq6][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The directory does not exist: /var/www/html/samurai-meetups/web/assets' in /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/AssetManager.php:211
+Stack trace:
+#0 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/Container.php(373): ReflectionClass->newInstanceArgs(Array)
+#3 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/Container.php(154): yii\di\Container->build('yii\web\AssetMa...', Array, Array)
+#4 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('yii\web\AssetMa...', Array, Array)
+#5 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/View.php(223): yii\base\Application->getAssetManager()
+#8 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/View.php(283): yii\web\View->getAssetManager()
+#9 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/AssetBundle.php(123): yii\web\View->registerAssetBundle('yii\bootstrap\B...')
+#10 /var/www/html/samurai-meetups/vendor/yiisoft/yii2-bootstrap/BootstrapWidgetTrait.php(73): yii\web\AssetBundle::register(Object(yii\web\View))
+#11 /var/www/html/samurai-meetups/vendor/yiisoft/yii2-bootstrap/Carousel.php(83): yii\bootstrap\Widget->registerPlugin('carousel')
+#12 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Widget.php(102): yii\bootstrap\Carousel->run()
+#13 /var/www/html/samurai-meetups/views/site/index.php(22): yii\base\Widget::widget(Array)
+#14 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/s...')
+#15 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/s...', Array)
+#16 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/s...', Array, Object(app\controllers\SiteController))
+#17 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(app\controllers\SiteController))
+#18 /var/www/html/samurai-meetups/controllers/サムライController.php(26): yii\base\Controller->render('index', Array)
+#19 /var/www/html/samurai-meetups/controllers/SiteController.php(53): app\controllers\サムライController->renderView('index', Array)
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#22 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#23 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('', Array)
+#24 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('', Array)
+#25 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 /var/www/html/samurai-meetups/web/index.php(12): yii\base\Application->run()
+#27 {main}
+2016-09-03 13:06:14 [127.0.0.1][-][86r58eccbibgidm3j8jvnbcpq6][info][application] $_SESSION = [
+    '__flash' => []
+    'language' => 'en'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/samurai-meetups/web/index.php'
+    'REMOTE_PORT' => '49362'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/samurai-meetups/web/'
+    'SCRIPT_NAME' => '/samurai-meetups/web/index.php'
+    'PHP_SELF' => '/samurai-meetups/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1472907974.608
+    'REQUEST_TIME' => 1472907974
+]
+2016-09-03 13:06:16 [127.0.0.1][-][86r58eccbibgidm3j8jvnbcpq6][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The directory does not exist: /var/www/html/samurai-meetups/web/assets' in /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/AssetManager.php:211
+Stack trace:
+#0 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/Container.php(373): ReflectionClass->newInstanceArgs(Array)
+#3 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/Container.php(154): yii\di\Container->build('yii\web\AssetMa...', Array, Array)
+#4 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('yii\web\AssetMa...', Array, Array)
+#5 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/View.php(223): yii\base\Application->getAssetManager()
+#8 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/View.php(283): yii\web\View->getAssetManager()
+#9 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/AssetBundle.php(123): yii\web\View->registerAssetBundle('yii\bootstrap\B...')
+#10 /var/www/html/samurai-meetups/vendor/yiisoft/yii2-bootstrap/BootstrapWidgetTrait.php(73): yii\web\AssetBundle::register(Object(yii\web\View))
+#11 /var/www/html/samurai-meetups/vendor/yiisoft/yii2-bootstrap/Carousel.php(83): yii\bootstrap\Widget->registerPlugin('carousel')
+#12 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Widget.php(102): yii\bootstrap\Carousel->run()
+#13 /var/www/html/samurai-meetups/views/site/index.php(22): yii\base\Widget::widget(Array)
+#14 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/s...')
+#15 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/s...', Array)
+#16 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/s...', Array, Object(app\controllers\SiteController))
+#17 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(app\controllers\SiteController))
+#18 /var/www/html/samurai-meetups/controllers/サムライController.php(26): yii\base\Controller->render('index', Array)
+#19 /var/www/html/samurai-meetups/controllers/SiteController.php(53): app\controllers\サムライController->renderView('index', Array)
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#22 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#23 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('', Array)
+#24 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('', Array)
+#25 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 /var/www/html/samurai-meetups/web/index.php(12): yii\base\Application->run()
+#27 {main}
+2016-09-03 13:06:16 [127.0.0.1][-][86r58eccbibgidm3j8jvnbcpq6][info][application] $_COOKIE = [
+    'PHPSESSID' => '86r58eccbibgidm3j8jvnbcpq6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'language' => 'en'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=86r58eccbibgidm3j8jvnbcpq6'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/samurai-meetups/web/index.php'
+    'REMOTE_PORT' => '49363'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/samurai-meetups/web/'
+    'SCRIPT_NAME' => '/samurai-meetups/web/index.php'
+    'PHP_SELF' => '/samurai-meetups/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1472907976.654
+    'REQUEST_TIME' => 1472907976
+]
+2016-09-03 13:06:41 [127.0.0.1][-][86r58eccbibgidm3j8jvnbcpq6][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The directory is not writable by the Web process: /var/www/html/samurai-meetups/web/assets' in /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/AssetManager.php:213
+Stack trace:
+#0 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/Container.php(373): ReflectionClass->newInstanceArgs(Array)
+#3 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/Container.php(154): yii\di\Container->build('yii\web\AssetMa...', Array, Array)
+#4 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('yii\web\AssetMa...', Array, Array)
+#5 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/View.php(223): yii\base\Application->getAssetManager()
+#8 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/View.php(283): yii\web\View->getAssetManager()
+#9 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/AssetBundle.php(123): yii\web\View->registerAssetBundle('yii\bootstrap\B...')
+#10 /var/www/html/samurai-meetups/vendor/yiisoft/yii2-bootstrap/BootstrapWidgetTrait.php(73): yii\web\AssetBundle::register(Object(yii\web\View))
+#11 /var/www/html/samurai-meetups/vendor/yiisoft/yii2-bootstrap/Carousel.php(83): yii\bootstrap\Widget->registerPlugin('carousel')
+#12 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Widget.php(102): yii\bootstrap\Carousel->run()
+#13 /var/www/html/samurai-meetups/views/site/index.php(22): yii\base\Widget::widget(Array)
+#14 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/s...')
+#15 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/s...', Array)
+#16 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/s...', Array, Object(app\controllers\SiteController))
+#17 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(app\controllers\SiteController))
+#18 /var/www/html/samurai-meetups/controllers/サムライController.php(26): yii\base\Controller->render('index', Array)
+#19 /var/www/html/samurai-meetups/controllers/SiteController.php(53): app\controllers\サムライController->renderView('index', Array)
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#22 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#23 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('', Array)
+#24 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('', Array)
+#25 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 /var/www/html/samurai-meetups/web/index.php(12): yii\base\Application->run()
+#27 {main}
+2016-09-03 13:06:41 [127.0.0.1][-][86r58eccbibgidm3j8jvnbcpq6][info][application] $_COOKIE = [
+    'PHPSESSID' => '86r58eccbibgidm3j8jvnbcpq6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'language' => 'en'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=86r58eccbibgidm3j8jvnbcpq6'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/samurai-meetups/web/index.php'
+    'REMOTE_PORT' => '49364'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/samurai-meetups/web/'
+    'SCRIPT_NAME' => '/samurai-meetups/web/index.php'
+    'PHP_SELF' => '/samurai-meetups/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1472908000.979
+    'REQUEST_TIME' => 1472908000
+]
+2016-09-03 13:06:41 [127.0.0.1][-][86r58eccbibgidm3j8jvnbcpq6][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The directory is not writable by the Web process: /var/www/html/samurai-meetups/web/assets' in /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/AssetManager.php:213
+Stack trace:
+#0 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Object.php(107): yii\web\AssetManager->init()
+#1 [internal function]: yii\base\Object->__construct(Array)
+#2 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/Container.php(373): ReflectionClass->newInstanceArgs(Array)
+#3 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/Container.php(154): yii\di\Container->build('yii\web\AssetMa...', Array, Array)
+#4 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('yii\web\AssetMa...', Array, Array)
+#5 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/di/ServiceLocator.php(133): yii\BaseYii::createObject(Array)
+#6 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Application.php(600): yii\di\ServiceLocator->get('assetManager')
+#7 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/View.php(223): yii\base\Application->getAssetManager()
+#8 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/View.php(283): yii\web\View->getAssetManager()
+#9 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/AssetBundle.php(123): yii\web\View->registerAssetBundle('yii\bootstrap\B...')
+#10 /var/www/html/samurai-meetups/vendor/yiisoft/yii2-bootstrap/BootstrapWidgetTrait.php(73): yii\web\AssetBundle::register(Object(yii\web\View))
+#11 /var/www/html/samurai-meetups/vendor/yiisoft/yii2-bootstrap/Carousel.php(83): yii\bootstrap\Widget->registerPlugin('carousel')
+#12 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Widget.php(102): yii\bootstrap\Carousel->run()
+#13 /var/www/html/samurai-meetups/views/site/index.php(22): yii\base\Widget::widget(Array)
+#14 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/s...')
+#15 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/s...', Array)
+#16 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/s...', Array, Object(app\controllers\SiteController))
+#17 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('index', Array, Object(app\controllers\SiteController))
+#18 /var/www/html/samurai-meetups/controllers/サムライController.php(26): yii\base\Controller->render('index', Array)
+#19 /var/www/html/samurai-meetups/controllers/SiteController.php(53): app\controllers\サムライController->renderView('index', Array)
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#22 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#23 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('', Array)
+#24 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('', Array)
+#25 /var/www/html/samurai-meetups/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 /var/www/html/samurai-meetups/web/index.php(12): yii\base\Application->run()
+#27 {main}
+2016-09-03 13:06:41 [127.0.0.1][-][86r58eccbibgidm3j8jvnbcpq6][info][application] $_COOKIE = [
+    'PHPSESSID' => '86r58eccbibgidm3j8jvnbcpq6'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'language' => 'en'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:38.0) Gecko/20100101 Firefox/38.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_COOKIE' => 'PHPSESSID=86r58eccbibgidm3j8jvnbcpq6'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/samurai-meetups/web/index.php'
+    'REMOTE_PORT' => '49365'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/samurai-meetups/web/'
+    'SCRIPT_NAME' => '/samurai-meetups/web/index.php'
+    'PHP_SELF' => '/samurai-meetups/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1472908001.626
+    'REQUEST_TIME' => 1472908001
+]

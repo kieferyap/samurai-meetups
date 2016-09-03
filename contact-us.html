@@ -11,7 +11,7 @@
 	<link href="stylesheets/bootstrap.css" rel="stylesheet">
 	<link href="stylesheets/site.css" rel="stylesheet">
 	<link href="stylesheets/common.css" rel="stylesheet">	
-	<link rel="stylesheet" href="stylesheets/index.css">
+	<link href="stylesheets/tours.css" rel="stylesheet">	
 </head>
 <body>
 
@@ -27,11 +27,26 @@
 <li id="toggle-language"><a href="index.html">English</a></li>
 <li><a href="https://www.facebook.com/samuraimeetups"><img id="facebook-icon" src="images/facebook-logo.png"></a></li>
 <li><a href="http://twitter.com"><img id="twitter-icon" src="images/twitter-logo.png"></a></li>
-<li><a href="http://instagram.com"><img id="twitter-icon" src="images/instagram-logo.png"></a></li></ul></div></div></nav>	<div class="container">   
+<li><a href="http://instagram.com"><img id="twitter-icon" src="images/instagram-logo.png"></a></li></ul></div></div></nav>	<div class="container">  
 		
-<div class="jumbotron"> 
-    <h1>工事中...</h1>  
-</div> 	</div>
+<div class="hidden" id="contact-data" data-admin-email="test@example.com"></div>
+<h1>問い合わせ</h1>
+
+<div class="alert alert-danger hidden" id="error-all-fields-required"> 
+	全て必須項目です。</div>
+
+<div class="form-group required">
+<label class="control-label" for="contactform-title">タイトル</label>
+<input id="contactform-title" class="form-control" type="text">
+</div>
+
+<div class="form-group required">
+<label class="control-label" for="contactform-message">メッセージ</label>
+<textarea id="contactform-message" class="form-control" rows="6"></textarea>
+</div>
+
+<button type="button" id="btn-send-email" class="btn btn-success col-md-2 col-md-offset-5">
+	送信</button>	</div>
 </div>
 
 <footer style="position: fixed; left: 0px; right: 0px; bottom: 0px;" class="footer">
@@ -49,9 +64,6 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/yii.js"></script>
 <script src="js/site.js"></script>
-<script type="text/javascript">jQuery(document).ready(function () {
-jQuery('#w0').carousel();
-});</script>
 			<script src="js/index.js"></script>
 	
 <script src="js/index.js"></script>

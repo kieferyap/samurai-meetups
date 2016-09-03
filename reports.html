@@ -6,41 +6,30 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-param" content="_csrf">
-    <meta name="csrf-token" content="Q0VXczNmVF8nfBAiHhcsCAlwDUBnHmEzLx0CC0pTFRUXJ28DCiQ/PA==">
-	<title>Samurai Meetups: Reports</title>
-	<link href="reports_files/bootstrap.css" rel="stylesheet">
-<link href="reports_files/site.css" rel="stylesheet">
-<link href="reports_files/common.css" rel="stylesheet">	
-						<link rel="stylesheet" href="reports_files/reports.css">
-			</head>
+    <meta name="csrf-token" content="R3J2VEQ3a2YjSzEFaUYTMQ1HLGcQT14KKyojLD0CKiwTEE4kfXUABQ==">
+	<title>サムライミートアップ</title>
+	<link href="stylesheets/bootstrap.css" rel="stylesheet">
+	<link href="stylesheets/site.css" rel="stylesheet">
+	<link href="stylesheets/common.css" rel="stylesheet">	
+	<link href="stylesheets/reports.css" rel="stylesheet">	
+</head>
 <body>
 
-<!-- 
-The is-toggle-clicked is needed because there's an exceptionally weird bug which causes the language button to click twice, 
-and it only happens in the front page! The console log says "out of memory". 
-and yes, I have stackoverflow'd the hell out of this.
-I'm on time pressure so this hot little hack would have to do! >:U
-It's used in index.js, I believe.
--->
-<div id="samurai-meetups-data" data-toggle-language-url="/samurai-meetups/web/index.php?r=site%2Ftoggle-language" data-is-toggle-clicked="0">
-
 <div class="wrap">
-	<nav id="w0" class="my-navbar navbar-fixed-top navbar" role="navigation"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w0-collapse"><span class="sr-only">Toggle navigation</span>
+	<nav id="w1" class="my-navbar navbar-fixed-top navbar" role="navigation"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w1-collapse"><span class="sr-only">Toggle navigation</span>
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
-<span class="icon-bar"></span></button><a class="navbar-brand" href="http://localhost/samurai-meetups/web/index.php"><img id="header-logo" src="reports_files/logo.png"></a></div><div id="w0-collapse" class="collapse navbar-collapse"><ul id="w1" class="navbar-nav navbar-right nav"><li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="header-menu">Menu</span> <b class="caret"></b></a><ul id="w2" class="dropdown-menu"><li><a href="http://localhost/samurai-meetups/web/" tabindex="-1">Upcoming Tours</a></li>
-<li><a href="http://localhost/samurai-meetups/web/index.php?r=site%2Fabout" tabindex="-1">About</a></li>
-<li><a href="http://localhost/samurai-meetups/web/index.php?r=site%2Freport" tabindex="-1">Reports</a></li>
-<li><a href="http://localhost/samurai-meetups/web/index.php?r=site%2Fsamurai" tabindex="-1">Samurai</a></li>
-<li><a href="http://localhost/samurai-meetups/web/index.php?r=site%2Fsamurai" tabindex="-1">Testimonies</a></li></ul></li>
-<li id="toggle-language"><a href="http://localhost/samurai-meetups/web/index.php?r=site%2Freport">日本語</a></li>
-<li><a href="https://www.facebook.com/samuraimeetups"><img id="facebook-icon" src="reports_files/facebook-logo.png"></a></li>
-<li><a href="http://localhost/samurai-meetups/web/index.php?r=site%2Fsamurai"><img id="twitter-icon" src="reports_files/twitter-logo.png"></a></li>
-<li><a href="http://localhost/samurai-meetups/web/index.php?r=site%2Fsamurai"><img id="twitter-icon" src="reports_files/instagram-logo.png"></a></li></ul></div></div></nav>	<div class="container">    
+<span class="icon-bar"></span></button><a class="navbar-brand" href="index.html"><img id="header-logo" src="images/logo.png"></a></div><div id="w1-collapse" class="collapse navbar-collapse"><ul id="w2" class="navbar-nav navbar-right nav"><li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="header-menu">メニュー</span> <b class="caret"></b></a><ul id="w3" class="dropdown-menu"><li><a href="#" tabindex="-1">次のツアー</a></li>
+<li><a href="about.html" tabindex="-1">アバウト</a></li>
+<li><a href="reports.html" tabindex="-1">リポート</a></li>
+<li><a href="coming-soon.html" tabindex="-1">サムライ</a></li>
+<li><a href="index.html" tabindex="-1">人証</a></li></ul></li>
+<li id="toggle-language"><a href="index.html">English</a></li>
+<li><a href="https://www.facebook.com/samuraimeetups"><img id="facebook-icon" src="images/facebook-logo.png"></a></li>
+<li><a href="http://twitter.com"><img id="twitter-icon" src="images/twitter-logo.png"></a></li>
+<li><a href="http://instagram.com"><img id="twitter-icon" src="images/instagram-logo.png"></a></li></ul></div></div></nav>	<div class="container">    
 		
 <br>
-<div class="hidden" id="report-information" data-last-report-id="6" data-show-more-url="/samurai-meetups/web/index.php?r=site%2Fget-report" data-report-data-url="/samurai-meetups/web/index.php?r=site%2Freport-data" data-base-image-url="http://localhost/samurai-meetups/web/images/" data-show-more-localized="Show More" data-loading-localized="Loading...">
-</div>
 
 <div class="hidden" id="new-report-element">
 	<div class="col-md-12 report-sidebar-element border-radius-10" data-id="0">
@@ -57,61 +46,61 @@ It's used in index.js, I believe.
 		<div id="report-sidebar-elements">
 						<div class="col-md-12 report-sidebar-element border-radius-10" data-id="12">
 				<div class="col-md-2 report-sidebar-element-photo border-radius-10">
-					<img class="border-radius-10" src="reports_files/report-012-sidebar.jpg">
+					<img class="border-radius-10" src="images/report-012-sidebar.jpg">
 				</div>
 				<div class="col-md-10 report-sidebar-element-text">
 					The 3rd Discovery Tour ―Asakusa&amp;Hanami 浅草&amp;花見―				</div>
 			</div>
 						<div class="col-md-12 report-sidebar-element border-radius-10" data-id="11">
 				<div class="col-md-2 report-sidebar-element-photo border-radius-10">
-					<img class="border-radius-10" src="reports_files/report-011-sidebar.jpg">
+					<img class="border-radius-10" src="images/report-011-sidebar.jpg">
 				</div>
 				<div class="col-md-10 report-sidebar-element-text">
-					The 18th Samurai Meetups Tour ―EDOKIRIKO 江戸切子―				</div>
+					The 18th サムライミートアップ Tour ―EDOKIRIKO 江戸切子―				</div>
 			</div>
 						<div class="col-md-12 report-sidebar-element border-radius-10" data-id="10">
 				<div class="col-md-2 report-sidebar-element-photo border-radius-10">
-					<img class="border-radius-10" src="reports_files/report-010-sidebar.jpg">
+					<img class="border-radius-10" src="images/report-010-sidebar.jpg">
 				</div>
 				<div class="col-md-10 report-sidebar-element-text">
-					The 20th Samurai Meetups Tour ―AIKIDO 合気道―				</div>
+					The 20th サムライミートアップ Tour ―AIKIDO 合気道―				</div>
 			</div>
 						<div class="col-md-12 report-sidebar-element border-radius-10" data-id="9">
 				<div class="col-md-2 report-sidebar-element-photo border-radius-10">
-					<img class="border-radius-10" src="reports_files/report-009-sidebar.jpg">
+					<img class="border-radius-10" src="images/report-009-sidebar.jpg">
 				</div>
 				<div class="col-md-10 report-sidebar-element-text">
-					The 21st Samurai Meetups Tour ―FUROSHIKI 風呂敷―				</div>
+					The 21st サムライミートアップ Tour ―FUROSHIKI 風呂敷―				</div>
 			</div>
 						<div class="col-md-12 report-sidebar-element border-radius-10" data-id="8">
 				<div class="col-md-2 report-sidebar-element-photo border-radius-10">
-					<img class="border-radius-10" src="reports_files/report-008-sidebar.jpg">
+					<img class="border-radius-10" src="images/report-008-sidebar.jpg">
 				</div>
 				<div class="col-md-10 report-sidebar-element-text">
-					TOUR REPORT：The 22nd Samurai Meetups Tour―PASTERIA CALLIGRAPHY パステリア書―				</div>
+					TOUR REPORT：The 22nd サムライミートアップ Tour―PASTERIA CALLIGRAPHY パステリア書―				</div>
 			</div>
 						<div class="col-md-12 report-sidebar-element border-radius-10" data-id="7">
 				<div class="col-md-2 report-sidebar-element-photo border-radius-10">
-					<img class="border-radius-10" src="reports_files/report-007-sidebar.jpg">
+					<img class="border-radius-10" src="images/report-007-sidebar.jpg">
 				</div>
 				<div class="col-md-10 report-sidebar-element-text">
 					The 4th Discovery Tour ―Sarushima 猿島―				</div>
 			</div>
 						<div class="col-md-12 report-sidebar-element border-radius-10" data-id="6">
 				<div class="col-md-2 report-sidebar-element-photo border-radius-10">
-					<img class="border-radius-10" src="reports_files/report-006-sidebar.jpg">
+					<img class="border-radius-10" src="images/report-006-sidebar.jpg">
 				</div>
 				<div class="col-md-10 report-sidebar-element-text">
-					The 23rd Samurai Meetups Tour―EDO FURIN 江戸風鈴―				</div>
+					The 23rd サムライミートアップ Tour―EDO FURIN 江戸風鈴―				</div>
 			</div>
 					</div>
-		<button type="button" id="report-show-more-btn" class="btn btn-success">Show More</button>
+		<button type="button" id="report-show-more-btn" class="btn btn-success" disabled="disabled">Show More</button>
 	</div>
 	<div class="col-md-8" id="report-content">
 		<div class="row">
-			<img class="col-md-4 report-content-image" src="reports_files/report-012-worker.jpg" id="worker-image">
-			<img class="col-md-4 report-content-image" src="reports_files/report-012-set.jpg" id="set-image">
-			<img class="col-md-4 report-content-image" src="reports_files/report-012-experience.jpg" id="experience-image">
+			<img class="col-md-4 report-content-image" src="images/report-012-worker.jpg" id="worker-image">
+			<img class="col-md-4 report-content-image" src="images/report-012-set.jpg" id="set-image">
+			<img class="col-md-4 report-content-image" src="images/report-012-experience.jpg" id="experience-image">
 		</div>
 		<div class="row">
 			<div class="col-md-12" id="report-content-description">
@@ -135,24 +124,25 @@ http://www.japan-guide.com/e/e3019.html 			</div>
 </div>	</div>
 </div>
 
+
 <footer class="footer">
 	<div class="container">
-		<p class="pull-left"><img class="footer-logo" src="reports_files/logo-only.png"></p>
+		<p class="pull-left"><img class="footer-logo" src="images/logo-only.png"></p>
 		<p class="pull-right">
-			<a href="http://localhost/samurai-meetups/web/index.php?r=site/about">About Us</a> | 
-			<a href="http://localhost/samurai-meetups/web/index.php?r=site/contact">Contact Us</a> | 
-			<a href="http://localhost/samurai-meetups/web/index.php?r=site/faq">FAQ</a> | 
-			<a href="http://localhost/samurai-meetups/web/index.php?r=site/privacy">Privacy Policy</a>
+			<a href="about.html">アバウト</a> | 
+			<a href="contact-us.html">問い合わせ</a> | 
+			<a href="coming-soon.html">FAQ</a> | 
+			<a href="privacy-policy.html">利用規約</a>
 		</p>
 	</div>
 </footer>
-<script src="reports_files/jquery.js"></script>
-<script src="reports_files/yii.js"></script>
-<script src="reports_files/site.js"></script>
-<script src="reports_files/bootstrap.js"></script>
-			<script src="reports_files/reports.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/yii.js"></script>
+<script src="js/site.js"></script>
+			<script src="js/index.js"></script>
 	
-<script src="reports_files/index.js"></script>
+<script src="js/index.js"></script>
 
 
 </div></body></html>

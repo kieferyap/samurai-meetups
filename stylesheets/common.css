@@ -1,5 +1,5 @@
 body {
-	background-image: url("http://localhost/samurai-meetups/web/images/background.jpg");
+	background-image: url("../images/background.jpg");
 	background-repeat: repeat;
 }
 
@@ -7,12 +7,12 @@ body {
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
 	max-height: 1000px;
 }
-/* Hover color of "Menu", "Lanuage", and the logo icons */ 
+/* Hover color of "メニュー", "Lanuage", and the logo icons */ 
 .navbar-nav li a:hover { 
   background-color: #C8F7C5 !important; 
   color: #000 !important; 
 } 
-/* On-click color for "Menu" */ 
+/* On-click color for "メニュー" */ 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus, 
 .my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus { 
   background-color: #26A65B; 
@@ -21,17 +21,17 @@ body {
 .my-navbar {
 	background-color: #004101;
 }
-/* Controls vertical offset of the "Menu", "Language", and the logo icons*/
+/* Controls vertical offset of the "メニュー", "Language", and the logo icons*/
 .navbar-nav li a {
 	padding-top: 18px;
 	color: #FFF;
 }
-/* Hover color of "Menu", "Lanuage", and the logo icons */
+/* Hover color of "メニュー", "Lanuage", and the logo icons */
 .navbar-nav li a:hover {
 	background-color: #C8F7C5;
 	color: #000;
 }
-/* On-click color for "Menu" */
+/* On-click color for "メニュー" */
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus,
 .my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus {
 	background-color: #004101;
