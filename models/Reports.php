@@ -12,7 +12,9 @@ use Yii;
  * @property string $worker_image_url
  * @property string $set_image_url
  * @property string $experience_image_url
+ * @property string $short_description
  * @property string $description
+ * @property string $inserted_on
  */
 class Reports extends \yii\db\ActiveRecord
 {
@@ -31,6 +33,8 @@ class Reports extends \yii\db\ActiveRecord
     {
         return [
             [['sidebar_image_url', 'worker_image_url', 'set_image_url', 'experience_image_url', 'description'], 'string'],
+            [['inserted_on'], 'safe'],
+            [['short_description'], 'string', 'max' => 128],
         ];
     }
 
@@ -45,7 +49,9 @@ class Reports extends \yii\db\ActiveRecord
             'worker_image_url' => 'Worker Image Url',
             'set_image_url' => 'Set Image Url',
             'experience_image_url' => 'Experience Image Url',
+            'short_description' => 'Short Description',
             'description' => 'Description',
+            'inserted_on' => 'Inserted On',
         ];
     }
 }

@@ -26,8 +26,7 @@ class FrontPageImageTypes extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['front_page_image_type_id'], 'integer'],
-            [['description'], 'string', 'max' => 128],
+            [['description'], 'string', 'max' => 64],
         ];
     }
 

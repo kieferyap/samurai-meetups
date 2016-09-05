@@ -13,7 +13,10 @@ nbproject
 Thumbs.db
 
 # composer vendor dir
-/vendor
+# /vendor
+
+# generated assets files
+/web/assets
 
 # composer itself is not needed
 composer.phar

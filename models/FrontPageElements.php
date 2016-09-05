@@ -7,8 +7,10 @@ use Yii;
 /**
  * This is the model class for table "front_page_elements".
  *
+ * @property integer $id
  * @property string $image_url
  * @property string $clickable_url
+ * @property string $description
  * @property integer $language_id
  * @property integer $front_page_image_type_id
  * @property string $inserted_on
@@ -29,9 +31,10 @@ class FrontPageElements extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image_url', 'clickable_url'], 'string'],
             [['language_id', 'front_page_image_type_id'], 'integer'],
             [['inserted_on'], 'safe'],
+            [['image_url', 'clickable_url'], 'string', 'max' => 64],
+            [['description'], 'string', 'max' => 128],
         ];
     }
 
@@ -41,8 +44,10 @@ class FrontPageElements extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id' => 'ID',
             'image_url' => 'Image Url',
             'clickable_url' => 'Clickable Url',
+            'description' => 'Description',
             'language_id' => 'Language ID',
             'front_page_image_type_id' => 'Front Page Image Type ID',
             'inserted_on' => 'Inserted On',
