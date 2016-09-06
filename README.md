@@ -19,9 +19,7 @@ Samurai Meetups is a non-profit organization which was launched with the strong 
 - The design verification test for v0.9.0 is located [here](https://docs.google.com/spreadsheets/d/1d8fwL-HnEUmXFkWt9uHddlgZ2GWuw8X9SjREG-VUt1s/edit?usp=sharing).
 
 ## Screenshots
-- Credits:
-	- Design: Tatsuaki Itoh
-	- Implementation: Kiefer Yap
+- Credits: Site design by [akitatsu95](https://github.com/akitatsu95), implementation by [kieferyap](https://github.com/kieferyap)
 - Browser View:
 
 ![Browser View](https://github.com/kieferyap/samurai-meetups/blob/master/web/images/demo-full.gif "Browser View")
