@@ -36,8 +36,8 @@ class Languages extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'language_id' => 'Language ID',
-            'description' => 'Description',
+            'language_id' => Yii::t('app', 'Language ID'),
+            'description' => Yii::t('app', 'Description'),
         ];
     }
 }

@@ -119,3 +119,11 @@
 	width: 100%;
 	margin-top: 20px;
 }
+
+.samurai-tour {
+	border: 2px solid green;
+}
+
+.discovery-tour {
+	border: 2px solid orange;
+}

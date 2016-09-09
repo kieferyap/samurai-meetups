@@ -25,7 +25,10 @@
 		height: 445px;
 	}
 	.bordered-image-triple {
-		width: 32%;
+		width: 350px;
+	}
+	#all-tours {
+		width: 1100px;
 	}
 }
 
@@ -36,6 +39,7 @@
 	padding: 0px;
 	border-radius: 10px;
 	opacity: 1;
+	float: left;
 }
 
 .bordered-image-triple:hover {
@@ -98,7 +102,26 @@
 	margin-top:-30px;
 	right: 10px;
 	width: 60%;
-	font-size: 200%;
+	font-size: 150%;
 	color: white;
 	text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#all-tours {
+	overflow-y: hidden;
+	overflow-x: scroll;
+	height: 280px;
+	white-space: nowrap;
+}
+
+#all-tours img {
+	margin-left: 10px;
+}
+
+.tour-image {
+	width: 350px;
+}
+
+.fb-page {
+	height:150px;
 }

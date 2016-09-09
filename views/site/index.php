@@ -31,38 +31,61 @@ $this->title = Yii::t('app', 'Samurai Meetups');
     </div>
     <div class="center-wrapper">    
         <div class="center-div">
-            <div class="row">
+            <div class="row" id="all-tours">
+                <a href="?r=site/tours&id=<?=$frontPageElements['tour-1'][0]['clickable_url']?>">
+                    <img class="tour-image" src="<?=Url::base().'images/'.$frontPageElements['tour-1'][0]['image_url']?>"/>
+                </a>
+                 <a href="?r=site/tours&id=<?=$frontPageElements['tour-2'][0]['clickable_url']?>">
+                <img class="tour-image" src="<?=Url::base().'images/'.$frontPageElements['tour-2'][0]['image_url']?>"/>
+                </a>
+                 <a href="?r=site/tours&id=<?=$frontPageElements['tour-3'][0]['clickable_url']?>">
+                <img class="tour-image" src="<?=Url::base().'images/'.$frontPageElements['tour-3'][0]['image_url']?>"/>
+                </a>
+                 <a href="?r=site/tours&id=<?=$frontPageElements['tour-1'][0]['clickable_url']?>">
+                <img class="tour-image" src="<?=Url::base().'images/'.$frontPageElements['tour-1'][0]['image_url']?>"/>
+                </a>
+
                 <?php
                 $images = [];
-                foreach($frontPageElements['tour-1'] as $element) {
-                    echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
-                    echo '<img class="col-md-4 bordered-image-triple" src="'
-                        .Url::base()
-                        .'images/'
-                        .$element['image_url']
-                        .'"/>';
-                    echo '</a>';
-                }
+                // foreach($frontPageElements['tour-1'] as $element) {
+                //     echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
+                //     echo '<img class="col-md-4 bordered-image-triple" src="'
+                //         .Url::base()
+                //         .'images/'
+                //         .$element['image_url']
+                //         .'"/>';
+                //     echo '</a>';
+                // }
 
-                foreach($frontPageElements['tour-2'] as $element) {
-                    echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
-                    echo '<img class="col-md-4 bordered-image-triple" src="'
-                        .Url::base()
-                        .'images/'
-                        .$element['image_url']
-                        .'"/>';
-                    echo '</a>';
-                }
+                // foreach($frontPageElements['tour-2'] as $element) {
+                //     echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
+                //     echo '<img class="col-md-4 bordered-image-triple" src="'
+                //         .Url::base()
+                //         .'images/'
+                //         .$element['image_url']
+                //         .'"/>';
+                //     echo '</a>';
+                // }
 
-                foreach($frontPageElements['tour-3'] as $element) {
-                    echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
-                    echo '<img class="col-md-4 bordered-image-triple" src="'
-                        .Url::base()
-                        .'images/'
-                        .$element['image_url']
-                        .'"/>';
-                    echo '</a>';
-                }
+                // foreach($frontPageElements['tour-3'] as $element) {
+                //     echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
+                //     echo '<img class="col-md-4 bordered-image-triple" src="'
+                //         .Url::base()
+                //         .'images/'
+                //         .$element['image_url']
+                //         .'"/>';
+                //     echo '</a>';
+                // }
+
+                // foreach($frontPageElements['tour-3'] as $element) {
+                //     echo '<a href="?r=site/tours&id='.$element['clickable_url'].'">';
+                //     echo '<img class="col-md-4 bordered-image-triple" src="'
+                //         .Url::base()
+                //         .'images/'
+                //         .$element['image_url']
+                //         .'"/>';
+                //     echo '</a>';
+                // }
                 ?>
             </div>
             <div class="row">
@@ -123,12 +146,11 @@ $this->title = Yii::t('app', 'Samurai Meetups');
     <br/>
     <div class="row">
         <div class="col-md-6">
-            <a href="<?=$frontPageElements['facebook'][0]['clickable_url']?>">
-            <img class="image-filled participation-voice-rectangle" src="<?=Url::base()
-                .'images/'
-                .$frontPageElements['facebook'][0]['image_url']
-                .''?>"/>
-            </a>
+            <div class="fb-page" data-href="https://www.facebook.com/samuraimeetups/?fref=ts" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-height="200" data-width="400">
+                <blockquote cite="https://www.facebook.com/samuraimeetups/?fref=ts" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/samuraimeetups/?fref=ts">Samurai Meetups</a>
+                </blockquote>
+            </div>
         </div>
         <div class="col-md-6">
             <a href="<?=Url::toRoute('site/samurai')?>">

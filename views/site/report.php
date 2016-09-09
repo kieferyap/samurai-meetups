@@ -32,7 +32,16 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 	<div class="col-md-4" id="report-sidebar">
 		<div id="report-sidebar-elements">
 			<?php foreach($reports as $element): ?>
-			<div class="col-md-12 report-sidebar-element border-radius-10" data-id="<?=$element['report_id']?>">
+			<?php 
+				$divClass = '';
+				if($element['type_id'] == 1) {
+					$divClass = 'samurai-tour';
+				}
+				else if ($element['type_id'] == 2) {
+					$divClass = 'discovery-tour';
+				}
+			?>
+			<div class="col-md-12 report-sidebar-element border-radius-10 <?=$divClass?>" data-id="<?=$element['report_id']?>">
 				<div class="col-md-2 report-sidebar-element-photo border-radius-10">
 					<img class="border-radius-10" src="<?=Url::base()?>images/<?=$element['sidebar_image_url']?>"/>
 				</div>

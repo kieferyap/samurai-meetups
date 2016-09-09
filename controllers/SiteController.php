@@ -72,6 +72,7 @@ class SiteController extends SamuraiController
 				->asArray()
 				->one();
 
+		// echo '<pre>'; print_r($tourElement); die();
 		// TO-DO: If ID not found, render error.
 		return $this->renderView('tours', [
 			'tourElement' => $tourElement,
@@ -92,15 +93,15 @@ class SiteController extends SamuraiController
 		$limitCount = 7;
 
 		$lastElements = Reports::find()
-			->select(['report_id', 'sidebar_image_url', 'short_description'])
-			->orderBy(['report_id' => SORT_DESC])
+			->select(['report_id', 'sidebar_image_url', 'short_description', 'type_id'])
+			->orderBy(['report_id' => SORT_ASC])
 			->asArray()
 			->limit($limitCount)
 			->all();
 
 		$firstElement = Reports::find()
 			->select(['worker_image_url', 'set_image_url', 'experience_image_url', 'description'])
-			->orderBy(['report_id' => SORT_DESC])
+			->orderBy(['report_id' => SORT_ASC])
 			->asArray()
 			->one();
 
@@ -125,8 +126,8 @@ class SiteController extends SamuraiController
 		
 		$lastElements = Reports::find()
 			->select(['report_id', 'sidebar_image_url', 'short_description'])
-			->orderBy(['report_id' => SORT_DESC])
-			->where(['<', 'report_id', $_POST['id']])
+			->orderBy(['report_id' => SORT_ASC])
+			->where(['>', 'report_id', $_POST['id']])
 			->asArray()
 			->limit($limitCount)
 			->all();

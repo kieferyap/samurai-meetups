@@ -36,8 +36,8 @@ class FrontPageImageTypes extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'front_page_image_type_id' => 'Front Page Image Type ID',
-            'description' => 'Description',
+            'front_page_image_type_id' => Yii::t('app', 'Front Page Image Type ID'),
+            'description' => Yii::t('app', 'Description'),
         ];
     }
 }

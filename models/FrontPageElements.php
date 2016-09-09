@@ -44,13 +44,13 @@ class FrontPageElements extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'image_url' => 'Image Url',
-            'clickable_url' => 'Clickable Url',
-            'description' => 'Description',
-            'language_id' => 'Language ID',
-            'front_page_image_type_id' => 'Front Page Image Type ID',
-            'inserted_on' => 'Inserted On',
+            'id' => Yii::t('app', 'ID'),
+            'image_url' => Yii::t('app', 'Image Url'),
+            'clickable_url' => Yii::t('app', 'Clickable Url'),
+            'description' => Yii::t('app', 'Description'),
+            'language_id' => Yii::t('app', 'Language ID'),
+            'front_page_image_type_id' => Yii::t('app', 'Front Page Image Type ID'),
+            'inserted_on' => Yii::t('app', 'Inserted On'),
         ];
     }
 }
