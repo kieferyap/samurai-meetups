@@ -3,18 +3,22 @@ chmod 400 public_key.pem
 ssh -i public_key.pem ubuntu@0.0.0.0
 
 # PHP/MySQL/etc Server setup
+sudo apt-get update
 sudo apt-get install apache2 php5 libapache2-mod-php5 mysql-server libapache2-mod-auth-mysql php5-mysql phpmyadmin git
 
 # GIT Config
 cd /var/www/html/
 git config --global user.name "Awesomenite Dragonite"
 git config --global user.email askawesomenitedragonite@gmail.com
-git init
-git remote add origin https://github.com/kieferyap/samurai-meetups.git
-git pull origin master
+sudo git init
+sudo git remote add origin https://github.com/kieferyap/samurai-meetups.git
+sudo git pull origin master
 
 # Switching to the correct branch
-git checkout --track -b feature/04-image-change origin/04-image-change
+git remote show origin
+sudo git remote update
+sudo git fetch
+sudo git checkout --track -b feature/04-image-change origin/feature/04-image-change
 
 # Installing PHPMyAdmin
 cd /var/www/html
