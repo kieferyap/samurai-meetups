@@ -125,7 +125,7 @@ class SiteController extends SamuraiController
 		$limitCount = 7;
 		
 		$lastElements = Reports::find()
-			->select(['report_id', 'sidebar_image_url', 'short_description'])
+			->select(['report_id', 'sidebar_image_url', 'short_description', 'type_id'])
 			->orderBy(['report_id' => SORT_ASC])
 			->where(['>', 'report_id', $_POST['id']])
 			->asArray()
@@ -258,8 +258,12 @@ class SiteController extends SamuraiController
 		return $this->renderView('coming-soon');
 	}
 
-	public function actionStarbucks()
+	public function actionTos2()
 	{
-		return $this->renderView('starbucks');
+		$this->addCssFile('privacy.css');
+		
+		return $this->renderView('tos2', [
+			'termsOfService' => Yii::$app->params['termsOfService'],
+		]);
 	}
 }

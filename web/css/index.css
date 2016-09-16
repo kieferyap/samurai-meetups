@@ -12,7 +12,8 @@
 	.footer {
 		display: none;
 	}
-	.bordered-image-triple {
+	.bordered-image-triple,
+	.bordered-image-tours {
 		width: 90%;
 	}
 
@@ -24,7 +25,8 @@
 		width: 720px;
 		height: 445px;
 	}
-	.bordered-image-triple {
+	.bordered-image-triple,
+	.bordered-image-tours {
 		width: 350px;
 	}
 	#all-tours {
@@ -43,6 +45,16 @@
 }
 
 .bordered-image-triple:hover {
+	border: 5px solid black;
+	opacity: 0.7;
+}
+
+.bordered-image-tours {
+	border: 5px solid #999;
+	border-radius: 10px;
+}
+
+.bordered-image-tours:hover {
 	border: 5px solid black;
 	opacity: 0.7;
 }

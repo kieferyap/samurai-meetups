@@ -122,3 +122,7 @@ a.desc:after {
 .center-wrapper {
 	text-align: center;
 }
+
+hr {
+	border-color: #333;
+}

@@ -33,16 +33,16 @@ $this->title = Yii::t('app', 'Samurai Meetups');
         <div class="center-div">
             <div class="row" id="all-tours">
                 <a href="?r=site/tours&id=<?=$frontPageElements['tour-1'][0]['clickable_url']?>">
-                    <img class="tour-image" src="<?=Url::base().'images/'.$frontPageElements['tour-1'][0]['image_url']?>"/>
+                    <img class="tour-image bordered-image-tours" src="<?=Url::base().'images/'.$frontPageElements['tour-1'][0]['image_url']?>"/>
                 </a>
-                 <a href="?r=site/tours&id=<?=$frontPageElements['tour-2'][0]['clickable_url']?>">
-                <img class="tour-image" src="<?=Url::base().'images/'.$frontPageElements['tour-2'][0]['image_url']?>"/>
+                <a href="?r=site/tours&id=<?=$frontPageElements['tour-2'][0]['clickable_url']?>">
+                    <img class="tour-image bordered-image-tours" src="<?=Url::base().'images/'.$frontPageElements['tour-2'][0]['image_url']?>"/>
                 </a>
-                 <a href="?r=site/tours&id=<?=$frontPageElements['tour-3'][0]['clickable_url']?>">
-                <img class="tour-image" src="<?=Url::base().'images/'.$frontPageElements['tour-3'][0]['image_url']?>"/>
+                <a href="?r=site/tours&id=<?=$frontPageElements['tour-3'][0]['clickable_url']?>">
+                    <img class="tour-image bordered-image-tours" src="<?=Url::base().'images/'.$frontPageElements['tour-3'][0]['image_url']?>"/>
                 </a>
-                 <a href="?r=site/tours&id=<?=$frontPageElements['tour-1'][0]['clickable_url']?>">
-                <img class="tour-image" src="<?=Url::base().'images/'.$frontPageElements['tour-1'][0]['image_url']?>"/>
+                <a href="?r=site/tours&id=<?=$frontPageElements['tour-1'][0]['clickable_url']?>">
+                    <img class="tour-image bordered-image-tours" src="<?=Url::base().'images/'.$frontPageElements['tour-1'][0]['image_url']?>"/>
                 </a>
 
                 <?php

@@ -63,19 +63,10 @@
 }
 
 .report-sidebar-element {
-	background-color: rgba(200,247,197,0.6);
 	height: 100px;
 	padding: 10px;
 	cursor: pointer;
 	margin-top: 20px;
-}
-
-.report-sidebar-element:hover {
-	background-color: rgba(200,247,197,0.3);
-}
-
-.report-sidebar-element:active {
-	background-color: rgba(200,247,197,1.0);
 }
 
 .report-sidebar-element-photo {
@@ -121,9 +112,25 @@
 }
 
 .samurai-tour {
-	border: 2px solid green;
+	background-color: rgba(200,247,197,0.6);
+}
+
+.samurai-tour:hover {
+	background-color: rgba(200,247,197,0.3);
+}
+
+.samurai-tour:active {
+	background-color: rgba(200,247,197,1.0);
 }
 
 .discovery-tour {
-	border: 2px solid orange;
+	background-color: rgba(247,230,197,0.6);
+}
+
+.discovery-tour:hover {
+	background-color: rgba(247,230,197,0.3);
+}
+
+.discovery-tour:active {
+	background-color: rgba(247,230,197,1.0);
 }

@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=samurai_meetups',
+    'dsn' => 'mysql:host=52.198.35.236;dbname=samurai_meetups',
     'username' => 'root',
-    'password' => '',
+    'password' => 'samurai',
     'charset' => 'utf8',
 ];

@@ -15,7 +15,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 <br/>
 <hr/>
 
-<h1><?= Yii::t('app', 'Event Summary')?></h1>
+<h3><?= Yii::t('app', 'Event Summary')?></h3>
 <div class="row">
 	<div class="col-md-12" id="tour-description">
 		<?=$tourElement['event_summary']?>
@@ -23,35 +23,35 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 </div>
 <br/>
 
-<h1><?= Yii::t('app', 'Meeting Time and Place')?></h1>
+<h3><?= Yii::t('app', 'Meeting Time and Place')?></h3>
 <div class="row">
 	<div class="col-md-12" id="tour-description">
 		<?=$tourElement['meeting_time_and_place']?>
 	</div>
 </div>
 <br/>
-<h1><?= Yii::t('app', 'Place for visit and tips')?></h1>
+<h3><?= Yii::t('app', 'Place for visit and tips')?></h3>
 <div class="row">
 	<div class="col-md-12" id="tour-description">
 		<?=$tourElement['place_for_visit_and_tips']?>
 	</div>
 </div>
 <br/>
-<h1><?= Yii::t('app', 'Time schedule')?></h1>
+<h3><?= Yii::t('app', 'Time schedule')?></h3>
 <div class="row">
 	<div class="col-md-12" id="tour-description">
 		<?=$tourElement['time_schedule']?>
 	</div>
 </div>
 <br/>
-<h1><?= Yii::t('app', 'Price')?></h1>
+<h3><?= Yii::t('app', 'Price')?></h3>
 <div class="row">
 	<div class="col-md-12" id="tour-description">
 		<?=$tourElement['price']?>
 	</div>
 </div>
 <br/>
-<h1><?= Yii::t('app', 'SAMURAI information')?></h1>
+<h3><?= Yii::t('app', 'SAMURAI information')?></h3>
 <div class="row">
 	<div class="col-md-12" id="tour-description">
 		<?=$tourElement['samurai_information']?>
@@ -68,7 +68,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 <div class="row">
 	<div class="col-md-5 col-md-offset-4">
 		<div class="checkbox">
-		  <label><input type="checkbox" id="terms-of-service-checkbox" value=""><?= Yii::t('app', 'I have read and agreed to the Terms of Service and Privacy Policy and <a href="http://google.com">Google</a>')?></label>
+		  <label><input type="checkbox" id="terms-of-service-checkbox" value=""><?= Yii::t('app', 'I have read and agreed to the Terms of Service and Privacy Policy and <a href="'.Url::toRoute('site/tos2').'">the Second Terms of Service</a>')?></label>
 		</div>
 	</div>
 </div>
