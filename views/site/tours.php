@@ -68,7 +68,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 <div class="row">
 	<div class="col-md-5 col-md-offset-4">
 		<div class="checkbox">
-		  <label><input type="checkbox" id="terms-of-service-checkbox" value=""><?= Yii::t('app', 'I have read and agreed to the Terms of Service and Privacy Policy and <a href="'.Url::toRoute('site/tos2').'">the Second Terms of Service</a>')?></label>
+		  <label><input type="checkbox" id="terms-of-service-checkbox" value=""><?= Yii::t('app', 'I have read and agreed to the Terms of Service and Privacy Policy') /*and <a href="'.Url::toRoute('site/tos2').'">the Second Terms of Service</a>')*/?></label>
 		</div>
 	</div>
 </div>

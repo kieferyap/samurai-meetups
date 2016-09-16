@@ -116,8 +116,8 @@ It's used in index.js, I believe.
 			<a href="<?=Url::toRoute('site/about')?>"><?= Yii::t('app', 'About Us')?></a> | 
 			<a href="<?=Url::toRoute('site/contact')?>"><?= Yii::t('app', 'Contact Us')?></a> | 
 			<a href="<?=Url::toRoute('site/faq')?>"><?= Yii::t('app', 'FAQ')?></a> | 
-			<a href="<?=Url::toRoute('site/privacy')?>"><?= Yii::t('app', 'Privacy Policy')?></a> |
-			<a href="<?=Url::toRoute('site/tos2')?>"><?= Yii::t('app', 'Terms of Service')?></a>
+			<a href="<?=Url::toRoute('site/privacy')?>"><?= Yii::t('app', 'Privacy Policy')?></a> <?php /*|
+			<a href="<?=Url::toRoute('site/tos2')?>"><?= Yii::t('app', 'Terms of Service')?></a>*/?>
 		</p>
 	</div>
 </footer>
