@@ -60,7 +60,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 <br/>
 
 <hr/>
-<h1><?= Yii::t('app', 'Privacy Policy')?></h1>
+<h2><?= Yii::t('app', 'Terms of Service')?>, <?= Yii::t('app', 'Privacy Policy')?> <?= Yii::t('app', 'and')?> <?= Yii::t('app', 'Specified Commercial Transactions Law')?></h2>
 <div class="row">
 	<?=$termsOfService?>
 </div>
@@ -68,7 +68,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 <div class="row">
 	<div class="col-md-5 col-md-offset-4">
 		<div class="checkbox">
-		  <label><input type="checkbox" id="terms-of-service-checkbox" value=""><?= Yii::t('app', 'I have read and agreed to the Terms of Service and Privacy Policy') /*and <a href="'.Url::toRoute('site/tos2').'">the Second Terms of Service</a>')*/?></label>
+		  <label><input type="checkbox" id="terms-of-service-checkbox" value=""><?= Yii::t('app', 'I have read and agreed to the Terms of Service, Privacy Policy, and the Specified Commercial Transactions Law')?></label>
 		</div>
 	</div>
 </div>
