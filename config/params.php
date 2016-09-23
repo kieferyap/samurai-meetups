@@ -5,4 +5,5 @@ return [
     'facebook' => 'http://facebook.com/samuraimeetups',
     'twitter' => 'http://twitter.com/',
     'instagram' => 'http://instagram.com/',
+    'header' => '<div id="samurai-header">SAMURAI <span id="meet-header">MEET</span>UPS</div>',
 ];

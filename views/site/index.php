@@ -114,12 +114,12 @@ $this->title = Yii::t('app', 'Samurai Meetups');
         }
         ?>
         <?php foreach($voices as $voice):?>
-        <div class="col-md-5 participation-voice-rectangle">
+        <div class="participation-voice-rectangle">
             <img 
-                class="participation-voice-circle"
+                class="col-md-3 participation-voice-image"
                 src="<?=$imageBase?><?=$voice['image']?>"
             >
-            <div class="participation-voice-text">
+            <div class="col-md-9 participation-voice-text">
                 <?=$voice['text']?>
             </div>
         </div>
@@ -127,12 +127,14 @@ $this->title = Yii::t('app', 'Samurai Meetups');
     </div>
     <br/>
     <div class="row">
-        <div class="col-md-6">
-            <div class="fb-page" data-href="https://www.facebook.com/samuraimeetups/?fref=ts" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-height="200" data-width="400">
-                <blockquote cite="https://www.facebook.com/samuraimeetups/?fref=ts" class="fb-xfbml-parse-ignore">
-                    <a href="https://www.facebook.com/samuraimeetups/?fref=ts">Samurai Meetups</a>
-                </blockquote>
-            </div>
+        <div class="facebook-like col-md-6">
+            <center>
+                <div class="fb-page" data-href="https://www.facebook.com/samuraimeetups/?fref=ts" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-height="200" data-width="400">
+                    <blockquote cite="https://www.facebook.com/samuraimeetups/?fref=ts" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/samuraimeetups/?fref=ts">Samurai Meetups</a>
+                    </blockquote>
+                </div>
+            </center>
         </div>
         <div class="col-md-6">
             <a href="<?=Url::toRoute('site/samurai')?>">

@@ -48,9 +48,9 @@ It's used in index.js, I believe.
 
 <div class="wrap">
 	<?php
-	$headerIcon = '<img id="header-logo" src="'.Url::base().'images/logo.png">';
+	// $headerIcon = '<img id="header-logo" src="'.Url::base().'images/logo.png">';
 	NavBar::begin([
-		'brandLabel' => $headerIcon,
+		'brandLabel' => Yii::$app->params['header'],
 		'brandUrl' => Yii::$app->homeUrl,
 		'options' => [
 			'class' => 'my-navbar navbar-fixed-top',
