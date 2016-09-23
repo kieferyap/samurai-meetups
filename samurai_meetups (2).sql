@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2016 年 9 月 14 日 11:28
+-- Generation Time: 2016 年 9 月 23 日 09:51
 -- サーバのバージョン： 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -51,11 +51,11 @@ INSERT INTO `front_page_elements` (`id`, `image_url`, `clickable_url`, `descript
 (9, 'about.jpg', NULL, NULL, 2, 3, '2016-08-09 03:26:50'),
 (10, 'top_report.jpg', NULL, NULL, 2, 4, '2016-08-09 03:31:34'),
 (11, 'samurai.jpg', NULL, NULL, 2, 5, '2016-08-09 03:32:04'),
-(12, '', NULL, NULL, 2, 6, '2016-08-09 03:36:25'),
-(13, '', NULL, NULL, 2, 6, '2016-08-09 03:37:11'),
+(12, 'voice_box01.jpg', NULL, NULL, 2, 6, '2016-08-09 03:36:25'),
+(13, 'voice_box02.jpg', NULL, NULL, 2, 6, '2016-08-09 03:37:11'),
 (14, 'voice_ben.png', NULL, NULL, 2, 7, '2016-08-09 03:38:02'),
 (15, 'voice_cat.png', NULL, NULL, 2, 7, '2016-08-09 03:38:21'),
-(16, NULL, NULL, '', 2, 8, '2016-08-09 03:39:41'),
+(16, NULL, NULL, 'The tour was great.everyone is really friendly and helpful. It was fun doing something creative in a relaxed environment.', 2, 8, '2016-08-09 03:39:41'),
 (17, NULL, NULL, 'Making Edo Kiriko was so much fun!<br/>I me a lot of new people and experienced a lot of things.', 2, 8, '2016-08-09 03:40:51'),
 (18, 'facebook-voice-5.png', 'https://www.facebook.com/samuraimeetups', NULL, 2, 9, '2016-08-09 03:41:59'),
 (19, 'clip_art.png', NULL, NULL, 2, 10, '2016-08-09 03:44:47'),
