@@ -9,9 +9,9 @@
 	}
 }
 
-@media (max-width: 350px) {
+@media (max-width: 400px) {
 	table {
-		margin-left: -50px;
+		margin-left: -35px;
 	}
 }
 
