@@ -12,6 +12,7 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'C9QrAgn7ORFeogp3n9Tb_FekEW42WJfM',
             'baseUrl' => 'http://localhost/samurai-meetups/web/',
+            // 'baseUrl' => 'http://samuraimeetups.or.jp/',
         ],
 
         'cache' => [

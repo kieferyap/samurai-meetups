@@ -14,15 +14,40 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 </div>
 <br/>
 <hr/>
-<h1><?= Yii::t('app', 'Tour Information')?></h1>
+
+<h3><?= Yii::t('app', 'Tour Information')?></h3>
 <div class="row">
 	<div class="col-md-12" id="tour-description">
-		<?=$tourElement['description']?>
+	<table class="table table-striped table-bordered">
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Event Summary')?></td>
+			<td class="value"><?=$tourElement['event_summary']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Meeting Time and Place')?></td>
+			<td class="value"><?=$tourElement['meeting_time_and_place']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Place for visit and tips')?></td>
+			<td class="value"><?=$tourElement['place_for_visit_and_tips']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Time schedule')?></td>
+			<td class="value"><?=$tourElement['time_schedule']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Price')?></td>
+			<td class="value"><?=$tourElement['price']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'SAMURAI information')?></td>
+			<td class="value"><?=$tourElement['samurai_information']?></td>
+		</tr>
+	</table>
 	</div>
 </div>
-<br/>
 <hr/>
-<h1><?= Yii::t('app', 'Privacy Policy')?></h1>
+<h2><?= Yii::t('app', 'Terms of Service')?>, <?= Yii::t('app', 'Privacy Policy')?> <?= Yii::t('app', 'and')?> <?= Yii::t('app', 'Specified Commercial Transactions Law')?></h2>
 <div class="row">
 	<?=$termsOfService?>
 </div>
@@ -30,7 +55,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 <div class="row">
 	<div class="col-md-5 col-md-offset-4">
 		<div class="checkbox">
-		  <label><input type="checkbox" id="terms-of-service-checkbox" value=""><?= Yii::t('app', 'I have read and agreed to the Terms of Service and Privacy Policy')?></label>
+		  <label><input type="checkbox" id="terms-of-service-checkbox" value=""><?= Yii::t('app', 'I have read and agreed to the Terms of Service, Privacy Policy, and the Specified Commercial Transactions Law')?></label>
 		</div>
 	</div>
 </div>
