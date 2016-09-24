@@ -19,11 +19,17 @@ $(document).ready(function() {
 						reportId = element['report_id'];
 						var shortDescription = element['short_description'];
 						var sidebarImageUrl = element['sidebar_image_url'];
+						var typeClass = element['type_id'] == 1 ? 'samurai-tour' : 'discovery-tour';
 						sidebarImageUrl = $('#report-information').data('base-image-url')+sidebarImageUrl;
 
 						$('#new-report-element .report-sidebar-element').attr('data-id', reportId);
 						$('#new-report-element .report-sidebar-element .report-sidebar-element-photo img').attr('src', sidebarImageUrl);
 						$('#new-report-element .report-sidebar-element .report-sidebar-element-text').html(shortDescription);
+
+						$('#new-report-element .report-sidebar-element').removeClass('samurai-tour');
+						$('#new-report-element .report-sidebar-element').removeClass('discovery-tour');
+						$('#new-report-element .report-sidebar-element').addClass(typeClass);
+
 						$('#report-sidebar-elements').append($('#new-report-element').html());
 					}
 

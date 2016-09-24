@@ -1,4 +1,5 @@
 body {
+	/*background-image: url("http://samuraimeetups.or.jp/images/background.jpg");*/
 	background-image: url("http://localhost/samurai-meetups/web/images/background.jpg");
 	background-repeat: repeat;
 }
@@ -19,7 +20,7 @@ body {
   color: #FFF; 
 } 
 .my-navbar {
-	background-color: #004101;
+	background-color: #5DAC81;
 }
 /* Controls vertical offset of the "Menu", "Language", and the logo icons*/
 .navbar-nav li a {
@@ -34,12 +35,11 @@ body {
 /* On-click color for "Menu" */
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus,
 .my-navbar > .icon-bar, .nav > li > a:hover, .nav > li > a:focus {
-	background-color: #004101;
+	background-color: #5DAC81;
 	color: #FFF;
 }
 /* Controls position of header logo */ 
 .navbar-header a {
-	padding-top: 4px;
 	padding-bottom: 5px;
 	padding-right: 0px;
 }
@@ -54,7 +54,7 @@ body {
 /*Dropdown menu background color*/
 .navbar-nav li .dropdown-menu {
 	background-color: #26A65B;
-	color: #000;
+	color: #5DAC81;
 } 
 
 .icon-bar {
@@ -62,7 +62,7 @@ body {
 }
 
 .navbar-collapse {
-	background-color: #004101;    
+	background-color: #5DAC81;    
 }
 
 .dropdown-menu li a:focus {
@@ -87,26 +87,25 @@ body {
 	.navbar-brand {
 		width: 70%;
 	}
-}
-
-
-@media (min-width: 771px) and (max-width: 991px) {
-	.navbar-header {
-		width: 50%;
+	#samurai-header {
+		font-size: 100%;
 	}
 }
+
 
 @media (max-width: 991px) {
 	.navbar-brand {
 		height: 50px;
 		
 	}
-	#header-logo {
-		height: 50px;
-		width: 100%;
-	}
 	.col-md-4 {
 		margin-top: 10px;
+	}
+
+	.footer > .container > .pull-right{
+		width: 75%;
+		text-align: right;
+		margin-top: -5px;
 	}
 }
 
@@ -114,10 +113,19 @@ body {
 	.navbar-collapse .navbar-nav li ul li{
 		border-left: 0px;
 	}
-	#header-logo {
-		height: 50px;
-		width: 445px;
+	#samurai-header {
+		font-size: 170%;
 	}
+}
+
+#samurai-header {
+	color: white;
+	position: relative;
+	top: 5px;
+}
+
+#meet-header {
+	color: red;
 }
 
 #header-logo {
@@ -125,7 +133,7 @@ body {
 }
 
 .footer {
-	background-color: #004101;
+	background-color: #5DAC81;
 	color: white;
 	height: 67px;
 }

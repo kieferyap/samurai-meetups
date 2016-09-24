@@ -31,6 +31,7 @@ AppAsset::register($this);
 	<?php endif; ?>
 </head>
 <body>
+
 <?php $this->beginBody() ?>
 
 <!-- 
@@ -47,9 +48,9 @@ It's used in index.js, I believe.
 
 <div class="wrap">
 	<?php
-	$headerIcon = '<img id="header-logo" src="'.Url::base().'images/logo.png">';
+	// $headerIcon = '<img id="header-logo" src="'.Url::base().'images/logo.png">';
 	NavBar::begin([
-		'brandLabel' => $headerIcon,
+		'brandLabel' => Yii::$app->params['header'],
 		'brandUrl' => Yii::$app->homeUrl,
 		'options' => [
 			'class' => 'my-navbar navbar-fixed-top',
@@ -61,11 +62,26 @@ It's used in index.js, I believe.
 			[
 				'label' => '<span class="header-menu">'.Yii::t('app', 'Menu').'</span>', 
 				'items' => [
-					['label' => Yii::t('app', 'Upcoming Tours'), 'url' => Url::base()],
-					['label' => Yii::t('app', 'About'), 'url' => Url::toRoute('site/about')],
-					['label' => Yii::t('app', 'Reports'), 'url' => Url::toRoute('site/report')],
-					['label' => Yii::t('app', 'Samurai'), 'url' => Url::toRoute('site/samurai')],
-					['label' => Yii::t('app', 'Testimonies'), 'url' => Url::toRoute('site/samurai')],
+					[
+						'label' => Yii::t('app', 'Upcoming Tours'), 
+						'url' => Url::base()
+					],
+					[
+						'label' => Yii::t('app', 'About'), 
+						'url' => Url::toRoute('site/about')
+					],
+					[
+						'label' => Yii::t('app', 'Reports'), 
+						'url' => Url::toRoute('site/report')
+					],
+					[
+						'label' => Yii::t('app', 'SAMURAI'), 
+						'url' => Url::toRoute('site/samurai')
+					],
+					[
+						'label' => Yii::t('app', 'Contact Us'), 
+						'url' => Url::toRoute('site/contact')
+					],
 				], 
 				'encode' => false],
 			[
@@ -77,17 +93,17 @@ It's used in index.js, I believe.
 			],
 			[
 				'label' => '<img id="facebook-icon" src="'.Url::base().'images/facebook-logo.png">', 
-				'url' => 'https://www.facebook.com/samuraimeetups', 
+				'url' => Yii::$app->params['facebook'], 
 				'encode' => false
 			],
 			[
 				'label' => '<img id="twitter-icon" src="'.Url::base().'images/twitter-logo.png">', 
-				'url' => Url::toRoute('site/samurai'), 
+				'url' => Yii::$app->params['twitter'], 
 				'encode' => false
 			],
 			[
 				'label' => '<img id="twitter-icon" src="'.Url::base().'images/instagram-logo.png">', 
-				'url' => Url::toRoute('site/samurai'), 
+				'url' => Yii::$app->params['instagram'], 
 				'encode' => false
 			]
 		],
@@ -103,10 +119,18 @@ It's used in index.js, I believe.
 	<div class="container">
 		<p class="pull-left"><img class="footer-logo" src="<?=Url::base()?>images/logo-only.png"></p>
 		<p class="pull-right">
-			<a href="?r=site/about"><?= Yii::t('app', 'About Us')?></a> | 
-			<a href="?r=site/contact"><?= Yii::t('app', 'Contact Us')?></a> | 
-			<a href="?r=site/faq"><?= Yii::t('app', 'FAQ')?></a> | 
-			<a href="?r=site/privacy"><?= Yii::t('app', 'Privacy Policy')?></a>
+			<a href="<?=Url::toRoute('site/about')?>">
+				<?= Yii::t('app', 'About Us')?>
+			</a> | 
+			<a href="<?=Url::toRoute('site/contact')?>">
+				<?= Yii::t('app', 'Contact Us')?>
+			</a> | 
+			<a href="<?=Url::toRoute('site/faq')?>">
+				<?= Yii::t('app', 'FAQ')?>
+			</a> | 
+			<a href="<?=Url::toRoute('site/privacy')?>">
+				<?= Yii::t('app', 'Privacy Policy')?>
+			</a>
 		</p>
 	</div>
 </footer>

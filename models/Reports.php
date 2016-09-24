@@ -7,13 +7,16 @@ use Yii;
 /**
  * This is the model class for table "reports".
  *
- * @property integer $report_id
+ * @property integer $id
  * @property string $sidebar_image_url
  * @property string $worker_image_url
  * @property string $set_image_url
  * @property string $experience_image_url
- * @property string $short_description
- * @property string $description
+ * @property string $short_description_en
+ * @property string $short_description_jp
+ * @property string $description_en
+ * @property string $description_jp
+ * @property integer $type_id
  * @property string $inserted_on
  */
 class Reports extends \yii\db\ActiveRecord
@@ -32,9 +35,10 @@ class Reports extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['sidebar_image_url', 'worker_image_url', 'set_image_url', 'experience_image_url', 'description'], 'string'],
+            [['sidebar_image_url', 'worker_image_url', 'set_image_url', 'experience_image_url', 'short_description_jp', 'description_en', 'description_jp'], 'string'],
+            [['type_id'], 'integer'],
             [['inserted_on'], 'safe'],
-            [['short_description'], 'string', 'max' => 128],
+            [['short_description_en'], 'string', 'max' => 128],
         ];
     }
 
@@ -44,13 +48,16 @@ class Reports extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'report_id' => 'Report ID',
+            'id' => 'ID',
             'sidebar_image_url' => 'Sidebar Image Url',
             'worker_image_url' => 'Worker Image Url',
             'set_image_url' => 'Set Image Url',
             'experience_image_url' => 'Experience Image Url',
-            'short_description' => 'Short Description',
-            'description' => 'Description',
+            'short_description_en' => 'Short Description En',
+            'short_description_jp' => 'Short Description Jp',
+            'description_en' => 'Description En',
+            'description_jp' => 'Description Jp',
+            'type_id' => 'Type ID',
             'inserted_on' => 'Inserted On',
         ];
     }

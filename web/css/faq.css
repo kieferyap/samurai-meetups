@@ -1,0 +1,16 @@
+
+.faq-container {
+	margin-top: 10px;
+	padding: 50px;
+	background-color: rgba(200,247,197,0.3);
+	border-radius: 20px;
+}
+
+.question {
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.answer {
+	margin-top: 10px;
+}
