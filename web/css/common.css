@@ -87,6 +87,9 @@ body {
 	.navbar-brand {
 		width: 70%;
 	}
+	#samurai-header {
+		font-size: 100%;
+	}
 }
 
 
@@ -98,17 +101,25 @@ body {
 	.col-md-4 {
 		margin-top: 10px;
 	}
+
+	.footer > .container > .pull-right{
+		width: 75%;
+		text-align: right;
+		margin-top: -5px;
+	}
 }
 
 @media (min-width: 992px) {
 	.navbar-collapse .navbar-nav li ul li{
 		border-left: 0px;
 	}
+	#samurai-header {
+		font-size: 170%;
+	}
 }
 
 #samurai-header {
 	color: white;
-	font-size: 170%;
 	position: relative;
 	top: 5px;
 }

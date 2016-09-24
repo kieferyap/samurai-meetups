@@ -7,6 +7,7 @@ use yii\web\Controller;
 use app\models\SiteSettings;
 use app\models\Tours;
 use app\models\Reports;
+use app\models\Faq;
 
 use app\models\ContactForm;
 
@@ -220,8 +221,27 @@ class SiteController extends SamuraiController
 	 */
 	public function actionFaq()
 	{
+		$this->addCssFile('faq.css');
+		$questionId = 
+			$this->getSessionLanguageCode() == 'en' ? 
+			'question_en' : 
+			'question_jp';
+		$answerId = 
+			$this->getSessionLanguageCode() == 'en' ? 
+			'answer_en' : 
+			'answer_jp';
+		$faq = Faq::find()
+			->select(['question' => $questionId, 'answer' => $answerId])
+			->asArray()
+			->all();
+
+		if (count($faq)) {
+			return $this->renderView('faq', [
+				'faq' => $faq
+			]);
+		}
+
 		return $this->showComingSoon();
-		// return $this->renderView('faq');
 	}
 
 
@@ -295,15 +315,6 @@ class SiteController extends SamuraiController
 	public function showComingSoon()
 	{
 		return $this->renderView('coming-soon');
-	}
-
-	public function actionTos2()
-	{
-		$this->addCssFile('privacy.css');
-		
-		return $this->renderView('tos2', [
-			'termsOfService' => Yii::$app->params['termsOfService'],
-		]);
 	}
 
 	private function getPrivacyPolicyAndFriends()

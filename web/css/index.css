@@ -7,12 +7,10 @@
 	.carousel-inner > .item > img {
 		width: 100%;
 	}
-	.footer {
-		display: none;
-	}
 	.bordered-image-triple,
 	.bordered-image-tours {
 		width: 95%;
+		margin-left: 5px;
 		margin-top: 10px;
 	}
 	.participation-voice-rectangle {
@@ -25,9 +23,9 @@
 		margin-top: 20px;
 	}
 	.participation-voice-image {
-		width: 20%;
-		height: 20%;
-		margin-left: 40%;
+		width: 40%;
+		height: 40%;
+		margin-left: 30%;
 	}
 }
 
@@ -39,7 +37,8 @@
 	}
 	.bordered-image-triple,
 	.bordered-image-tours {
-		width: 300px;
+		width: 30%;
+		margin-left: 3%;
 	}
 	.participation-voice-rectangle {
 		width: 45%;
@@ -69,7 +68,6 @@
 
 .bordered-image-triple {
 	border: 5px solid #999;
-	margin-left: 10px;
 	padding: 0px;
 	border-radius: 10px;
 	opacity: 1;
@@ -98,7 +96,7 @@
 } 
 
 .carousel-indicators {
-	background-color: rgba(0,65,1,0.6);
+	background-color: rgba(0,0,0,0.6);
 	border-radius: 20px;
 	width: 130px;
 	margin-left: -65px;
@@ -106,19 +104,19 @@
 }
 
 .carousel-control.right {
-	background-image: linear-gradient(to right, transparent 0%, rgba(0,65,1,0.1) 100%);
+	background-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 100%);
 }
 
 .carousel-control.right:hover {
-	background-image: linear-gradient(to right, transparent 0%, rgba(0,65,1,0.5) 100%);
+	background-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 100%);
 }
 
 .carousel-control.left {
-	background-image: linear-gradient(to left, transparent 0%, rgba(0,65,1,0.1) 100%);
+	background-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.1) 100%);
 }
 
 .carousel-control.left:hover {
-	background-image: linear-gradient(to left, transparent 0%, rgba(0,65,1,0.5) 100%);
+	background-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.5) 100%);
 }
 
 .mid-top-text {

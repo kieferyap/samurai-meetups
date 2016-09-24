@@ -15,50 +15,37 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 <br/>
 <hr/>
 
-<h3><?= Yii::t('app', 'Event Summary')?></h3>
+<h3><?= Yii::t('app', 'Tour Information')?></h3>
 <div class="row">
 	<div class="col-md-12" id="tour-description">
-		<?=$tourElement['event_summary']?>
+	<table class="table table-striped table-bordered">
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Event Summary')?></td>
+			<td class="value"><?=$tourElement['event_summary']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Meeting Time and Place')?></td>
+			<td class="value"><?=$tourElement['meeting_time_and_place']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Place for visit and tips')?></td>
+			<td class="value"><?=$tourElement['place_for_visit_and_tips']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Time schedule')?></td>
+			<td class="value"><?=$tourElement['time_schedule']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'Price')?></td>
+			<td class="value"><?=$tourElement['price']?></td>
+		</tr>
+		<tr>
+			<td class="key"><?= Yii::t('app', 'SAMURAI information')?></td>
+			<td class="value"><?=$tourElement['samurai_information']?></td>
+		</tr>
+	</table>
 	</div>
 </div>
-<br/>
-
-<h3><?= Yii::t('app', 'Meeting Time and Place')?></h3>
-<div class="row">
-	<div class="col-md-12" id="tour-description">
-		<?=$tourElement['meeting_time_and_place']?>
-	</div>
-</div>
-<br/>
-<h3><?= Yii::t('app', 'Place for visit and tips')?></h3>
-<div class="row">
-	<div class="col-md-12" id="tour-description">
-		<?=$tourElement['place_for_visit_and_tips']?>
-	</div>
-</div>
-<br/>
-<h3><?= Yii::t('app', 'Time schedule')?></h3>
-<div class="row">
-	<div class="col-md-12" id="tour-description">
-		<?=$tourElement['time_schedule']?>
-	</div>
-</div>
-<br/>
-<h3><?= Yii::t('app', 'Price')?></h3>
-<div class="row">
-	<div class="col-md-12" id="tour-description">
-		<?=$tourElement['price']?>
-	</div>
-</div>
-<br/>
-<h3><?= Yii::t('app', 'SAMURAI information')?></h3>
-<div class="row">
-	<div class="col-md-12" id="tour-description">
-		<?=$tourElement['samurai_information']?>
-	</div>
-</div>
-<br/>
-
 <hr/>
 <h2><?= Yii::t('app', 'Terms of Service')?>, <?= Yii::t('app', 'Privacy Policy')?> <?= Yii::t('app', 'and')?> <?= Yii::t('app', 'Specified Commercial Transactions Law')?></h2>
 <div class="row">
