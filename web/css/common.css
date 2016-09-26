@@ -1,6 +1,6 @@
 body {
-	background-image: url("http://samuraimeetups.or.jp/images/background.jpg");
-	/*background-image: url("http://localhost/samurai-meetups/web/images/background.jpg");*/
+	/*background-image: url("http://samuraimeetups.or.jp/images/background.jpg");*/
+	background-image: url("http://localhost/samurai-meetups/web/images/background.jpg");
 	background-repeat: repeat;
 }
 
@@ -74,7 +74,6 @@ body {
 .navbar-toggle {
 	background-color: rgba(255,255,255,0.5);
 	margin-top: 15px;
-	margin-right: 0px;
 }
 
 .navbar-collapse .navbar-nav {

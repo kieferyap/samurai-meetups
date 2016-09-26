@@ -51,7 +51,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 			</div>
 			<?php endforeach; ?>
 		</div>
-		<button type="button" id="report-show-more-btn" class="btn btn-success col-md-4 col-md-offset-4"><?= Yii::t('app', 'Show More')?></button>
+		<button type="button" id="report-show-more-btn" class="btn btn-success"><?= Yii::t('app', 'Show More')?></button>
 	</div>
 	<div class="col-md-8" id="report-content">
 		<div class="row">
