@@ -41,7 +41,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 					$divClass = 'discovery-tour';
 				}
 			?>
-			<div class="col-md-12 report-sidebar-element border-radius-10 <?=$divClass?>" data-id="<?=$element['report_id']?>">
+			<div class="col-md-12 report-sidebar-element border-radius-10 <?=$divClass?>" data-id="<?=$element['id']?>">
 				<div class="col-md-2 report-sidebar-element-photo border-radius-10">
 					<img class="border-radius-10" src="<?=Url::base()?>images/<?=$element['sidebar_image_url']?>"/>
 				</div>

@@ -2,20 +2,31 @@
 @media (max-width: 991px) {
 	.carousel {
 		width: 90%;
-		height: 445px;
-		margin-left: 30px;
+		margin-left: 15px;
 	}
 	.carousel-inner > .item > img {
 		width: 100%;
-		height: 445px;
 	}
-	.footer {
-		display: none;
+	.bordered-image-triple,
+	.bordered-image-tours {
+		width: 95%;
+		margin-left: 5px;
+		margin-top: 10px;
 	}
-	.bordered-image-triple {
-		width: 90%;
+	.participation-voice-rectangle {
+		width: 95%;
+		margin-top: 10px;
+		margin-left: 2%;
+		border: 2px solid red;
 	}
-
+	.participation-voice-text {
+		margin-top: 20px;
+	}
+	.participation-voice-image {
+		width: 40%;
+		height: 40%;
+		margin-left: 30%;
+	}
 }
 
 @media (min-width: 992px) {
@@ -24,18 +35,39 @@
 		width: 720px;
 		height: 445px;
 	}
-	.bordered-image-triple {
-		width: 350px;
+	.bordered-image-triple,
+	.bordered-image-tours {
+		width: 30%;
+		margin-left: 3%;
+	}
+	.participation-voice-rectangle {
+		width: 45%;
+		float: left;
+		margin-left: 2%;
 	}
 	#all-tours {
 		width: 1100px;
 	}
+	.participation-voice-text {
+		margin-top: 0px;
+	}
+	.participation-voice-image {
+		width: 20%;
+		height: 20%;
+		margin-left: 0px;
+	}
 }
 
+.facebook-like {
+	padding:20px;
+}
+
+.participation-voice-text {
+	font-size: 150%;
+}
 
 .bordered-image-triple {
 	border: 5px solid #999;
-	margin-left: 10px;
 	padding: 0px;
 	border-radius: 10px;
 	opacity: 1;
@@ -47,6 +79,16 @@
 	opacity: 0.7;
 }
 
+.bordered-image-tours {
+	border: 5px solid #999;
+	border-radius: 10px;
+}
+
+.bordered-image-tours:hover {
+	border: 5px solid black;
+	opacity: 0.7;
+}
+
 .carousel-control {
 	opacity: 1;
 	padding-top: 25%;
@@ -54,7 +96,7 @@
 } 
 
 .carousel-indicators {
-	background-color: rgba(0,65,1,0.6);
+	background-color: rgba(0,0,0,0.6);
 	border-radius: 20px;
 	width: 130px;
 	margin-left: -65px;
@@ -62,19 +104,19 @@
 }
 
 .carousel-control.right {
-	background-image: linear-gradient(to right, transparent 0%, rgba(0,65,1,0.1) 100%);
+	background-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 100%);
 }
 
 .carousel-control.right:hover {
-	background-image: linear-gradient(to right, transparent 0%, rgba(0,65,1,0.5) 100%);
+	background-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 100%);
 }
 
 .carousel-control.left {
-	background-image: linear-gradient(to left, transparent 0%, rgba(0,65,1,0.1) 100%);
+	background-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.1) 100%);
 }
 
 .carousel-control.left:hover {
-	background-image: linear-gradient(to left, transparent 0%, rgba(0,65,1,0.5) 100%);
+	background-image: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.5) 100%);
 }
 
 .mid-top-text {
@@ -85,26 +127,14 @@
 	font-size: 200%;
 }
 
-.participation-voice-circle {
-	position: absolute;
-	left: 50px;
-	top: 20px;
-	width: 150px;
-	height: 150px;
-	border: 2px solid black;
-	border-radius: 100px;
-}
-
-.participation-voice-text {
-	position: absolute;
-	top: 50%;
-	height: 100px;
-	margin-top:-30px;
-	right: 10px;
-	width: 60%;
-	font-size: 150%;
-	color: white;
-	text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+.participation-voice-rectangle {
+	background-color: rgba(200,247,197,0.6);
+	border: 5px solid rgba(200,247,197,0.6);
+	border-radius: 10px;
+	height: auto;
+	padding: 20px;
+	padding-left: 10px;
+	padding-right: 5px;
 }
 
 #all-tours {
@@ -116,10 +146,6 @@
 
 #all-tours img {
 	margin-left: 10px;
-}
-
-.tour-image {
-	width: 350px;
 }
 
 .fb-page {
