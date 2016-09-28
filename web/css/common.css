@@ -141,3 +141,8 @@
 .footer a {
 	color: white;
 }
+
+.container > .navbar-header {
+	margin-left: auto;
+	margin-right: auto;
+}
