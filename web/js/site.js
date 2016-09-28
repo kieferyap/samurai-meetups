@@ -16,7 +16,6 @@ $(document).ready(function() {
 					location.reload();
 				},
 				error: function(msg){
-					alert("An unknown error has occured. Press OK to reload.");
 					location.reload();
 				}
 			});
