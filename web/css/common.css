@@ -1,9 +1,3 @@
-body {
-	background-image: url("http://samuraimeetups.or.jp/images/background.jpg");
-	/*background-image: url("http://localhost/samurai-meetups/web/images/background.jpg");*/
-	background-repeat: repeat;
-}
-
 /* Controls color of header */
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
 	max-height: 1000px;
@@ -146,4 +140,9 @@ body {
 
 .footer a {
 	color: white;
+}
+
+.container > .navbar-header {
+	margin-left: auto;
+	margin-right: auto;
 }
