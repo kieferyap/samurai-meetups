@@ -29,6 +29,13 @@ AppAsset::register($this);
 			<link rel="stylesheet" href="<?= Url::base() ?>css/<?= $cssFile ?>">
 		<?php endforeach; ?>
 	<?php endif; ?>
+
+	<style type="text/css">
+		body {
+			background-image: url(<?=Url::base().'images/background.jpg'?>);
+			background-repeat: repeat;
+		}
+	</style>
 </head>
 <body>
 

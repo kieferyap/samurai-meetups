@@ -28,8 +28,7 @@ class SamuraiController extends Controller
 
 	public function setSessionLanguageCode($languageCode = '') 
 	{
-		$session = $this->getCurrentSession();
-		$session['language'] = $languageCode;
+		$_SESSION['language'] = $languageCode;
 	}
 
 	public function setConfigLanguageCode()
@@ -39,25 +38,23 @@ class SamuraiController extends Controller
 
 	public function getSessionLanguageCode() 
 	{
-		$session = $this->getCurrentSession();
-		if (!$session->has('language')) {
-			$session['language'] = Yii::$app->language;
+		$this->startSession();
+		if (!isset($_SESSION['language'])) {
+			$this->setSessionLanguageCode(Yii::$app->language);
 		}
-		return $session['language'];
+		return $_SESSION['language'];
 	}
 
-	public function getCurrentSession() 
+	public function startSession() 
 	{
-		$session = Yii::$app->session;
-		if (!$session->isActive) {
-			$session->open();
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
 		}
-		return $session;
 	}
 
 	public function closeSession()
 	{
-		$session->close();
-		$session->destroy();
+		session_unset();
+		session_destroy(); 
 	}
 }
