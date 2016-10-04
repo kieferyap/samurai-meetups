@@ -10,7 +10,7 @@
 		'About' => '団体概要',
 		'Reports' => '活動報告',
 		'SAMURAI' => 'SAMURAI',
-		'Voice' => '人証',
+		'Voice' => '参加者の声',
 		'Facebook' => 'Facebook',
 		'About Us' => 'アバウト',
 		'Contact Us' => '問い合わせ',
