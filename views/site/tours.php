@@ -67,5 +67,13 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Informa
 ></div>
 <hr/>
 <div class="row">
-    <button type="button" id="btn-join-tour" class="btn btn-success col-md-2 col-md-offset-5" disabled="true"><?= Yii::t('app', 'Join Tour')?></button>	
+	<a href="<?=Url::toRoute('site/join-tour/')?>&id=<?=$tourElement['id']?>">
+    	<button 
+    		type="button" 
+    		id="btn-join-tour" 
+    		class="btn btn-success col-md-2 col-md-offset-5" 
+    		disabled="true">
+    		<?= Yii::t('app', 'Join Tour')?>
+    	</button>	
+    </a>
 </div>

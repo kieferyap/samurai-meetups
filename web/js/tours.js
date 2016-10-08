@@ -6,7 +6,5 @@ $(document).ready(function() {
 		else {
 			$('#btn-join-tour').prop("disabled", true);
 		}
-	}).on('click', '#btn-join-tour', function(){
-		window.location = $('#tour-data').data('google-doc-url');
 	});
 });

@@ -8,6 +8,7 @@ use app\models\SiteSettings;
 use app\models\Tours;
 use app\models\Reports;
 use app\models\Faq;
+use app\models\Participants;
 
 use app\models\ContactForm;
 
@@ -354,5 +355,31 @@ class SiteController extends SamuraiController
 			.$termsOfServiceText.$separator
 			.$privacyPolicyText.$separator
 			.$transactionsLawText.$divEnding;
+	}
+
+	public function actionJoinTour()
+	{
+		$this->addCssFile('join-tour.css');
+		$tourId = $_GET['id'];
+
+		$tourElement = Tours::find()
+			->where(['id' => $tourId])
+			->asArray()
+			->one();
+
+	    $model = new Participants();
+
+	    if ($model->load(Yii::$app->request->post())) {
+	        if ($model->validate()) {
+	            // form inputs are valid, do something here
+	            return;
+	        }
+	    }
+
+	    return $this->renderView('join-tour', [
+	        'model' => $model,
+	        'tourId' => $tourId,
+	        'tourBanner' => $tourElement['image_url']
+	    ]);
 	}
 }
