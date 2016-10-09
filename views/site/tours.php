@@ -8,6 +8,14 @@ use yii\helpers\Url;
 $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tour Information');
 ?>
 
+<?php if (Yii::$app->session->hasFlash('tourJoined')): ?>
+
+    <div class="alert alert-success">
+        Tour registration has been successful.
+    </div>
+
+<?php endif;?>
+
 <br/>
 <div class="row">
 	<img class="col-md-12" id="tour-banner" src="<?=Url::base().'images/'.$tourElement['image_url']?>"/>

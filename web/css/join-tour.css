@@ -33,3 +33,7 @@
 		padding: 10px;
 	}
 }
+
+.radio-button > label {
+	padding-left: 10px;
+}

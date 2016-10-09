@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 24, 2016 at 12:56 PM
+-- Generation Time: Oct 09, 2016 at 12:28 AM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.17
 
@@ -23,17 +23,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faq`
+-- Table structure for table `participants`
 --
 
-CREATE TABLE IF NOT EXISTS `faq` (
+CREATE TABLE IF NOT EXISTS `participants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `question_en` text COLLATE utf8_unicode_ci,
-  `question_jp` text COLLATE utf8_unicode_ci,
-  `answer_en` text COLLATE utf8_unicode_ci,
-  `answer_jp` text COLLATE utf8_unicode_ci,
+  `name` varchar(128) COLLATE utf8_bin DEFAULT NULL,
+  `gender` varchar(8) COLLATE utf8_bin DEFAULT NULL,
+  `country` varchar(32) COLLATE utf8_bin DEFAULT NULL,
+  `facebook_id` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `number_of_people` int(11) DEFAULT NULL,
+  `companions_name` varchar(128) COLLATE utf8_bin DEFAULT NULL,
+  `question` text COLLATE utf8_bin,
+  `tour_id` int(11) DEFAULT NULL,
+  `joined_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

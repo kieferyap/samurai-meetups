@@ -41,6 +41,7 @@ class Participants extends \yii\db\ActiveRecord
             [['gender'], 'string', 'max' => 8],
             [['country'], 'string', 'max' => 32],
             [['facebook_id'], 'string', 'max' => 64],
+            [['name', 'gender', 'country', 'number_of_people', 'companions_name'], 'required']
         ];
     }
 
@@ -54,9 +55,9 @@ class Participants extends \yii\db\ActiveRecord
             'name' => 'Name',
             'gender' => 'Gender',
             'country' => 'Country',
-            'facebook_id' => 'Facebook ID',
+            'facebook_id' => 'Facebook ID (facebook.com/***)',
             'number_of_people' => 'Number Of People',
-            'companions_name' => 'Companions Name',
+            'companions_name' => 'Companion\'s Name',
             'question' => 'Question',
             'tour_id' => 'Tour ID',
             'joined_on' => 'Joined On',

@@ -126,3 +126,7 @@ a.desc:after {
 hr {
 	border-color: #333;
 }
+
+textarea {
+    resize: none;
+}

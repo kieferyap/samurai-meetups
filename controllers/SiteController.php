@@ -63,10 +63,12 @@ class SiteController extends SamuraiController
 	 */
 	public function actionTours()
 	{
+		$this->loadTourWithId($_GET['id']);
+	}
+
+	private function loadTourWithId($id) {
 		$this->addCssFile('tours.css');
 		$this->addJsFile('tours.js');
-
-		$id = $_GET['id'];
 
 		$tourElement = Tours::find()
 			->where(['id' => $id])
@@ -82,7 +84,6 @@ class SiteController extends SamuraiController
 			'termsOfService' => $allText
 		]);
 	}
-
 	/**
 	 * Tours action.
 	 *
@@ -359,6 +360,7 @@ class SiteController extends SamuraiController
 
 	public function actionJoinTour()
 	{
+		// echo 'here'; die();
 		$this->addCssFile('join-tour.css');
 		$tourId = $_GET['id'];
 
@@ -371,8 +373,10 @@ class SiteController extends SamuraiController
 
 	    if ($model->load(Yii::$app->request->post())) {
 	        if ($model->validate()) {
+	        	$model->save();
+	        	Yii::$app->session->setFlash('tourJoined');
 	            // form inputs are valid, do something here
-	            return;
+	            return $this->loadTourWithId($tourId);
 	        }
 	    }
 
