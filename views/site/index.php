@@ -6,6 +6,15 @@ use yii\helpers\Url;
 $this->title = Yii::t('app', 'Samurai Meetups');
 ?>
 
+<style type="text/css">
+    #voice-index-0 {
+        background-image: url(<?=Url::base().'images/report-001-sidebar.jpg'?>);
+    }
+    #voice-index-1 {
+        background-image: url(<?=Url::base().'images/report-001-sidebar.jpg'?>);
+    }
+</style>
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -106,6 +115,7 @@ $this->title = Yii::t('app', 'Samurai Meetups');
     <div class="row">
         <?php
         $voices = [];
+        $voiceIndex = 0;
         for($i=0; $i<count($frontPageElements['voice']); $i++) {
             $voices[] = [
                 'image' => $frontPageElements['voice_image'][$i]['value'],
@@ -114,7 +124,10 @@ $this->title = Yii::t('app', 'Samurai Meetups');
         }
         ?>
         <?php foreach($voices as $voice):?>
-        <div class="participation-voice-rectangle">
+        <div
+            class="participation-voice-rectangle" 
+            id="voice-index-<?=$voiceIndex?>"
+        >
             <img 
                 class="col-md-3 participation-voice-image"
                 src="<?=$imageBase?><?=$voice['image']?>"
@@ -122,6 +135,7 @@ $this->title = Yii::t('app', 'Samurai Meetups');
             <div class="col-md-9 participation-voice-text">
                 <?=$voice['text']?>
             </div>
+            <?php $voiceIndex+=1; ?>
         </div>
         <?php endforeach;?>
     </div>

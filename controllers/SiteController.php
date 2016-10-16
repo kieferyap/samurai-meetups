@@ -9,6 +9,7 @@ use app\models\Tours;
 use app\models\Reports;
 use app\models\Faq;
 use app\models\Participants;
+use app\models\LoginForm;
 
 use app\models\ContactForm;
 
@@ -386,4 +387,32 @@ class SiteController extends SamuraiController
 	        'tourBanner' => $tourElement['image_url']
 	    ]);
 	}
+
+	public function actionLogin()
+    {
+        // if (!Yii::$app->user->isGuest) {
+        // 	echo 'LOGGED IN'; die();
+        //     return $this->goHome();
+        // }
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post())) {
+        	if ($model->validate()) {
+        		$this->setLoggedIn();
+        		return $this->actionAdmin();
+        	}
+        }
+        return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionAdmin()
+    {
+    	if ($this->isLoggedIn()) {
+    		return $this->render('admin');
+    	}
+    	else {
+    		return $this->goHome();
+    	}
+    }
 }

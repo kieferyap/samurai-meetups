@@ -45,6 +45,21 @@ class SamuraiController extends Controller
 		return $_SESSION['language'];
 	}
 
+	public function setLoggedIn()
+	{
+		$this->startSession();
+		$_SESSION['logged_in'] = true;
+	}
+
+	public function isLoggedIn()
+	{
+		$this->startSession();
+		if(!isset($_SESSION['logged_in'])) {
+			return false;
+		}
+		return true;
+	}
+
 	public function startSession() 
 	{
 		if (session_status() == PHP_SESSION_NONE) {

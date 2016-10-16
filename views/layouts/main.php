@@ -148,8 +148,6 @@ It's used in index.js, I believe.
 		<script src="<?= Url::base() ?>js/<?= $jsFile ?>"></script>
 	<?php endforeach; ?>
 <?php endif; ?>
-
-<script src="<?= Url::base() ?>js/index.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>
