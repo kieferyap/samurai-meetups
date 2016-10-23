@@ -117,8 +117,56 @@ It's used in index.js, I believe.
 	]);
 	NavBar::end();
 	?>
-	<div class="container">    
-		<?= $content ?>
+	<div class="container">
+		<?php if($this->params['isAdmin'] == true):?>    
+			<div class="container-fluid">
+			<div class="row">
+			<div class="col-sm-4 col-lg-3">
+			  <nav class="navbar navbar-default navbar-fixed-side">
+				<ul class="sidebar-nav admin-sidebar">
+					<!--Everything EXCEPT the tour-->
+					<li>
+						<a href="<?=Url::toRoute('admin/index')?>">
+							<?=Yii::t('app', '- Site Settings')?>
+						</a>
+					</li> 
+					<!--Add the TOP PAGE TOUR information here-->
+					<li>
+						<a href="<?=Url::toRoute('admin/tours')?>">
+							<?=Yii::t('app', '- Tour Management')?>
+						</a>
+					</li> 
+					<li>
+						<a href="<?=Url::toRoute('admin/reports')?>">
+							<?=Yii::t('app', '- Report Management')?>
+						</a>
+					</li>
+					<li>
+						<a href="<?=Url::toRoute('admin/admins')?>">
+							<?=Yii::t('app', '- Admin Management')?>
+						</a>
+					</li>
+					<li>
+						<a href="<?=Url::toRoute('admin/faq')?>">
+							<?=Yii::t('app', '- FAQ Management')?>
+						</a>
+					</li>
+					<li>
+						<a href="<?=Url::toRoute('admin/participants')?>">
+							<?=Yii::t('app', '- Check Tour Participants')?>
+						</a>
+					</li>
+				</ul>
+			  </nav>
+			</div>
+			<div class="col-sm-8 col-lg-9">
+				<?= $content ?>
+			</div>
+			</div>
+			</div>
+		<?php else:?>
+			<?= $content ?>
+		<?php endif;?>
 	</div>
 </div>
 

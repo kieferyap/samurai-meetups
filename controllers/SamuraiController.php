@@ -10,6 +10,7 @@ class SamuraiController extends Controller
 	public $params = array();
 	public $cssFiles = array();
 	public $jsFiles = array();
+	public $isAdmin = false;
 
 	public function addCssFile($filename = '') {
 		$this->cssFiles[] = $filename;
@@ -19,9 +20,14 @@ class SamuraiController extends Controller
 		$this->jsFiles[] = $filename;
 	}
 
+	public function setAdminTrue() {
+		$this->isAdmin = true;
+	}
+
 	public function renderView($view = '', $parameters = array()) {
 		Yii::$app->view->params['cssFiles'] = $this->cssFiles;
 		Yii::$app->view->params['jsFiles'] = $this->jsFiles;
+		Yii::$app->view->params['isAdmin'] = $this->isAdmin;
 		$this->setConfigLanguageCode();
 		return $this->render($view, $parameters);
 	}

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2016 at 10:29 PM
+-- Generation Time: Oct 23, 2016 at 07:04 PM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.17
 
@@ -39,6 +39,29 @@ CREATE TABLE IF NOT EXISTS `admins` (
 
 INSERT INTO `admins` (`id`, `username`, `password`) VALUES
 (1, 'kiefer', 'c29681ff44226e1a15d619d2cd5bc8d8');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faq`
+--
+
+CREATE TABLE IF NOT EXISTS `faq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_en` text COLLATE utf8_unicode_ci,
+  `question_jp` text COLLATE utf8_unicode_ci,
+  `answer_en` text COLLATE utf8_unicode_ci,
+  `answer_jp` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `faq`
+--
+
+INSERT INTO `faq` (`id`, `question_en`, `question_jp`, `answer_en`, `answer_jp`) VALUES
+(2, 'Q1E', 'Q1J', 'A1E', 'A1J'),
+(3, 'Q2E', 'Q2J', 'A2E', 'A2J');
 
 -- --------------------------------------------------------
 

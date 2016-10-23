@@ -390,29 +390,15 @@ class SiteController extends SamuraiController
 
 	public function actionLogin()
     {
-        // if (!Yii::$app->user->isGuest) {
-        // 	echo 'LOGGED IN'; die();
-        //     return $this->goHome();
-        // }
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post())) {
         	if ($model->validate()) {
         		$this->setLoggedIn();
-        		return $this->actionAdmin();
+        		return $this->redirect('?r=admin/index');
         	}
         }
-        return $this->render('login', [
+        return $this->renderView('login', [
             'model' => $model,
         ]);
-    }
-
-    public function actionAdmin()
-    {
-    	if ($this->isLoggedIn()) {
-    		return $this->render('admin');
-    	}
-    	else {
-    		return $this->goHome();
-    	}
     }
 }
