@@ -56,10 +56,10 @@ $this->title = Yii::t('app', 'Samurai Meetups');
         <div class="center-div">
             <?php
                 $images = [];
-                foreach($frontPageElements['tour'] as $element) {
+                foreach($tours as $element) {
                     $images[] = [
-                        'value' => $element['value'],
-                        'extra_information' => $element['extra_information']
+                        'image' => $element['top_image_url'],
+                        'url' => $element['id']
                     ];
                 }
                 $tourUrl = '?r=site/tours&id=';
@@ -67,10 +67,10 @@ $this->title = Yii::t('app', 'Samurai Meetups');
             ?>
             <div class="row">
             <?php foreach($images as $image):?>
-                <a href="<?=$tourUrl?><?=$image['extra_information']?>">
+                <a href="<?=$tourUrl?><?=$image['url']?>">
                     <img 
                         class="tour-image bordered-image-triple" 
-                        src="<?=$imageBase?>/<?=$image['value']?>"
+                        src="<?=$imageBase?>/<?=$image['image']?>"
                     />
                 </a>
             <?php endforeach;?>

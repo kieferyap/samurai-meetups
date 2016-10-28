@@ -13,10 +13,11 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th><?= Yii::t('app', 'Question (EN)')?></th>
-			<th><?= Yii::t('app', 'Question (JP)')?></th>
-			<th><?= Yii::t('app', 'Answer (EN)')?></th>
-			<th><?= Yii::t('app', 'Answer (JP)')?></th>
+			<th class="col-md-3"><?= Yii::t('app', 'Question (EN)')?></th>
+			<th class="col-md-3"><?= Yii::t('app', 'Question (JP)')?></th>
+			<th class="col-md-3"><?= Yii::t('app', 'Answer (EN)')?></th>
+			<th class="col-md-3"><?= Yii::t('app', 'Answer (JP)')?></th>
+			<th class="col-md-1"><?= Yii::t('app', 'Actions')?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,6 +27,10 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 				<td><?=$element['question_jp']?></td>
 				<td><?=$element['answer_en']?></td>
 				<td><?=$element['answer_jp']?></td>
+				<td>
+					<button type="button" class="btn btn-primary col-md-12"><?= Yii::t('app', 'Update')?></button>
+    				<button type="button" class="btn btn-danger col-md-12 margin-top-5"><?= Yii::t('app', 'Delete')?></button>
+				</td>
 			</tr>
 		<?php endforeach;?>
 	</tbody>

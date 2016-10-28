@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
+ * @property string $email_address
  * @property string $gender
  * @property string $country
  * @property string $facebook_id
@@ -38,10 +39,10 @@ class Participants extends \yii\db\ActiveRecord
             [['question'], 'string'],
             [['joined_on'], 'safe'],
             [['name', 'companions_name'], 'string', 'max' => 128],
+            [['email_address'], 'string', 'max' => 256],
             [['gender'], 'string', 'max' => 8],
             [['country'], 'string', 'max' => 32],
             [['facebook_id'], 'string', 'max' => 64],
-            [['name', 'gender', 'country', 'number_of_people', 'companions_name'], 'required']
         ];
     }
 
@@ -53,6 +54,7 @@ class Participants extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'email_address' => 'Email Address',
             'gender' => 'Gender',
             'country' => 'Country',
             'facebook_id' => 'Facebook ID (facebook.com/***)',

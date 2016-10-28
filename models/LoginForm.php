@@ -46,11 +46,20 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = Admins::findOne([
                 'username'=>$this->username,
-                'password'=>md5($this->password) // Note-to-self: If this site gets compromised in the first week because of our weak-ass md5 BS, I'm getting myself a standing table.
+                'password'=>md5($this->password),
+                // Note-to-self: If this site gets compromised in the first week because of our weak-ass md5 BS, I'm buying myself a standing table.
             ]);
 
             if (!$user) {
                 $this->addError($attribute, 'Incorrect username or password.');
+            }
+            else {
+                // Update the last logged in
+                date_default_timezone_set('Asia/Tokyo');
+                $unixTimestamp = time();
+                $mysqlTimestamp = date("Y-m-d H:i:s", $unixTimestamp);
+                $user->last_login = $mysqlTimestamp;
+                $user->update();
             }
         }
     }

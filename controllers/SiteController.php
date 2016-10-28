@@ -27,7 +27,6 @@ class SiteController extends SamuraiController
 
 		$allElementKeys = [
 			'slideshow', 
-			'tour', 
 			'report', 
 			'about', 
 			'samurai', 
@@ -35,6 +34,7 @@ class SiteController extends SamuraiController
 			'voice_image',
 			'samurai_bottom'
 		];
+		$tourLimit = 3;
 
 		$languageId = 
 			$this->getSessionLanguageCode() == 'en' ? 
@@ -44,16 +44,24 @@ class SiteController extends SamuraiController
 		$frontPageElements = [];
 		foreach($allElementKeys as $elementKey) {
 			$element = SiteSettings::find()
-				->select(['value' => $languageId, 'extra_information'])
+				->select(['value' => $languageId])
 				->where(['key_search' => $elementKey])
 				->orderBy(['id' => SORT_DESC])
 				->asArray()
 				->all();
 			$frontPageElements[$elementKey] = $element;
-		} 
+		}
+
+		$tours = Tours::find()
+			->select(['top_image_url', 'id'])
+			->orderBy(['id' => SORT_DESC])
+			->limit($tourLimit)
+			->asArray()
+			->all();
 
 		return $this->renderView('index', [
 			'frontPageElements' => $frontPageElements,
+			'tours' => $tours
 		]);
 	}
 
@@ -64,7 +72,7 @@ class SiteController extends SamuraiController
 	 */
 	public function actionTours()
 	{
-		$this->loadTourWithId($_GET['id']);
+		return $this->loadTourWithId($_GET['id']);
 	}
 
 	private function loadTourWithId($id) {
@@ -387,18 +395,4 @@ class SiteController extends SamuraiController
 	        'tourBanner' => $tourElement['image_url']
 	    ]);
 	}
-
-	public function actionLogin()
-    {
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post())) {
-        	if ($model->validate()) {
-        		$this->setLoggedIn();
-        		return $this->redirect('?r=admin/index');
-        	}
-        }
-        return $this->renderView('login', [
-            'model' => $model,
-        ]);
-    }
 }

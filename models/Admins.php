@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $username
  * @property string $password
+ * @property string $last_login
  */
 class Admins extends \yii\db\ActiveRecord
 {
@@ -28,6 +29,7 @@ class Admins extends \yii\db\ActiveRecord
     {
         return [
             [['username', 'password'], 'required'],
+            [['last_login'], 'safe'],
             [['username'], 'string', 'max' => 32],
             [['password'], 'string', 'max' => 128],
         ];
@@ -42,6 +44,7 @@ class Admins extends \yii\db\ActiveRecord
             'id' => 'ID',
             'username' => 'Username',
             'password' => 'Password',
+            'last_login' => 'Last Login',
         ];
     }
 }

@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $image_url
+ * @property string $top_image_url
  * @property string $event_summary
  * @property string $meeting_time_and_place
  * @property string $place_for_visit_and_tips
@@ -34,7 +35,7 @@ class Tours extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image_url', 'event_summary', 'meeting_time_and_place', 'place_for_visit_and_tips', 'time_schedule', 'price', 'samurai_information', 'google_doc_url', 'inserted_on'], 'string'],
+            [['image_url', 'top_image_url', 'event_summary', 'meeting_time_and_place', 'place_for_visit_and_tips', 'time_schedule', 'price', 'samurai_information', 'google_doc_url', 'inserted_on'], 'string'],
         ];
     }
 
@@ -46,6 +47,7 @@ class Tours extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'image_url' => 'Image Url',
+            'top_image_url' => 'Top Image Url',
             'event_summary' => 'Event Summary',
             'meeting_time_and_place' => 'Meeting Time And Place',
             'place_for_visit_and_tips' => 'Place For Visit And Tips',
