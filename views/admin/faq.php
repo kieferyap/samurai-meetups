@@ -4,6 +4,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\bootstrap\Modal;
 
 $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 ?>
@@ -13,11 +14,11 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th class="col-md-3"><?= Yii::t('app', 'Question (EN)')?></th>
+			<th class="col-md-2"><?= Yii::t('app', 'Question (EN)')?></th>
 			<th class="col-md-3"><?= Yii::t('app', 'Question (JP)')?></th>
-			<th class="col-md-3"><?= Yii::t('app', 'Answer (EN)')?></th>
+			<th class="col-md-2"><?= Yii::t('app', 'Answer (EN)')?></th>
 			<th class="col-md-3"><?= Yii::t('app', 'Answer (JP)')?></th>
-			<th class="col-md-1"><?= Yii::t('app', 'Actions')?></th>
+			<th class="col-md-2"><?= Yii::t('app', 'Actions')?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -28,8 +29,20 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 				<td><?=$element['answer_en']?></td>
 				<td><?=$element['answer_jp']?></td>
 				<td>
-					<button type="button" class="btn btn-primary col-md-12"><?= Yii::t('app', 'Update')?></button>
-    				<button type="button" class="btn btn-danger col-md-12 margin-top-5"><?= Yii::t('app', 'Delete')?></button>
+					<?php 
+					Modal::begin([
+						'header' => '<h3>'.Yii::t('app', 'Update').'</h3>',
+						'toggleButton' => [
+							'label' => Yii::t('app', 'Update'),
+							'class' => 'btn btn-primary btn-update'
+						],
+					]);
+
+					echo 'Say hello...';
+
+					Modal::end();
+					?>
+    				<button type="button" class="btn btn-danger margin-top-5"><?= Yii::t('app', 'Delete')?></button>
 				</td>
 			</tr>
 		<?php endforeach;?>
@@ -42,3 +55,14 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
     	</button>	
     </a>
 </div>
+
+<?php 
+Modal::begin([
+	'header' => '<h2>Hello world</h2>',
+	'toggleButton' => ['label' => 'click me'],
+]);
+
+echo 'Say hello...';
+
+Modal::end();
+?>
