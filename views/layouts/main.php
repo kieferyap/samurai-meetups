@@ -41,6 +41,19 @@ AppAsset::register($this);
 
 <?php $this->beginBody() ?>
 
+
+<!--
+Form HTML constants
+-->
+<div class="hidden">
+	<div class="admin-form-required">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label>
+			<input id="???" value="???" class="form-control" type="text"/>
+		</div>
+	</div>
+</div>
+
 <!-- 
 The is-toggle-clicked is needed because there's an exceptionally weird bug which causes the language button to click twice, 
 and it only happens in the front page! The console log says "out of memory". 
@@ -119,6 +132,7 @@ It's used in index.js, I believe.
 	?>
 	<div class="container">
 		<?php if($this->params['isAdmin'] == true):?>    
+
 			<div class="container-fluid">
 			<div class="row">
 			<div class="col-sm-4 col-lg-3">

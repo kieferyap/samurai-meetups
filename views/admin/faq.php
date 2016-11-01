@@ -14,33 +14,36 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th class="col-md-2"><?= Yii::t('app', 'Question (EN)')?></th>
-			<th class="col-md-3"><?= Yii::t('app', 'Question (JP)')?></th>
-			<th class="col-md-2"><?= Yii::t('app', 'Answer (EN)')?></th>
-			<th class="col-md-3"><?= Yii::t('app', 'Answer (JP)')?></th>
+			<th class="col-md-2 field"><?= Yii::t('app', 'Question (EN)')?></th>
+			<th class="col-md-3 field"><?= Yii::t('app', 'Question (JP)')?></th>
+			<th class="col-md-2 field"><?= Yii::t('app', 'Answer (EN)')?></th>
+			<th class="col-md-3 field"><?= Yii::t('app', 'Answer (JP)')?></th>
 			<th class="col-md-2"><?= Yii::t('app', 'Actions')?></th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($faq as $element):?>
-			<tr>
-				<td><?=$element['question_en']?></td>
-				<td><?=$element['question_jp']?></td>
-				<td><?=$element['answer_en']?></td>
-				<td><?=$element['answer_jp']?></td>
+		<?php foreach($faq as $index => $element):?>
+			<tr class="row-content" id="<?=$index?>">
+				<td class="value" data-field="text"><?=$element['question_en']?></td>
+				<td class="value" data-field="text"><?=$element['question_jp']?></td>
+				<td class="value" data-field="text"><?=$element['answer_en']?></td>
+				<td class="value" data-field="text"><?=$element['answer_jp']?></td>
 				<td>
 					<?php 
-					Modal::begin([
-						'header' => '<h3>'.Yii::t('app', 'Update').'</h3>',
-						'toggleButton' => [
-							'label' => Yii::t('app', 'Update'),
-							'class' => 'btn btn-primary btn-update'
-						],
-					]);
+						Modal::begin([
+							'header' => '<h3>'.Yii::t('app', 'Update').'</h3>',
+							'toggleButton' => [
+								'label' => Yii::t('app', 'Update'),
+								'class' => 'btn btn-primary btn-update'
+							],
+						]);
+					?>
+					
+					<div class="modal-inner-data-<?=$index?>">
+					</div>
 
-					echo 'Say hello...';
-
-					Modal::end();
+					<?php
+						Modal::end();
 					?>
     				<button type="button" class="btn btn-danger margin-top-5"><?= Yii::t('app', 'Delete')?></button>
 				</td>
@@ -55,14 +58,3 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
     	</button>	
     </a>
 </div>
-
-<?php 
-Modal::begin([
-	'header' => '<h2>Hello world</h2>',
-	'toggleButton' => ['label' => 'click me'],
-]);
-
-echo 'Say hello...';
-
-Modal::end();
-?>
