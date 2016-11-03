@@ -9,17 +9,37 @@ $(document).ready(function() {
 	$('.row-content').each(function () {
 		var rowIndex = $(this).attr('id');
 		$(this).find('.value').each(function(index, value) {
-			var trueIndex = index % fieldArray.length;
-			var fieldText = fieldArray[trueIndex];
-			var valueText = $(value).text();
-			var id = 'form-'+fieldText;
+			var trueIndex = index % fieldArray.length; // Used for getting which fieldText to use
+			var fieldText = fieldArray[trueIndex]; // e.g.: "Banner Image"
+			var valueText = $(value).text(); // e.g.: "banner_zazen.jpg"
+			var fieldType = $(value).data('type'); // e.g.: "image-upload"
+			var selector = ".admin-form-text";
+			var formId = 'form-'+fieldText; 
 
-			$('.admin-form-required').find('.control-label').attr('for', id);
-			$('.admin-form-required').find('.control-label').text(fieldText);
-			$('.admin-form-required').find('.form-control').attr('value', valueText);
-			$('.admin-form-required').find('.form-control').attr('id', id);
+			switch(fieldType) {
+				case "text":
+					selector = ".admin-form-text";
+					break;
+				case "textarea":
+					selector = ".admin-form-textarea";
+					break;
+				case "formatted-textarea":
+					selector = ".admin-form-formatted";
+					break;
+				case "image-upload":
+					selector = ".admin-form-image";
+					break;
+				default:
+					alert("NONE");
+					break;
+			}
 
-			$('.modal-inner-data-'+rowIndex).append($('.admin-form-required').html());
+			$(selector).find('.control-label').attr('for', formId);
+			$(selector).find('.control-label').text(fieldText);
+			$(selector).find('.form-control').attr('value', valueText);
+			$(selector).find('.form-control').attr('id', formId);
+
+			$('.modal-inner-data-'+rowIndex).append($(selector).html());
 		});
 	});
 

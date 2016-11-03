@@ -46,7 +46,25 @@ AppAsset::register($this);
 Form HTML constants
 -->
 <div class="hidden">
-	<div class="admin-form-required">
+	<div class="admin-form-text">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label>
+			<input id="???" value="???" class="form-control" type="text"/>
+		</div>
+	</div>
+	<div class="admin-form-textarea">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label>
+			<textarea id="???" value="???" class="form-control"></textarea>
+		</div>
+	</div>
+	<div class="admin-form-formatted">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label>
+			<input id="???" value="???" class="form-control" type="text"/>
+		</div>
+	</div>
+	<div class="admin-form-image">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label>
 			<input id="???" value="???" class="form-control" type="text"/>

@@ -24,10 +24,10 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 	<tbody>
 		<?php foreach($faq as $index => $element):?>
 			<tr class="row-content" id="<?=$index?>">
-				<td class="value" data-field="text"><?=$element['question_en']?></td>
-				<td class="value" data-field="text"><?=$element['question_jp']?></td>
-				<td class="value" data-field="text"><?=$element['answer_en']?></td>
-				<td class="value" data-field="text"><?=$element['answer_jp']?></td>
+				<td class="value" data-type="text"><?=$element['question_en']?></td>
+				<td class="value" data-type="textarea"><?=$element['question_jp']?></td>
+				<td class="value" data-type="text"><?=$element['answer_en']?></td>
+				<td class="value" data-type="textarea"><?=$element['answer_jp']?></td>
 				<td>
 					<?php 
 						Modal::begin([
