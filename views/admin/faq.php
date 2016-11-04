@@ -15,8 +15,8 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 	<thead>
 		<tr>
 			<th class="col-md-2 field"><?= Yii::t('app', 'Question (EN)')?></th>
-			<th class="col-md-3 field"><?= Yii::t('app', 'Question (JP)')?></th>
-			<th class="col-md-2 field"><?= Yii::t('app', 'Answer (EN)')?></th>
+			<th class="col-md-3 field"><?= Yii::t('app', 'Answer (EN)')?></th>
+			<th class="col-md-2 field"><?= Yii::t('app', 'Question (JP)')?></th>
 			<th class="col-md-3 field"><?= Yii::t('app', 'Answer (JP)')?></th>
 			<th class="col-md-2"><?= Yii::t('app', 'Actions')?></th>
 		</tr>
@@ -24,16 +24,21 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 	<tbody>
 		<?php foreach($faq as $index => $element):?>
 			<tr class="row-content" id="<?=$index?>">
-				<td class="value" data-type="text"><?=$element['question_en']?></td>
-				<td class="value" data-type="textarea"><?=$element['question_jp']?></td>
-				<td class="value" data-type="text"><?=$element['answer_en']?></td>
-				<td class="value" data-type="textarea"><?=$element['answer_jp']?></td>
+				<td class="value" data-type="text"><?=$element['question_en']?>
+				</td>
+				<td class="value" data-type="formatted-textarea"><?=$element['answer_en']?>
+				</td>
+				<td class="value" data-type="text"><?=$element['question_jp']?>
+				</td>
+				<td class="value" data-type="formatted-textarea"><?=$element['answer_jp']?>
+				</td>
 				<td>
 					<?php 
+						$update = Yii::t('app', 'Update');
 						Modal::begin([
-							'header' => '<h3>'.Yii::t('app', 'Update').'</h3>',
+							'header' => '<h3>'.$update.'</h3>',
 							'toggleButton' => [
-								'label' => Yii::t('app', 'Update'),
+								'label' => $update,
 								'class' => 'btn btn-primary btn-update'
 							],
 						]);
@@ -45,6 +50,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 					<?php
 						Modal::end();
 					?>
+					
     				<button type="button" class="btn btn-danger margin-top-5"><?= Yii::t('app', 'Delete')?></button>
 				</td>
 			</tr>
@@ -58,3 +64,6 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
     	</button>	
     </a>
 </div>
+HEYYYY
+<textarea></textarea>
+<textarea class="tinymce"></textarea>

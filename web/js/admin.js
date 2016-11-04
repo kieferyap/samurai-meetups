@@ -19,12 +19,15 @@ $(document).ready(function() {
 			switch(fieldType) {
 				case "text":
 					selector = ".admin-form-text";
+					$(selector).find('.form-control').attr('value', valueText);
 					break;
 				case "textarea":
 					selector = ".admin-form-textarea";
+					$(selector).find('.form-control').text(valueText);
 					break;
 				case "formatted-textarea":
 					selector = ".admin-form-formatted";
+					$(selector).find('.form-control').text(valueText);
 					break;
 				case "image-upload":
 					selector = ".admin-form-image";
@@ -36,13 +39,15 @@ $(document).ready(function() {
 
 			$(selector).find('.control-label').attr('for', formId);
 			$(selector).find('.control-label').text(fieldText);
-			$(selector).find('.form-control').attr('value', valueText);
 			$(selector).find('.form-control').attr('id', formId);
 
 			$('.modal-inner-data-'+rowIndex).append($(selector).html());
 		});
 	});
 
+
+	$('textarea.tinymce').tinymce({
+	});
 	// $('.row-content').find('.value').each(function(index, value) {
 	
 	// });

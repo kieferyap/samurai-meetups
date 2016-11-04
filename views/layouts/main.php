@@ -30,6 +30,10 @@ AppAsset::register($this);
 		<?php endforeach; ?>
 	<?php endif; ?>
 
+	<!-- TinyMCE: A WYSIWYG editor for textarea -->
+	<script src="<?= Url::base() ?>js/tinymce/js/tinymce/tinymce.min.js"></script>
+
+	<!-- CSS which need a bit of nudge from PHP will be placed here. -->
 	<style type="text/css">
 		body {
 			background-image: url(<?=Url::base().'images/background.jpg'?>);
@@ -55,13 +59,13 @@ Form HTML constants
 	<div class="admin-form-textarea">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label>
-			<textarea id="???" value="???" class="form-control"></textarea>
+			<textarea id="???" class="form-control"></textarea>
 		</div>
 	</div>
 	<div class="admin-form-formatted">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label>
-			<input id="???" value="???" class="form-control" type="text"/>
+			<textarea id="???" class="form-control tinymce"></textarea>
 		</div>
 	</div>
 	<div class="admin-form-image">
