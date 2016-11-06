@@ -28,7 +28,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 				</td>
 				<td class="value" data-type="formatted-textarea"><?=$element['answer_en']?>
 				</td>
-				<td class="value" data-type="text"><?=$element['question_jp']?>
+				<td class="value" data-type="image-upload"><?=$element['question_jp']?>
 				</td>
 				<td class="value" data-type="formatted-textarea"><?=$element['answer_jp']?>
 				</td>

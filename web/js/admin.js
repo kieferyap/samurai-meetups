@@ -39,7 +39,7 @@ $(document).ready(function() {
 
 			$(selector).find('.control-label').attr('for', formId);
 			$(selector).find('.control-label').text(fieldText);
-			$(selector).find('.form-control').attr('id', formId);
+			$(selector).find('input').attr('id', formId);
 
 			$('.modal-inner-data-'+rowIndex).append($(selector).html());
 		});

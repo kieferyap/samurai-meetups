@@ -71,7 +71,7 @@ Form HTML constants
 	<div class="admin-form-image">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label>
-			<input id="???" value="???" class="form-control" type="text"/>
+			<input id="???" value="???" type="file"/>
 		</div>
 	</div>
 </div>

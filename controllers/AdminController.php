@@ -12,6 +12,9 @@ use app\models\Faq;
 use app\models\Participants;
 use app\models\LoginForm;
 
+use app\models\UploadForm;
+use yii\web\UploadedFile;
+
 class AdminController extends SamuraiController
 {
 	private function renderAdminView($view = '', $parameters = array()) {
@@ -127,5 +130,20 @@ class AdminController extends SamuraiController
     public function actionParticipants()
     {
     	return $this->renderAdminView('participants');
+    }
+
+    public function actionUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if ($model->upload()) {
+                // file is uploaded successfully
+                return;
+            }
+        }
+
+        return $this->renderAdminView('upload', ['model' => $model]);
     }
 }
