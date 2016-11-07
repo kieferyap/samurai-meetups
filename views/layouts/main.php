@@ -70,8 +70,9 @@ Form HTML constants
 	</div>
 	<div class="admin-form-image">
 		<div class="form-group required">
-			<label class="control-label" for="???">???</label>
-			<input id="???" value="???" type="file"/>
+			<label class="control-label" for="???">???</label><br/>
+			<img src="???"/><br/>
+			<input class="browse-file-modal" id="???" value="???" type="file"/><br/>
 		</div>
 	</div>
 </div>

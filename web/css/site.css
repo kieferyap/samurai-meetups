@@ -165,3 +165,8 @@ textarea {
 .text-align-right {
 	text-align: right;
 }
+
+.browse-file-modal {
+	font-size: 10pt; 
+	clear: both;
+}

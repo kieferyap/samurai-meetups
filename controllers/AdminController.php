@@ -20,6 +20,7 @@ class AdminController extends SamuraiController
 	private function renderAdminView($view = '', $parameters = array()) {
 		if ($this->isLoggedIn()) {
             $this->addCssFile('admin.css');
+            $this->addJsFile('admin.js');
             $this->setAdminTrue();
     		return $this->renderView($view, $parameters);
     	}
@@ -115,9 +116,7 @@ class AdminController extends SamuraiController
     }
 
     public function actionFaq()
-    {
-        $this->addJsFile('admin.js');
-    
+    {    
     	$faq = Faq::find()
 			->asArray()
 			->all();

@@ -31,6 +31,8 @@ $(document).ready(function() {
 					break;
 				case "image-upload":
 					selector = ".admin-form-image";
+					$(selector).find('img').attr('src', $(value).find('img').attr('src'));
+					$(selector).find('img').attr('class', $(value).find('img').attr('class'));
 					break;
 				default:
 					alert("NONE");
