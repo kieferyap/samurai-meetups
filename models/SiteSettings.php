@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $key_search
+ * @property string $key_type
  * @property string $key_description_jp
  * @property string $key_description_en
  * @property string $value_en
@@ -32,7 +33,7 @@ class SiteSettings extends \yii\db\ActiveRecord
         return [
             [['key_description_jp', 'value_en', 'value_jp'], 'string'],
             [['key_search'], 'string', 'max' => 128],
-            [['key_description_en'], 'string', 'max' => 64],
+            [['key_type', 'key_description_en'], 'string', 'max' => 64],
         ];
     }
 
@@ -44,6 +45,7 @@ class SiteSettings extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'key_search' => 'Key Search',
+            'key_type' => 'Key Type',
             'key_description_jp' => 'Key Description Jp',
             'key_description_en' => 'Key Description En',
             'value_en' => 'Value En',

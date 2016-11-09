@@ -106,7 +106,23 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 	<tr>
 		<td class="col-md-3 font-weight-bold"><?= Yii::t('app', 'Actions')?></td>
 		<td>
-			<button type="button" class="btn btn-primary"><?= Yii::t('app', 'Update')?></button> 
+			<?php 
+				$update = Yii::t('app', 'Update');
+				Modal::begin([
+					'header' => '<h3>'.$update.'</h3>',
+					'toggleButton' => [
+						'label' => $update,
+						'class' => 'btn btn-primary btn-update'
+					],
+				]);
+			?>
+			
+			<div class="modal-inner-data-<?=$index?>">
+			</div>
+
+			<?php
+				Modal::end();
+			?>
 			<button type="button" class="btn btn-danger margin-left-10"><?= Yii::t('app', 'Delete')?></button>
 		</td>
 	</tr>

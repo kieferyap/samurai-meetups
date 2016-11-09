@@ -33,6 +33,7 @@ $(document).ready(function() {
 					selector = ".admin-form-image";
 					$(selector).find('img').attr('src', $(value).find('img').attr('src'));
 					$(selector).find('img').attr('class', $(value).find('img').attr('class'));
+					$(selector).find('img').addClass('max-width-100');
 					break;
 				default:
 					alert("NONE");

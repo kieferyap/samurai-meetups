@@ -170,3 +170,12 @@ textarea {
 	font-size: 10pt; 
 	clear: both;
 }
+
+.max-width-100 {
+	max-width: 100%;
+}
+
+.max-width-250 {
+	max-width: 250px;
+	height: auto;
+}

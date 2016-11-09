@@ -72,6 +72,7 @@ class AdminController extends SamuraiController
         return SiteSettings::find()
             ->select([
                 'key' => $languageId, 
+                'key_type',
                 'value_en',
                 'value_jp'
             ])
