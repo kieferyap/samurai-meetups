@@ -78,4 +78,17 @@ class SamuraiController extends Controller
 		session_unset();
 		session_destroy(); 
 	}
+
+	public function debugPrint($input = '')
+	{
+		echo '>>>'.$input.'<<<';
+		die();
+	}
+
+	public function debugArrayPrint($input = [])
+	{
+		echo '<pre>';
+		print_r($input);
+		die();
+	}
 }

@@ -64,6 +64,3 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
     	</button>	
     </a>
 </div>
-HEYYYY
-<textarea></textarea>
-<textarea class="tinymce"></textarea>
