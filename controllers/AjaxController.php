@@ -24,16 +24,19 @@ class AjaxController extends SamuraiController
         $this->update(2, new Faq(), ['question_en' => 'YAY', 'question_jp' => 'YAYY']);
     }
     public function actionDeleteFaq() {
-        $this->debugPrint('Delete Faq');
+        $this->delete(3, new Faq());
     }
 
     private function update($id = 0, $modelObject = null, $newValues = []) {
-        $modelObject::find($id)->where(['id' => $id])->one();
+        $model = $modelObject::findOne(['id' => $id]);
         foreach ($newValues as $key => $value) {
-            $modelObject->$$key = $value;
+            $model->$key = $value;
         }
-        $modelObject->update();
-        echo 'reached the end';
-        die();
+        $model->update();
+    }
+
+    private function delete($id = 0, $modelObject = null) {
+        $model = $modelObject::findOne(['id' => $id]);
+        $model->delete();
     }
 }
