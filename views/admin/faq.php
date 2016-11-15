@@ -39,7 +39,8 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 							'header' => '<h3>'.$update.'</h3>',
 							'toggleButton' => [
 								'label' => $update,
-								'class' => 'btn btn-primary btn-update'
+								'class' => 'btn btn-primary btn-update',
+								'data-update-url' => Url::toRoute('ajax/update-faq')
 							],
 						]);
 					?>
@@ -51,7 +52,14 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 						Modal::end();
 					?>
 					
-    				<button type="button" class="btn btn-danger margin-top-5"><?= Yii::t('app', 'Delete')?></button>
+    				<button 
+    					type="button" 
+						data-delete-url="<?=Url::toRoute('ajax/delete-faq')?>"
+						class="btn btn-danger btn-delete margin-top-5"
+						data-id="<?=$element['id']?>"
+					>
+						<?= Yii::t('app', 'Delete')?>
+					</button>
 				</td>
 			</tr>
 		<?php endforeach;?>
@@ -59,7 +67,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 </table>
 <div class="row">
 	<a href="#">
-    	<button type="button" class="btn btn-success col-md-2 col-md-offset-5">
+    	<button type="button" class="btn btn-success col-md-2 col-md-offset-5" data-create-url="<?=Url::toRoute('ajax/create-faq')?>">
     		<?= Yii::t('app', 'Add FAQ')?>
     	</button>	
     </a>

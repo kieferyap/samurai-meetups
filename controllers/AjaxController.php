@@ -32,7 +32,7 @@ class AjaxController extends SamuraiController
         ]);
     }
     public function actionDeleteFaq() {
-        $this->delete(3, new Faq());
+        $this->delete($_POST['id'], new Faq());
     }
 
     private function update($id = 0, $modelObject = null, $newValues = []) {

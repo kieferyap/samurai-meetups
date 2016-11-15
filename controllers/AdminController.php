@@ -118,6 +118,7 @@ class AdminController extends SamuraiController
 
     public function actionFaq()
     {    
+        $this->addJsFile('admin-faq.js');
     	$faq = Faq::find()
 			->asArray()
 			->all();
