@@ -26,9 +26,11 @@ class AjaxController extends SamuraiController
         ]);
     }
     public function actionUpdateFaq() {
-        $this->update(2, new Faq(), [
-            'question_en' => 'MMF', 
-            'question_jp' => 'MMFH'
+        $this->update($_POST['id'], new Faq(), [
+            'question_en' => $_POST['question_en'], 
+            'question_jp' => $_POST['question_jp'],
+            'answer_en' => $_POST['answer_en'], 
+            'answer_jp' => $_POST['answer_jp']
         ]);
     }
     public function actionDeleteFaq() {
@@ -57,11 +59,12 @@ class AjaxController extends SamuraiController
 
     private function returnValue($input = false) {
         // update() and delete() returns false if unsuccessful, but returns the number of affected rows if otherwise.
+        $result = 'success';
         if ($input == false) {
-            echo 'failure';
+            $result = 'failure';
         }
-        else {
-            echo 'success';
-        }
+
+        Yii::$app->session->setFlash($result);
+        echo $result;
     }
 }

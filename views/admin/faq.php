@@ -14,21 +14,21 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th class="col-md-2 field"><?= Yii::t('app', 'Question (EN)')?></th>
-			<th class="col-md-3 field"><?= Yii::t('app', 'Answer (EN)')?></th>
-			<th class="col-md-2 field"><?= Yii::t('app', 'Question (JP)')?></th>
-			<th class="col-md-3 field"><?= Yii::t('app', 'Answer (JP)')?></th>
+			<th class="col-md-2 field" data-field="question_en"><?= Yii::t('app', 'Question (EN)')?></th>
+			<th class="col-md-3 field" data-field="answer_en"><?= Yii::t('app', 'Answer (EN)')?></th>
+			<th class="col-md-2 field" data-field="question_jp"><?= Yii::t('app', 'Question (JP)')?></th>
+			<th class="col-md-3 field" data-field="answer_jp"><?= Yii::t('app', 'Answer (JP)')?></th>
 			<th class="col-md-2"><?= Yii::t('app', 'Actions')?></th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($faq as $index => $element):?>
-			<tr class="row-content" id="<?=$index?>">
+		<?php foreach($faq as $element):?>
+			<tr class="row-content" id="<?=$element['id']?>">
 				<td class="value" data-type="text"><?=$element['question_en']?>
 				</td>
 				<td class="value" data-type="formatted-textarea"><?=$element['answer_en']?>
 				</td>
-				<td class="value" data-type="image-upload"><?=$element['question_jp']?>
+				<td class="value" data-type="text"><?=$element['question_jp']?>
 				</td>
 				<td class="value" data-type="formatted-textarea"><?=$element['answer_jp']?>
 				</td>
@@ -39,13 +39,19 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 							'header' => '<h3>'.$update.'</h3>',
 							'toggleButton' => [
 								'label' => $update,
-								'class' => 'btn btn-primary btn-update',
-								'data-update-url' => Url::toRoute('ajax/update-faq')
+								'class' => 'btn btn-primary btn-update'
 							],
+							'footer' => '<button 
+								type="button" 
+								class="btn btn-primary btn-action-update" 
+								data-id="'.$element['id'].'"
+								data-update-url="'.Url::toRoute('ajax/update-faq').'">'
+								.Yii::t('app', 'Update')
+								.'</button>',
 						]);
 					?>
 					
-					<div class="modal-inner-data-<?=$index?>">
+					<div class="modal-inner-data-<?=$element['id']?>">
 					</div>
 
 					<?php

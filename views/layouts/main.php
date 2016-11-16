@@ -32,7 +32,13 @@ AppAsset::register($this);
 
 	<!-- TinyMCE: A WYSIWYG editor for textarea -->
 	<script src="<?= Url::base() ?>js/tinymce/js/tinymce/tinymce.min.js"></script>
-
+	<script>
+		$(document).ready(function() {
+			tinymce.init({
+	    		selector: '.tinymce'
+	  		});
+		});
+	</script>
 	<!-- CSS which need a bit of nudge from PHP will be placed here. -->
 	<style type="text/css">
 		body {
@@ -197,6 +203,16 @@ It's used in index.js, I believe.
 			  </nav>
 			</div>
 			<div class="col-sm-8 col-lg-9">
+				<?php if (Yii::$app->session->hasFlash('success')): ?>
+					<div class="alert alert-success">
+						<?=Yii::t('app', 'The action was successful.')?>
+					</div>
+				<?php endif;?>
+				<?php if (Yii::$app->session->hasFlash('failure')): ?>
+					<div class="alert alert-danger">
+						<?=Yii::t('app', 'The action has failed.')?>
+					</div>
+				<?php endif;?>
 				<?= $content ?>
 			</div>
 			</div>
