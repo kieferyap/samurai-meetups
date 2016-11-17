@@ -210,7 +210,7 @@ It's used in index.js, I believe.
 				<?php endif;?>
 				<?php if (Yii::$app->session->hasFlash('failure')): ?>
 					<div class="alert alert-danger">
-						<?=Yii::t('app', 'The action has failed.')?>
+						<?=Yii::t('app', 'The action has failed. All fields should be provided.')?>
 					</div>
 				<?php endif;?>
 				<?= $content ?>

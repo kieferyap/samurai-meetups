@@ -19,10 +19,10 @@ class AjaxController extends SamuraiController
 {
     public function actionCreateFaq() {
         $this->create(new Faq(), [
-            'question_en' => 'YAY', 
-            'question_jp' => 'YAYY', 
-            'answer_en' => 'MON', 
-            'answer_jp' => 'TUE'
+            'question_en' => $_POST['question_en'], 
+            'question_jp' => $_POST['question_jp'],
+            'answer_en' => $_POST['answer_en'], 
+            'answer_jp' => $_POST['answer_jp']
         ]);
     }
     public function actionUpdateFaq() {

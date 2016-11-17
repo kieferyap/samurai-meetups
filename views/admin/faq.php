@@ -14,24 +14,20 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th class="col-md-2 field" data-field="question_en"><?= Yii::t('app', 'Question (EN)')?></th>
-			<th class="col-md-3 field" data-field="answer_en"><?= Yii::t('app', 'Answer (EN)')?></th>
-			<th class="col-md-2 field" data-field="question_jp"><?= Yii::t('app', 'Question (JP)')?></th>
-			<th class="col-md-3 field" data-field="answer_jp"><?= Yii::t('app', 'Answer (JP)')?></th>
+			<th class="col-md-2 field" data-field="question_en" data-type="text"><?= Yii::t('app', 'Question (EN)')?></th>
+			<th class="col-md-3 field" data-field="answer_en" data-type="formatted-textarea"><?= Yii::t('app', 'Answer (EN)')?></th>
+			<th class="col-md-2 field" data-field="question_jp" data-type="text"><?= Yii::t('app', 'Question (JP)')?></th>
+			<th class="col-md-3 field" data-field="answer_jp" data-type="formatted-textarea"><?= Yii::t('app', 'Answer (JP)')?></th>
 			<th class="col-md-2"><?= Yii::t('app', 'Actions')?></th>
 		</tr>
 	</thead>
 	<tbody>
 		<?php foreach($faq as $element):?>
 			<tr class="row-content" id="<?=$element['id']?>">
-				<td class="value" data-type="text"><?=$element['question_en']?>
-				</td>
-				<td class="value" data-type="formatted-textarea"><?=$element['answer_en']?>
-				</td>
-				<td class="value" data-type="text"><?=$element['question_jp']?>
-				</td>
-				<td class="value" data-type="formatted-textarea"><?=$element['answer_jp']?>
-				</td>
+				<td class="value"><?=$element['question_en']?></td>
+				<td class="value"><?=$element['answer_en']?></td>
+				<td class="value"><?=$element['question_jp']?></td>
+				<td class="value"><?=$element['answer_jp']?></td>
 				<td>
 					<?php 
 						$update = Yii::t('app', 'Update');
@@ -46,7 +42,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 								class="btn btn-primary btn-action-update" 
 								data-id="'.$element['id'].'"
 								data-update-url="'.Url::toRoute('ajax/update-faq').'">'
-								.Yii::t('app', 'Update')
+								.$update
 								.'</button>',
 						]);
 					?>
@@ -72,9 +68,27 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 	</tbody>
 </table>
 <div class="row">
-	<a href="#">
-    	<button type="button" class="btn btn-success col-md-2 col-md-offset-5" data-create-url="<?=Url::toRoute('ajax/create-faq')?>">
-    		<?= Yii::t('app', 'Add FAQ')?>
-    	</button>	
-    </a>
+	<?php 
+		$addNewItem = Yii::t('app', 'Add New Item');
+		Modal::begin([
+			'header' => '<h3>'.$addNewItem.'</h3>',
+			'toggleButton' => [
+				'label' => $addNewItem,
+				'class' => 'btn btn-success btn-add col-md-2 col-md-offset-5'
+			],
+			'footer' => '<button 
+				type="button" 
+				class="btn btn-success btn-action-add"
+				data-add-url="'.Url::toRoute('ajax/create-faq').'">'
+				.$addNewItem
+				.'</button>',
+		]);
+	?>
+	
+	<div class="modal-inner-data-new">
+	</div>
+
+	<?php
+		Modal::end();
+	?>
 </div>
