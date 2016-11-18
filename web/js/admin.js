@@ -44,7 +44,7 @@ $(document).ready(function() {
 					$(selector).find('img').addClass('max-width-100');
 					break;
 				default:
-					alert("NONE");
+					alert("NONE>>>"+fieldType);
 					break;
 			}
 
@@ -56,6 +56,7 @@ $(document).ready(function() {
 		});
 	});
 
+	// Adding a new entry
 	$('.field').each(function(index, value) {
 		var fieldText = fieldArray[index]; // e.g.: "Banner Image"
 		var fieldType = typeArray[index]; // e.g.: "image-upload"
@@ -83,7 +84,7 @@ $(document).ready(function() {
 				$(selector).find('img').addClass('max-width-100');
 				break;
 			default:
-				alert("NONE");
+				alert("NONE>>>"+fieldType);
 				break;
 		}
 
@@ -101,7 +102,7 @@ $(document).ready(function() {
 		fieldNameArray.push($(this).data('field'));
 	})
 
-	// Delete Button
+	// Delete Button clicked
 	$(document).on('click', '.btn-delete', function() {
 		var confirmed = confirm("This action cannot be undone. Are you sure?");
 		if (confirmed) {
@@ -149,10 +150,11 @@ $(document).ready(function() {
 					result = $(this).find('iframe').contents().find('html').find('.mce-content-body').html();
 					break;
 				case "image-upload":
-					alert("D:");
+					result = $(this).find('img').attr('src');
+					alert(result);
 					break;
 				default:
-					alert("NONE");
+					alert("NONE>>>"+fieldType);
 					break;
 			}
 
@@ -200,7 +202,7 @@ $(document).ready(function() {
 					alert("D:");
 					break;
 				default:
-					alert("NONE");
+					alert("NONE>>>"+fieldType);
 					break;
 			}
 
@@ -222,6 +224,26 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	// File upload ;w;
+	$('.browse-file-modal').on('change', function() {
+		// Change the photo
+		// var file = this.files[0];
+		// var name = file.name;
+		// var size = file.size;
+		// var type = file.type;
+
+		var reader = new FileReader();
+		var browseFileInput = $(this);
+		reader.onload = function(e) {
+			// alert(browseFileInput.parent().html());
+			browseFileInput.parent().find('img').attr('src', e.target.result);
+			// alert(e.target.result);
+		}
+		reader.readAsDataURL(this.files[0]);
+
+		//alert("File changed! >>>"+name);
+	})
 });
 
 function fillAllFormattedTextArea() {
