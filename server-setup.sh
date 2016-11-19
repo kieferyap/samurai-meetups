@@ -31,5 +31,6 @@ rm -rf phpMyAdmin-4.5.0.2-all-languages.tar.bz2
 # Setting up the site (making it writable by apache, and making the assets folder)
 cd /var/www/html/web/
 mkdir assets
-chown -R www-data:www-data /var/www/html/.
+sudo chown -R www-data:www-data /var/www/html/.
 chmod -R g+rw /var/www/html/.
+# sudo chmod -R 777 /var/www/html/. # unsafe. very unsafe. why is this even here??

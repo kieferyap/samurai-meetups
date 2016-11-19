@@ -56,6 +56,9 @@ AppAsset::register($this);
 Form HTML constants
 -->
 <div class="hidden">
+	<div id="ajax-upload-image" data-url="<?=Url::toRoute('ajax/upload-image')?>"></div>
+	<div id="ajax-loading-image" data-url="<?=Url::base().'images/loading.gif'?>"></div>
+
 	<div class="admin-form-text">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label>

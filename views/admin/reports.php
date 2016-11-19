@@ -48,7 +48,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 						type="button"  
 						class="btn btn-primary btn-action-update"  
 						data-id="'.$element['id'].'" 
-						data-update-url="'.Url::toRoute('ajax/update-faq').'">' 
+						data-update-url="'.Url::toRoute('ajax/update-report').'">' 
 						.Yii::t('app', 'Update') 
 						.'</button>', 
 				]);
@@ -68,39 +68,39 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 <div class="row margin-top-20">
 <table class="table table-striped table-bordered row-content" id="<?=$element['id']?>">
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="image-upload"><?= Yii::t('app', 'Sidebar Image')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="sidebar_image_url"><?= Yii::t('app', 'Sidebar Image')?></td>
 		<td class="value"><img class="border-radius-10 report-sidebar-element-photo" src="<?=Url::base().'images/'.$element['sidebar_image_url']?>"/></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="image-upload"><?= Yii::t('app', 'Left Image')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="worker_image_url"><?= Yii::t('app', 'Left Image')?></td>
 		<td class="value"><img class="height-150-px" src="<?=Url::base().'images/'.$element['worker_image_url']?>"/></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="image-upload"><?= Yii::t('app', 'Center Image')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="experience_image_url"><?= Yii::t('app', 'Center Image')?></td>
 		<td class="value"><img class="height-150-px" src="<?=Url::base().'images/'.$element['experience_image_url']?>"/></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="image-upload"><?= Yii::t('app', 'Right Image')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="set_image_url"><?= Yii::t('app', 'Right Image')?></td>
 		<td class="value"><img class="height-150-px" src="<?=Url::base().'images/'.$element['set_image_url']?>"/></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="textarea"><?= Yii::t('app', 'Sidebar Description (English)')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="textarea" data-field="short_description_en"><?= Yii::t('app', 'Sidebar Description (English)')?></td>
 		<td class="value"><?=$element['short_description_en']?></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="textarea"><?= Yii::t('app', 'Sidebar Description (Japanese)')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="textarea" data-field="short_description_jp"><?= Yii::t('app', 'Sidebar Description (Japanese)')?></td>
 		<td class="value"><?=$element['short_description_jp']?></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="formatted-textarea"><?= Yii::t('app', 'Description (English)')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="formatted-textarea" data-field="description_en"><?= Yii::t('app', 'Description (English)')?></td>
 		<td class="value"><?=$element['description_en']?></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="formatted-textarea"><?= Yii::t('app', 'Description (Japanese)')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="formatted-textarea" data-field="description_jp"><?= Yii::t('app', 'Description (Japanese)')?></td>
 		<td class="value"><?=$element['description_jp']?></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="text"><?= Yii::t('app', 'Type')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="text" data-field="type_name"><?= Yii::t('app', 'Type')?></td>
 		<td class="value">
 			<?php
 				$type = "Meetup Tour";

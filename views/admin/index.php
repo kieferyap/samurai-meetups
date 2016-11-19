@@ -16,8 +16,8 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 	<table class="table table-striped table-bordered">
 	<tr>
 		<th class="col-md-3">Key</th>
-		<th class="col-md-4 field">Value (EN)</th>
-		<th class="col-md-4 field">Value (JP)</th>
+		<th class="col-md-4 field" data-type="text">Value (EN)</th>
+		<th class="col-md-4 field" data-type="text">Value (JP)</th>
 		<th class="col-md-1">Actions</th>
 	</tr>
 	<?php foreach($siteSettings as $index => $element): ?>

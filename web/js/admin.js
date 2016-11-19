@@ -100,6 +100,7 @@ $(document).ready(function() {
 
 	$('.field').each(function() {
 		fieldNameArray.push($(this).data('field'));
+
 	})
 
 	// Delete Button clicked
@@ -151,14 +152,14 @@ $(document).ready(function() {
 					break;
 				case "image-upload":
 					result = $(this).find('img').attr('src');
-					alert(result);
+					//alert(result);
 					break;
 				default:
 					alert("NONE>>>"+fieldType);
 					break;
 			}
-
 			data[fieldNameArray[index]] = result;
+			alert(fieldNameArray[index]+">>>"+result);
 		});
 
 		$.ajax({
@@ -166,12 +167,13 @@ $(document).ready(function() {
 			url: $(this).data('update-url'),
 			data: data,
 			success: function(msg){
-				location.reload();
+				alert(msg);
+				// location.reload();
 			},
 			error: function(msg){
-				// alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
-				alert("An unknown error has occured. Press OK to reload.");
-				location.reload();
+				alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
+				// alert("An unknown error has occured. Press OK to reload.");
+				// location.reload();
 			}
 		});
 	});
@@ -228,17 +230,37 @@ $(document).ready(function() {
 	// File upload ;w;
 	$('.browse-file-modal').on('change', function() {
 		// Change the photo
-		// var file = this.files[0];
-		// var name = file.name;
-		// var size = file.size;
-		// var type = file.type;
+		var file = this.files[0];
+		var name = file.name;
+		var size = file.size;
+		var type = file.type;
 
+		// Change photo into a loading pic
 		var reader = new FileReader();
 		var browseFileInput = $(this);
+		var loadingGif = $('#ajax-loading-image').data('url')
+		browseFileInput.parent().find('img').attr('src', loadingGif)
+
 		reader.onload = function(e) {
-			// alert(browseFileInput.parent().html());
-			browseFileInput.parent().find('img').attr('src', e.target.result);
-			// alert(e.target.result);
+			// Upload the image file here and return the filename
+			$.ajax({
+				type: 'POST',
+				url: $('#ajax-upload-image').data('url'),
+				data: {
+					'image': e.target.result,
+					'filename': name,
+					'format': type,
+				},
+				success: function(msg){
+					browseFileInput.parent().find('img').attr('src', msg);
+				},
+				error: function(msg){
+					alert(msg);
+					alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
+				}
+			});
+
+			
 		}
 		reader.readAsDataURL(this.files[0]);
 
