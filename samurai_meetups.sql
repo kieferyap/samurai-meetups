@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 09, 2016 at 06:48 PM
+-- Generation Time: Nov 19, 2016 at 05:49 PM
 -- Server version: 5.5.50-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.17
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 INSERT INTO `admins` (`id`, `username`, `password`, `last_login`) VALUES
-(1, 'kiefer', 'c29681ff44226e1a15d619d2cd5bc8d8', '2016-11-08 05:49:30');
+(1, 'kiefer', 'c29681ff44226e1a15d619d2cd5bc8d8', '2016-11-19 04:44:27');
 
 -- --------------------------------------------------------
 
@@ -61,8 +61,8 @@ CREATE TABLE IF NOT EXISTS `faq` (
 --
 
 INSERT INTO `faq` (`id`, `question_en`, `question_jp`, `answer_en`, `answer_jp`) VALUES
-(2, 'Q1E', 'Q1J', 'A1E', 'A1J'),
-(3, 'Q2E', 'Q2J', 'A2E', 'A2J');
+(2, 'MMFH', 'MMFH', '<p>Yes, very awesome!<br data-mce-bogus="1"></p><p><em>Very, very awesome!</em><br></p><ul><li><em>test5<br data-mce-bogus="1"></em></li></ul>', '<p data-mce-style="text-align: left;" style="text-align: left;"><em>Sugoku sugoi yo!</em><br data-mce-bogus="1"></p>'),
+(3, 'yaya', 'yay', 'aya', 'aya');
 
 -- --------------------------------------------------------
 

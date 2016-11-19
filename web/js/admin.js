@@ -152,14 +152,12 @@ $(document).ready(function() {
 					break;
 				case "image-upload":
 					result = $(this).find('img').attr('src');
-					//alert(result);
 					break;
 				default:
 					alert("NONE>>>"+fieldType);
 					break;
 			}
 			data[fieldNameArray[index]] = result;
-			alert(fieldNameArray[index]+">>>"+result);
 		});
 
 		$.ajax({
@@ -167,8 +165,8 @@ $(document).ready(function() {
 			url: $(this).data('update-url'),
 			data: data,
 			success: function(msg){
-				alert(msg);
-				// location.reload();
+				// alert(msg);
+				location.reload();
 			},
 			error: function(msg){
 				alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
@@ -227,7 +225,7 @@ $(document).ready(function() {
 		});
 	});
 
-	// File upload ;w;
+	// File upload
 	$('.browse-file-modal').on('change', function() {
 		// Change the photo
 		var file = this.files[0];
@@ -255,7 +253,6 @@ $(document).ready(function() {
 					browseFileInput.parent().find('img').attr('src', msg);
 				},
 				error: function(msg){
-					alert(msg);
 					alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
 				}
 			});
@@ -263,8 +260,6 @@ $(document).ready(function() {
 			
 		}
 		reader.readAsDataURL(this.files[0]);
-
-		//alert("File changed! >>>"+name);
 	})
 });
 

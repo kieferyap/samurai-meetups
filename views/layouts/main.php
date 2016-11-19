@@ -84,6 +84,13 @@ Form HTML constants
 			<input class="browse-file-modal" id="???" value="???" type="file"/><br/>
 		</div>
 	</div>
+	<div class="admin-form-dropdown">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label><br/>
+			<option class="form-control">
+			</option>
+		</div>
+	</div>
 </div>
 
 <!-- 

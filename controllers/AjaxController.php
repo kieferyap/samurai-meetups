@@ -49,14 +49,26 @@ class AjaxController extends SamuraiController
         ]);
     }
     public function actionUpdateReport() {
-        echo json_encode($_POST);
+        // Data processing
+        // Image
+        $experienceImage = end(explode("/", $_POST['experience_image_url']));
+        $sidebarImage = end(explode("/", $_POST['sidebar_image_url']));
+        $workerImage = end(explode("/", $_POST['worker_image_url']));
+        $setImage = end(explode("/", $_POST['set_image_url']));
 
-        // $this->update($_POST['id'], new Reports(), [
-        //     'question_en' => $_POST['question_en'], 
-        //     'question_jp' => $_POST['question_jp'],
-        //     'answer_en' => $_POST['answer_en'], 
-        //     'answer_jp' => $_POST['answer_jp']
-        // ]);
+        // Tour Type
+        
+        $this->update($_POST['id'], new Reports(), [
+            'set_image_url' => $setImage, 
+            'worker_image_url' => $workerImage,
+            'sidebar_image_url' => $sidebarImage, 
+            'experience_image_url' => $experienceImage,
+            'short_description_en' => $_POST['short_description_en'],
+            'short_description_jp' => $_POST['short_description_jp'],
+            'description_en' => $_POST['description_en'],
+            'description_jp' => $_POST['description_jp'],
+            'type_id' => 1
+        ]);
     }
     public function actionDeleteReport() {
         $this->delete($_POST['id'], new Reports());
