@@ -100,8 +100,8 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 		<td class="value"><?=$element['description_jp']?></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="text" data-field="type_name"><?= Yii::t('app', 'Type')?></td>
-		<td class="value">
+		<td class="col-md-3 font-weight-bold field" data-type="dropdown" data-field="type_id"><?= Yii::t('app', 'Type')?></td>
+		<td class="value" data-dropdown-options="{&quot;1&quot;:&quot;Meetup Tour&quot;, &quot;2&quot;:&quot;Discovery Tour&quot;}" data-dropdown-selected="<?=$element['type_id']?>">
 			<?php
 				$type = "Meetup Tour";
 				if ($element['type_id'] == 2) {

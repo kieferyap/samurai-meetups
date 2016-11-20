@@ -9,7 +9,7 @@ $(document).ready(function() {
 		typeArray.push($(this).data('type'));
 	})
 
-	// Fill the update modal
+	// Updating an entry: Displaying the modal
 	$('.row-content').each(function () {
 		var rowIndex = $(this).attr('id');
 		$(this).find('.value').each(function(index, value) {
@@ -43,6 +43,18 @@ $(document).ready(function() {
 					$(selector).find('img').attr('class', $(value).find('img').attr('class'));
 					$(selector).find('img').addClass('max-width-100');
 					break;
+				case "dropdown":
+					selector = ".admin-form-dropdown";
+					$(selector).find('.form-control').find('option').remove();
+
+					var dropdownOptions = $(this).data('dropdown-options');
+					$.each(dropdownOptions, function(index, value){
+						$(selector).find('.form-control').append($('<option/>', { 
+							value: index,
+							text : value 
+						}));
+					});
+					break;
 				default:
 					alert("NONE>>>"+fieldType);
 					break;
@@ -56,7 +68,7 @@ $(document).ready(function() {
 		});
 	});
 
-	// Adding a new entry
+	// Adding a new entry: Displaying the modal
 	$('.field').each(function(index, value) {
 		var fieldText = fieldArray[index]; // e.g.: "Banner Image"
 		var fieldType = typeArray[index]; // e.g.: "image-upload"
@@ -83,6 +95,8 @@ $(document).ready(function() {
 				$(selector).find('img').attr('class', $(value).find('img').attr('class'));
 				$(selector).find('img').addClass('max-width-100');
 				break;
+			case "dropdown":
+				break;
 			default:
 				alert("NONE>>>"+fieldType);
 				break;
@@ -100,8 +114,7 @@ $(document).ready(function() {
 
 	$('.field').each(function() {
 		fieldNameArray.push($(this).data('field'));
-
-	})
+	});
 
 	// Delete Button clicked
 	$(document).on('click', '.btn-delete', function() {
@@ -153,6 +166,9 @@ $(document).ready(function() {
 				case "image-upload":
 					result = $(this).find('img').attr('src');
 					break;
+				case "dropdown":
+					result = $(this).find('.form-control').val();
+					break;
 				default:
 					alert("NONE>>>"+fieldType);
 					break;
@@ -199,6 +215,9 @@ $(document).ready(function() {
 					result = $(this).find('iframe').contents().find('html').find('.mce-content-body').html();
 					break;
 				case "image-upload":
+					alert("D:");
+					break;
+				case "dropdown":
 					alert("D:");
 					break;
 				default:

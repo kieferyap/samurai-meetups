@@ -55,9 +55,9 @@ class AjaxController extends SamuraiController
         $sidebarImage = end(explode("/", $_POST['sidebar_image_url']));
         $workerImage = end(explode("/", $_POST['worker_image_url']));
         $setImage = end(explode("/", $_POST['set_image_url']));
+        $typeId = intval($_POST['type_id']);
 
         // Tour Type
-        
         $this->update($_POST['id'], new Reports(), [
             'set_image_url' => $setImage, 
             'worker_image_url' => $workerImage,
@@ -67,7 +67,7 @@ class AjaxController extends SamuraiController
             'short_description_jp' => $_POST['short_description_jp'],
             'description_en' => $_POST['description_en'],
             'description_jp' => $_POST['description_jp'],
-            'type_id' => 1
+            'type_id' => $typeId
         ]);
     }
     public function actionDeleteReport() {

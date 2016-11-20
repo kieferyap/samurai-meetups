@@ -30,15 +30,6 @@ AppAsset::register($this);
 		<?php endforeach; ?>
 	<?php endif; ?>
 
-	<!-- TinyMCE: A WYSIWYG editor for textarea -->
-	<script src="<?= Url::base() ?>js/tinymce/js/tinymce/tinymce.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			tinymce.init({
-	    		selector: '.tinymce'
-	  		});
-		});
-	</script>
 	<!-- CSS which need a bit of nudge from PHP will be placed here. -->
 	<style type="text/css">
 		body {
@@ -87,8 +78,8 @@ Form HTML constants
 	<div class="admin-form-dropdown">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label><br/>
-			<option class="form-control">
-			</option>
+			<select class="form-control">
+			</select>
 		</div>
 	</div>
 </div>
@@ -259,6 +250,18 @@ It's used in index.js, I believe.
 		<script src="<?= Url::base() ?>js/<?= $jsFile ?>"></script>
 	<?php endforeach; ?>
 <?php endif; ?>
+
+
+<!-- TinyMCE: A WYSIWYG editor for textarea -->
+<script src="<?= Url::base() ?>js/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+	$(document).ready(function() {
+		tinymce.init({
+    		selector: '.tinymce'
+  		});
+	});
+</script>
+
 </body>
 </html>
 <?php $this->endPage() ?>
