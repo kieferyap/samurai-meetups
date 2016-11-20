@@ -1,20 +1,3 @@
-@media (max-width: 991px) {
-	#btn-join-tour {
-		width: 95%;
-		margin-left: 10px;
-	}
-	#tour-banner {
-		width: 100%;
-		height: 200px;
-	}
-}
-
-@media (max-width: 350px) {
-	table {
-		margin-left: -50px;
-	}
-}
-
 #tour-description {
 	margin-top: 10px;
 	padding: 50px;
@@ -27,10 +10,23 @@
 	height: 200px;
 }
 
-.table-striped > tbody > tr:nth-of-type(2n+1) {
-	background-color: rgba(255,255,255,0.5);
-}
-
 .key {
 	font-weight: bold;
+}
+
+@media (max-width: 991px) {
+	#btn-join-tour {
+		width: 95%;
+		margin-left: 10px;
+	}
+	#tour-banner {
+		width: 100%;
+		height: auto;
+	}
+}
+
+@media (max-width: 450px) {
+	#tour-description {
+		padding: 10px;
+	}
 }

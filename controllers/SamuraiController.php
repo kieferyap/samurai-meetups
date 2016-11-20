@@ -10,6 +10,7 @@ class SamuraiController extends Controller
 	public $params = array();
 	public $cssFiles = array();
 	public $jsFiles = array();
+	public $isAdmin = false;
 
 	public function addCssFile($filename = '') {
 		$this->cssFiles[] = $filename;
@@ -19,17 +20,21 @@ class SamuraiController extends Controller
 		$this->jsFiles[] = $filename;
 	}
 
+	public function setAdminTrue() {
+		$this->isAdmin = true;
+	}
+
 	public function renderView($view = '', $parameters = array()) {
 		Yii::$app->view->params['cssFiles'] = $this->cssFiles;
 		Yii::$app->view->params['jsFiles'] = $this->jsFiles;
+		Yii::$app->view->params['isAdmin'] = $this->isAdmin;
 		$this->setConfigLanguageCode();
 		return $this->render($view, $parameters);
 	}
 
 	public function setSessionLanguageCode($languageCode = '') 
 	{
-		$session = $this->getCurrentSession();
-		$session['language'] = $languageCode;
+		$_SESSION['language'] = $languageCode;
 	}
 
 	public function setConfigLanguageCode()
@@ -39,25 +44,51 @@ class SamuraiController extends Controller
 
 	public function getSessionLanguageCode() 
 	{
-		$session = $this->getCurrentSession();
-		if (!$session->has('language')) {
-			$session['language'] = Yii::$app->language;
+		$this->startSession();
+		if (!isset($_SESSION['language'])) {
+			$this->setSessionLanguageCode(Yii::$app->language);
 		}
-		return $session['language'];
+		return $_SESSION['language'];
 	}
 
-	public function getCurrentSession() 
+	public function setLoggedIn()
 	{
-		$session = Yii::$app->session;
-		if (!$session->isActive) {
-			$session->open();
+		$this->startSession();
+		$_SESSION['logged_in'] = true;
+	}
+
+	public function isLoggedIn()
+	{
+		$this->startSession();
+		if(!isset($_SESSION['logged_in'])) {
+			return false;
 		}
-		return $session;
+		return true;
+	}
+
+	public function startSession() 
+	{
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
 	}
 
 	public function closeSession()
 	{
-		$session->close();
-		$session->destroy();
+		session_unset();
+		session_destroy(); 
+	}
+
+	public function debugPrint($input = '')
+	{
+		echo '>>>'.$input.'<<<';
+		die();
+	}
+
+	public function debugArrayPrint($input = [])
+	{
+		echo '<pre>';
+		print_r($input);
+		die();
 	}
 }

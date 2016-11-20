@@ -54,6 +54,8 @@
 	.participation-voice-image {
 		width: 20%;
 		height: 20%;
+		top: 20%;
+		position: relative;
 		margin-left: 0px;
 	}
 }

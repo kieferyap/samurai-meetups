@@ -8,6 +8,8 @@ use app\models\SiteSettings;
 use app\models\Tours;
 use app\models\Reports;
 use app\models\Faq;
+use app\models\Participants;
+use app\models\LoginForm;
 
 use app\models\ContactForm;
 
@@ -25,7 +27,6 @@ class SiteController extends SamuraiController
 
 		$allElementKeys = [
 			'slideshow', 
-			'tour', 
 			'report', 
 			'about', 
 			'samurai', 
@@ -33,6 +34,7 @@ class SiteController extends SamuraiController
 			'voice_image',
 			'samurai_bottom'
 		];
+		$tourLimit = 3;
 
 		$languageId = 
 			$this->getSessionLanguageCode() == 'en' ? 
@@ -42,16 +44,24 @@ class SiteController extends SamuraiController
 		$frontPageElements = [];
 		foreach($allElementKeys as $elementKey) {
 			$element = SiteSettings::find()
-				->select(['value' => $languageId, 'extra_information'])
+				->select(['value' => $languageId])
 				->where(['key_search' => $elementKey])
 				->orderBy(['id' => SORT_DESC])
 				->asArray()
 				->all();
 			$frontPageElements[$elementKey] = $element;
-		} 
+		}
+
+		$tours = Tours::find()
+			->select(['top_image_url', 'id'])
+			->orderBy(['id' => SORT_DESC])
+			->limit($tourLimit)
+			->asArray()
+			->all();
 
 		return $this->renderView('index', [
 			'frontPageElements' => $frontPageElements,
+			'tours' => $tours
 		]);
 	}
 
@@ -62,10 +72,12 @@ class SiteController extends SamuraiController
 	 */
 	public function actionTours()
 	{
+		return $this->loadTourWithId($_GET['id']);
+	}
+
+	private function loadTourWithId($id) {
 		$this->addCssFile('tours.css');
 		$this->addJsFile('tours.js');
-
-		$id = $_GET['id'];
 
 		$tourElement = Tours::find()
 			->where(['id' => $id])
@@ -81,7 +93,6 @@ class SiteController extends SamuraiController
 			'termsOfService' => $allText
 		]);
 	}
-
 	/**
 	 * Tours action.
 	 *
@@ -354,5 +365,34 @@ class SiteController extends SamuraiController
 			.$termsOfServiceText.$separator
 			.$privacyPolicyText.$separator
 			.$transactionsLawText.$divEnding;
+	}
+
+	public function actionJoinTour()
+	{
+		// echo 'here'; die();
+		$this->addCssFile('join-tour.css');
+		$tourId = $_GET['id'];
+
+		$tourElement = Tours::find()
+			->where(['id' => $tourId])
+			->asArray()
+			->one();
+
+	    $model = new Participants();
+
+	    if ($model->load(Yii::$app->request->post())) {
+	        if ($model->validate()) {
+	        	$model->save();
+	        	Yii::$app->session->setFlash('tourJoined');
+	            // form inputs are valid, do something here
+	            return $this->loadTourWithId($tourId);
+	        }
+	    }
+
+	    return $this->renderView('join-tour', [
+	        'model' => $model,
+	        'tourId' => $tourId,
+	        'tourBanner' => $tourElement['image_url']
+	    ]);
 	}
 }

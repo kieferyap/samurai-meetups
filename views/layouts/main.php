@@ -29,10 +29,60 @@ AppAsset::register($this);
 			<link rel="stylesheet" href="<?= Url::base() ?>css/<?= $cssFile ?>">
 		<?php endforeach; ?>
 	<?php endif; ?>
+
+	<!-- CSS which need a bit of nudge from PHP will be placed here. -->
+	<style type="text/css">
+		body {
+			background-image: url(<?=Url::base().'images/background.jpg'?>);
+			background-repeat: repeat;
+		}
+	</style>
 </head>
 <body>
 
 <?php $this->beginBody() ?>
+
+
+<!--
+Form HTML constants
+-->
+<div class="hidden">
+	<div id="ajax-upload-image" data-url="<?=Url::toRoute('ajax/upload-image')?>"></div>
+	<div id="ajax-loading-image" data-url="<?=Url::base().'images/loading.gif'?>"></div>
+
+	<div class="admin-form-text">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label>
+			<input id="???" value="???" class="form-control" type="text"/>
+		</div>
+	</div>
+	<div class="admin-form-textarea">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label>
+			<textarea id="???" class="form-control"></textarea>
+		</div>
+	</div>
+	<div class="admin-form-formatted">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label>
+			<textarea id="???" class="form-control tinymce"></textarea>
+		</div>
+	</div>
+	<div class="admin-form-image">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label><br/>
+			<img src="???"/><br/>
+			<input class="browse-file-modal" id="???" value="???" type="file"/><br/>
+		</div>
+	</div>
+	<div class="admin-form-dropdown">
+		<div class="form-group required">
+			<label class="control-label" for="???">???</label><br/>
+			<select class="form-control">
+			</select>
+		</div>
+	</div>
+</div>
 
 <!-- 
 The is-toggle-clicked is needed because there's an exceptionally weird bug which causes the language button to click twice, 
@@ -110,8 +160,67 @@ It's used in index.js, I believe.
 	]);
 	NavBar::end();
 	?>
-	<div class="container">    
-		<?= $content ?>
+	<div class="container">
+		<?php if($this->params['isAdmin'] == true):?>    
+
+			<div class="container-fluid">
+			<div class="row">
+			<div class="col-sm-4 col-lg-3">
+			  <nav class="navbar navbar-default navbar-fixed-side">
+				<ul class="sidebar-nav admin-sidebar">
+					<!--Everything EXCEPT the tour-->
+					<li>
+						<a href="<?=Url::toRoute('admin/index')?>">
+							<?=Yii::t('app', '- Site Settings')?>
+						</a>
+					</li> 
+					<!--Add the TOP PAGE TOUR information here-->
+					<li>
+						<a href="<?=Url::toRoute('admin/tours')?>">
+							<?=Yii::t('app', '- Tour Management')?>
+						</a>
+					</li> 
+					<li>
+						<a href="<?=Url::toRoute('admin/reports')?>">
+							<?=Yii::t('app', '- Report Management')?>
+						</a>
+					</li>
+					<li>
+						<a href="<?=Url::toRoute('admin/admins')?>">
+							<?=Yii::t('app', '- Admin Management')?>
+						</a>
+					</li>
+					<li>
+						<a href="<?=Url::toRoute('admin/faq')?>">
+							<?=Yii::t('app', '- FAQ Management')?>
+						</a>
+					</li>
+					<li>
+						<a href="<?=Url::toRoute('admin/participants')?>">
+							<?=Yii::t('app', '- Check Tour Participants')?>
+						</a>
+					</li>
+				</ul>
+			  </nav>
+			</div>
+			<div class="col-sm-8 col-lg-9">
+				<?php if (Yii::$app->session->hasFlash('success')): ?>
+					<div class="alert alert-success">
+						<?=Yii::t('app', 'The action was successful.')?>
+					</div>
+				<?php endif;?>
+				<?php if (Yii::$app->session->hasFlash('failure')): ?>
+					<div class="alert alert-danger">
+						<?=Yii::t('app', 'The action has failed. All fields should be provided.')?>
+					</div>
+				<?php endif;?>
+				<?= $content ?>
+			</div>
+			</div>
+			</div>
+		<?php else:?>
+			<?= $content ?>
+		<?php endif;?>
 	</div>
 </div>
 
@@ -142,7 +251,17 @@ It's used in index.js, I believe.
 	<?php endforeach; ?>
 <?php endif; ?>
 
-<script src="<?= Url::base() ?>js/index.js"></script>
+
+<!-- TinyMCE: A WYSIWYG editor for textarea -->
+<script src="<?= Url::base() ?>js/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+	$(document).ready(function() {
+		tinymce.init({
+    		selector: '.tinymce'
+  		});
+	});
+</script>
+
 </body>
 </html>
 <?php $this->endPage() ?>

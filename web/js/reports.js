@@ -44,7 +44,7 @@ $(document).ready(function() {
 			},
 			error: function(msg){
 				// alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
-				alert("An unknown error has occured. Press OK to reload.");
+				// alert("An unknown error has occured. Press OK to reload.");
 				location.reload();
 			}
 		});
