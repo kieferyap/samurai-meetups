@@ -107,9 +107,31 @@ class AjaxController extends SamuraiController
 
     // Image upload
     public function actionUploadImage() {
-        //TO-DO: File checks (http://www.w3schools.com/php/php_file_upload.asp)
-        $data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $_POST['image']));
-        file_put_contents('images/'.$_POST['filename'], $data);
-        echo Url::base().'images/'.$_POST['filename'];
+        //Filechecks:
+        $success = false;
+        $message = "Sorry, there was an error in uploading the file.";
+        
+        if (intval($_POST['size']) > 10000000) {
+            $message = "Sorry, the file size is too large. (It exceeds 10MB.)";
+        }
+        else if (
+            $_POST['type'] != "image/jpg" 
+            && $_POST['type'] != "image/jpeg" 
+            && $_POST['type'] != "image/png"
+            && $_POST['type'] != "image/gif"
+        ) {
+            $message = "Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
+        }
+        else {
+            $data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $_POST['image']));
+            file_put_contents('images/'.$_POST['filename'], $data);
+            $success = true;
+            $message = Url::base().'images/'.$_POST['filename'];
+        }
+
+        echo json_encode(array(
+            "success" => $success,
+            "message" => $message
+        ));
     }
 }

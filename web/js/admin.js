@@ -254,9 +254,11 @@ $(document).ready(function() {
 
 		// Change photo into a loading pic
 		var reader = new FileReader();
-		var browseFileInput = $(this);
+		var browseFileInputParent = $(this).parent();
 		var loadingGif = $('#ajax-loading-image').data('url')
-		browseFileInput.parent().find('img').attr('src', loadingGif)
+		var oldPhoto = browseFileInputParent.find('img').attr('src');
+
+		browseFileInputParent.find('img').attr('src', loadingGif)
 
 		reader.onload = function(e) {
 			// Upload the image file here and return the filename
@@ -266,10 +268,18 @@ $(document).ready(function() {
 				data: {
 					'image': e.target.result,
 					'filename': name,
-					'format': type,
+					'type': type,
+					'size': size
 				},
 				success: function(msg){
-					browseFileInput.parent().find('img').attr('src', msg);
+					var response = JSON.parse(msg);
+					if (response.success) {
+						browseFileInputParent.find('img').attr('src', response.message);
+					}
+					else {
+						alert(response.message);
+						browseFileInputParent.find('img').attr('src', oldPhoto);
+					}
 				},
 				error: function(msg){
 					alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');

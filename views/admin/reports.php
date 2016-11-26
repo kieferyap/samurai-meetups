@@ -140,9 +140,27 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 <?php endforeach;?>
 
 <div class="row">
-	<a href="#">
-    	<button type="button" class="btn btn-success col-md-2 col-md-offset-5">
-    		<?= Yii::t('app', 'Add Report')?>
-    	</button>	
-    </a>
+	<?php 
+		$addNewItem = Yii::t('app', 'Add New Item');
+		Modal::begin([
+			'header' => '<h3>'.$addNewItem.'</h3>',
+			'toggleButton' => [
+				'label' => $addNewItem,
+				'class' => 'btn btn-success btn-add col-md-2 col-md-offset-5'
+			],
+			'footer' => '<button 
+				type="button" 
+				class="btn btn-success btn-action-add"
+				data-add-url="'.Url::toRoute('ajax/create-faq').'">'
+				.$addNewItem
+				.'</button>',
+		]);
+	?>
+	
+	<div class="modal-inner-data-new">
+	</div>
+
+	<?php
+		Modal::end();
+	?>
 </div>
