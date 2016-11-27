@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var fieldArray = []; // "Question (EN)"
 	var typeArray = []; // "text", "textarea", "formatted-textarea", etc.
 
-	$('.field').each(function() {
+	$('.row-fields').first().find('.field').each(function() {
 		fieldArray.push($(this).text());
 		typeArray.push($(this).data('type'));
 	})
@@ -68,8 +68,8 @@ $(document).ready(function() {
 		});
 	});
 
-	// Adding a new entry: Displaying the modal
-	$('.field').each(function(index, value) {
+	// Once the Modal's Add button has been clicked, gather all the information and update
+	$('.row-fields').first().find('.field').each(function(index, value) {
 		var fieldText = fieldArray[index]; // e.g.: "Banner Image"
 		var fieldType = typeArray[index]; // e.g.: "image-upload"
 		var selector = ".admin-form-text";
@@ -96,6 +96,17 @@ $(document).ready(function() {
 				$(selector).find('img').addClass('max-width-100');
 				break;
 			case "dropdown":
+				selector = ".admin-form-dropdown";
+				$(selector).find('.form-control').find('option').remove();
+
+				var dropdownOptions = $(this).data('dropdown-options');
+				alert(dropdownOptions);
+				$.each(dropdownOptions, function(index, value){
+					$(selector).find('.form-control').append($('<option/>', { 
+						value: index,
+						text : value 
+					}));
+				});
 				break;
 			default:
 				alert("NONE>>>"+fieldType);

@@ -66,7 +66,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 </div>
 
 <div class="row margin-top-20">
-<table class="table table-striped table-bordered row-content" id="<?=$element['id']?>">
+<table class="table table-striped table-bordered row-content row-fields" id="<?=$element['id']?>">
 	<tr>
 		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="sidebar_image_url"><?= Yii::t('app', 'Sidebar Image')?></td>
 		<td class="value"><img class="border-radius-10 report-sidebar-element-photo" src="<?=Url::base().'images/'.$element['sidebar_image_url']?>"/></td>
@@ -100,8 +100,19 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 		<td class="value"><?=$element['description_jp']?></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="dropdown" data-field="type_id"><?= Yii::t('app', 'Type')?></td>
-		<td class="value" data-dropdown-options="{&quot;1&quot;:&quot;Meetup Tour&quot;, &quot;2&quot;:&quot;Discovery Tour&quot;}" data-dropdown-selected="<?=$element['type_id']?>">
+		<td 
+			class="col-md-3 font-weight-bold field" 
+			data-type="dropdown" 
+			data-dropdown-options="{&quot;1&quot;:&quot;Meetup Tour&quot;, &quot;2&quot;:&quot;Discovery Tour&quot;}" 
+			data-field="type_id"
+		>
+			<?= Yii::t('app', 'Type')?>
+		</td>
+		<td 
+			class="value" 
+			data-dropdown-options="{&quot;1&quot;:&quot;Meetup Tour&quot;, &quot;2&quot;:&quot;Discovery Tour&quot;}" 
+			data-dropdown-selected="<?=$element['type_id']?>"
+		>
 			<?php
 				$type = "Meetup Tour";
 				if ($element['type_id'] == 2) {

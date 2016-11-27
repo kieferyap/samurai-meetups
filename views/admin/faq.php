@@ -13,7 +13,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 <hr/>
 <table class="table table-striped table-bordered">
 	<thead>
-		<tr>
+		<tr class="row-fields">
 			<th class="col-md-2 field" data-field="question_en" data-type="text"><?= Yii::t('app', 'Question (EN)')?></th>
 			<th class="col-md-3 field" data-field="answer_en" data-type="formatted-textarea"><?= Yii::t('app', 'Answer (EN)')?></th>
 			<th class="col-md-2 field" data-field="question_jp" data-type="text"><?= Yii::t('app', 'Question (JP)')?></th>
