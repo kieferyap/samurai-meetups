@@ -37,6 +37,12 @@ AppAsset::register($this);
 			background-repeat: repeat;
 		}
 	</style>
+	
+	<!-- WYSIWYG Text Editor-->
+	<script src="http://localhost/samurai-meetups/web/js/nicedit.js" type="text/javascript"></script>
+	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+
 </head>
 <body>
 
@@ -250,17 +256,6 @@ It's used in index.js, I believe.
 		<script src="<?= Url::base() ?>js/<?= $jsFile ?>"></script>
 	<?php endforeach; ?>
 <?php endif; ?>
-
-
-<!-- TinyMCE: A WYSIWYG editor for textarea -->
-<script src="<?= Url::base() ?>js/tinymce/js/tinymce/tinymce.min.js"></script>
-<script>
-	$(document).ready(function() {
-		tinymce.init({
-    		selector: '.tinymce'
-  		});
-	});
-</script>
 
 </body>
 </html>

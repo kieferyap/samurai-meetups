@@ -1,6 +1,12 @@
 $(document).ready(function() {
 
-	// Preparing the updates
+	/*
+	*	Implementation notes:
+	*		- Update button must have a data-id
+	*		- Update Action button must also have a data-id 
+	*/	
+
+	// Gather all the fields
 	var fieldArray = []; // "Question (EN)"
 	var typeArray = []; // "text", "textarea", "formatted-textarea", etc.
 
@@ -9,64 +15,30 @@ $(document).ready(function() {
 		typeArray.push($(this).data('type'));
 	})
 
-	// Updating an entry: Displaying the modal
-	$('.row-content').each(function () {
-		var rowIndex = $(this).attr('id');
-		$(this).find('.value').each(function(index, value) {
-			var trueIndex = index % fieldArray.length; // Used for getting which fieldText to use
-			var fieldText = fieldArray[trueIndex]; // e.g.: "Banner Image"
-			var fieldType = typeArray[trueIndex];
-
-			var valueText = $(value).text().trim(); // e.g.: "banner_zazen.jpg"
-			var selector = ".admin-form-text";
-			
-			var formId = 'form-'+fieldText;
-			var controlId = '';
-
-			switch(fieldType) {
-				case "text":
-					selector = ".admin-form-text";
-					$(selector).find('.form-control').attr('value', valueText);
-					break;
-				case "textarea":
-					selector = ".admin-form-textarea";
-					$(selector).find('.form-control').text(valueText);
-					break;
-				case "formatted-textarea":
-					selector = ".admin-form-formatted";
-					valueText = $(value).html().trim();
-					$(selector).find('.form-control').attr('data-content', valueText);
-					break;
-				case "image-upload":
-					selector = ".admin-form-image";
-					$(selector).find('img').attr('src', $(value).find('img').attr('src'));
-					$(selector).find('img').attr('class', $(value).find('img').attr('class'));
-					$(selector).find('img').addClass('max-width-100');
-					break;
-				case "dropdown":
-					selector = ".admin-form-dropdown";
-					$(selector).find('.form-control').find('option').remove();
-
-					var dropdownOptions = $(this).data('dropdown-options');
-					$.each(dropdownOptions, function(index, value){
-						$(selector).find('.form-control').append($('<option/>', { 
-							value: index,
-							text : value 
-						}));
-					});
-					break;
-				default:
-					alert("NONE>>>"+fieldType);
-					break;
-			}
-
-			$(selector).find('.control-label').attr('for', formId);
-			$(selector).find('.control-label').text(fieldText);
-			$(selector).find('input').attr('id', formId);
-
-			$('.modal-inner-data-'+rowIndex).append($(selector).html());
+	// Once the UPDATE button is clicked, fill the modal.
+	$('.btn-update').on('click', function() {
+		var dataId = $(this).data('id');
+		$(this).parent().parent().find('.value').each(function(index, value) {
+			fillUpdateModal(dataId, index, value, fieldArray, typeArray);
 		});
 	});
+
+	// Once the SAVE button is clicked, gather the updated information and toss it to the controller.
+	$('.btn-action-update').on('click', function() {
+
+	});
+
+	// Once the ADD button is clicked, fill the modal.
+	$('.btn-add').on('click', function() {
+
+	});
+
+	// Once the INSERT button is clicked, gather the newly-added information and toss it to the controller.
+	$('.btn-action-add').on('click', function() {
+
+	});
+
+	//=====================================================
 
 	// Once the Modal's Add button has been clicked, gather all the information and update
 	$('.row-fields').first().find('.field').each(function(index, value) {
@@ -316,4 +288,60 @@ function fillAllFormattedTextArea() {
 			$(this).parent().find('iframe').contents().find('html').find('.mce-content-body').html(content);
 		}
 	});
+}
+
+function fillUpdateModal(dataId, index, value, fieldArray, typeArray) {
+	var trueIndex = index % fieldArray.length; // Used for getting which fieldText to use
+	var valueText = $(value).text().trim(); // e.g.: "banner_zazen.jpg"
+	var fieldText = fieldArray[trueIndex]; // e.g.: "Banner Image"
+	var fieldType = typeArray[trueIndex];
+
+	var selector = ".admin-form-text";
+	
+	var formId = 'form-'+fieldText;
+	var controlId = '';
+
+	switch(fieldType) {
+		case "text":
+			selector = ".admin-form-text";
+			$(selector).find('.form-control').attr('value', valueText);
+			break;
+		case "textarea":
+			selector = ".admin-form-textarea";
+			$(selector).find('.form-control').text(valueText);
+			break;
+		case "formatted-textarea":
+			selector = ".admin-form-formatted";
+			valueText = $(value).html().trim();
+			alert($(selector).html());
+			$(selector).find('.form-control').attr('data-content', valueText);
+			break;
+		case "image-upload":
+			selector = ".admin-form-image";
+			$(selector).find('img').attr('src', $(value).find('img').attr('src'));
+			$(selector).find('img').attr('class', $(value).find('img').attr('class'));
+			$(selector).find('img').addClass('max-width-100');
+			break;
+		case "dropdown":
+			selector = ".admin-form-dropdown";
+			$(selector).find('.form-control').find('option').remove();
+
+			var dropdownOptions = $(this).data('dropdown-options');
+			$.each(dropdownOptions, function(index, value){
+				$(selector).find('.form-control').append($('<option/>', { 
+					value: index,
+					text : value 
+				}));
+			});
+			break;
+		default:
+			alert("NONE>>>"+fieldType);
+			break;
+	}
+
+	$(selector).find('.control-label').attr('for', formId);
+	$(selector).find('.control-label').text(fieldText);
+	$(selector).find('input').attr('id', formId);
+
+	$('.modal-inner-data-'+dataId).append($(selector).html());
 }

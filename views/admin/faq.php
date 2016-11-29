@@ -35,7 +35,8 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 							'header' => '<h3>'.$update.'</h3>',
 							'toggleButton' => [
 								'label' => $update,
-								'class' => 'btn btn-primary btn-update'
+								'class' => 'btn btn-primary btn-update',
+								'data-id' => $element['id']
 							],
 							'footer' => '<button 
 								type="button" 
@@ -92,3 +93,5 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 		Modal::end();
 	?>
 </div>
+
+<textarea class="nicInstance"><b>asdf</b></textarea>
