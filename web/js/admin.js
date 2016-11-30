@@ -123,11 +123,6 @@ $(document).ready(function() {
 		}		
 	});
 
-	// Special handling for the formattable text area (TinyMCE)
-	$(document).on('click', '.btn-update', function() {
-		fillAllFormattedTextArea();
-	});
-
 	// Once the Modal's Update button has been clicked, gather all the information and update
 	$(document).on('click', '.btn-action-update', function() {
 		data = {};
@@ -173,11 +168,6 @@ $(document).ready(function() {
 				// location.reload();
 			}
 		});
-	});
-
-	// Add new entry was clicked
-	$(document).on('click', '.btn-add', function() {
-		fillAllFormattedTextArea();
 	});
 
 	// Inserting a new entry
@@ -275,21 +265,6 @@ $(document).ready(function() {
 	})
 });
 
-function fillAllFormattedTextArea() {
-	$('.tinymce').each(function(index, value){
-		// Ignore the very first one because that is the hidden one
-		if (index > 0) {
-			var content = $(this).data('content');
-
-			// For some very weird reason, TinyMCE does not always fill its iframes with the correct HTML. This looks ugly but it is to remedy that problem.
-			// var whyMustYouDoThisToMe = '<head></head><body spellcheck="false" id="tinymce" class="mce-content-body" data-id="???" contenteditable="true"></body>';
-			// $(this).parent().find('iframe').contents().find('html').html(whyMustYouDoThisToMe);
-			// alert($(this).parent().find('iframe').contents().find('html').html());
-			$(this).parent().find('iframe').contents().find('html').find('.mce-content-body').html(content);
-		}
-	});
-}
-
 function fillUpdateModal(dataId, index, value, fieldArray, typeArray) {
 	var trueIndex = index % fieldArray.length; // Used for getting which fieldText to use
 	var valueText = $(value).text().trim(); // e.g.: "banner_zazen.jpg"
@@ -313,8 +288,10 @@ function fillUpdateModal(dataId, index, value, fieldArray, typeArray) {
 		case "formatted-textarea":
 			selector = ".admin-form-formatted";
 			valueText = $(value).html().trim();
-			alert($(selector).html());
-			$(selector).find('.form-control').attr('data-content', valueText);
+
+			$(selector).find('.form-controllol').html($(selector).find('.form-control-source').html());
+			$(selector).find('.form-controllol').find('textarea').text(valueText);
+			$(selector).find('.form-controllol').find('textarea').froalaEditor();
 			break;
 		case "image-upload":
 			selector = ".admin-form-image";
@@ -343,5 +320,5 @@ function fillUpdateModal(dataId, index, value, fieldArray, typeArray) {
 	$(selector).find('.control-label').text(fieldText);
 	$(selector).find('input').attr('id', formId);
 
-	$('.modal-inner-data-'+dataId).append($(selector).html());
+	$('.modal-inner-data-'+dataId).append($(selector).find('.form-content').html());
 }

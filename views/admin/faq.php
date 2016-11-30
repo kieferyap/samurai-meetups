@@ -94,4 +94,3 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 	?>
 </div>
 
-<textarea class="nicInstance"><b>asdf</b></textarea>

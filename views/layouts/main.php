@@ -37,11 +37,20 @@ AppAsset::register($this);
 			background-repeat: repeat;
 		}
 	</style>
+
+	<link href="<?= Url::base() ?>css/bootstrap.css" rel="stylesheet">
+	<link href="<?= Url::base() ?>css/site.css" rel="stylesheet">
+	<link href="<?= Url::base() ?>css/common.css" rel="stylesheet">	
 	
 	<!-- WYSIWYG Text Editor-->
-	<script src="http://localhost/samurai-meetups/web/js/nicedit.js" type="text/javascript"></script>
-	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+	<!-- Include Editor style. -->
+	<link href='<?= Url::base() ?>css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+	<link href='<?= Url::base() ?>css/froala_style.min.css' rel='stylesheet' type='text/css' />
+	<link href='<?= Url::base() ?>css/font-awesome-4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
 
+	<!-- Include JS file. -->
+	<script type='text/javascript' src='<?= Url::base() ?>js/jquery.js'></script>
+	<script type='text/javascript' src='<?= Url::base() ?>js/froala_editor.min.js'></script>
 
 </head>
 <body>
@@ -57,35 +66,46 @@ Form HTML constants
 	<div id="ajax-loading-image" data-url="<?=Url::base().'images/loading.gif'?>"></div>
 
 	<div class="admin-form-text">
+		<div class="form-content">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label>
 			<input id="???" value="???" class="form-control" type="text"/>
 		</div>
+		</div>
 	</div>
 	<div class="admin-form-textarea">
+		<div class="form-content">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label>
 			<textarea id="???" class="form-control"></textarea>
 		</div>
+		</div>
 	</div>
-	<div class="admin-form-formatted">
-		<div class="form-group required">
-			<label class="control-label" for="???">???</label>
-			<textarea id="???" class="form-control tinymce"></textarea>
+	<div class="admin-form-formatted">		
+		<div class="form-control-source"><textarea></textarea></div>
+		<div class="form-content">
+			<div class="form-group required">
+				<label class="control-label" for="???">???</label><br/>
+				<div class="form-controllol"></div>
+			</div>
 		</div>
 	</div>
 	<div class="admin-form-image">
+		<div class="form-content">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label><br/>
 			<img src="???"/><br/>
 			<input class="browse-file-modal" id="???" value="???" type="file"/><br/>
 		</div>
+		</div>
 	</div>
 	<div class="admin-form-dropdown">
+		<div class="form-content">
 		<div class="form-group required">
 			<label class="control-label" for="???">???</label><br/>
 			<select class="form-control">
 			</select>
+		</div>
 		</div>
 	</div>
 </div>
@@ -249,7 +269,10 @@ It's used in index.js, I believe.
 		</p>
 	</div>
 </footer>
-<?php $this->endBody() ?>
+
+<script src="<?= Url::base() ?>js/site.js"></script>
+<script src="<?= Url::base() ?>js/bootstrap.js"></script>
+<script src="<?= Url::base() ?>js/yii.js"></script>
 
 <?php if(isset($this->params['jsFiles'])): ?>
 	<?php foreach($this->params['jsFiles'] as $jsFile): ?>

@@ -22,12 +22,5 @@ $(document).ready(function() {
 		}
 	});
 
-	$( ".nicInstance" ).each(function( index ) {
-		$(this).attr("id","myInstance"+index);
-		bkLib.onDomLoaded(function() {
-          var myNicEditor = new nicEditor();
-          myNicEditor.setPanel('myNicPanel'+index);
-          myNicEditor.addInstance('myInstance'+index);
-     });
-	});
+	$('textarea.formatted-editor').froalaEditor();
 });
