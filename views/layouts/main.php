@@ -44,13 +44,12 @@ AppAsset::register($this);
 	
 	<!-- WYSIWYG Text Editor-->
 	<!-- Include Editor style. -->
-	<link href='<?= Url::base() ?>css/froala_editor.min.css' rel='stylesheet' type='text/css' />
-	<link href='<?= Url::base() ?>css/froala_style.min.css' rel='stylesheet' type='text/css' />
 	<link href='<?= Url::base() ?>css/font-awesome-4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
 
 	<!-- Include JS file. -->
 	<script type='text/javascript' src='<?= Url::base() ?>js/jquery.js'></script>
-	<script type='text/javascript' src='<?= Url::base() ?>js/froala_editor.min.js'></script>
+	<script type='text/javascript' src='<?= Url::base() ?>js/tinymce/js/tinymce/tinymce.min.js'></script>
+	<script type='text/javascript' src='<?= Url::base() ?>js/tinymce/js/tinymce/jquery.tinymce.min.js'></script>
 
 </head>
 <body>
@@ -81,13 +80,13 @@ Form HTML constants
 		</div>
 		</div>
 	</div>
-	<div class="admin-form-formatted">		
-		<div class="form-control-source"><textarea></textarea></div>
+	<div class="admin-form-formatted">	
+		<div class="form-control-source hidden"><textarea></textarea></div>	
 		<div class="form-content">
-			<div class="form-group required">
-				<label class="control-label" for="???">???</label><br/>
-				<div class="form-controllol"></div>
-			</div>
+		<div class="form-group required">
+			<div class="form-label"><label class="control-label" for="???">???</label></div>
+			<div class="form-element"></div>
+		</div>
 		</div>
 	</div>
 	<div class="admin-form-image">

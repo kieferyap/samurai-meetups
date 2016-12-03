@@ -9,23 +9,36 @@ $(document).ready(function() {
 	// Gather all the fields
 	var fieldArray = []; // "Question (EN)"
 	var typeArray = []; // "text", "textarea", "formatted-textarea", etc.
+	var fieldNameArray = []; // "question_en"
 
 	$('.row-fields').first().find('.field').each(function() {
 		fieldArray.push($(this).text());
 		typeArray.push($(this).data('type'));
+		fieldNameArray.push($(this).data('field'));
 	})
 
 	// Once the UPDATE button is clicked, fill the modal.
 	$('.btn-update').on('click', function() {
 		var dataId = $(this).data('id');
-		$(this).parent().parent().find('.value').each(function(index, value) {
-			fillUpdateModal(dataId, index, value, fieldArray, typeArray);
-		});
+		if ($('.modal-inner-data-'+dataId).html().trim() == ""){
+			$(this).parent().parent().find('.value').each(function(index, value) {
+				fillUpdateModal(dataId, index, value, fieldArray, typeArray);
+			});
+
+			// All newly-added formattable textarea in the modal must be editable
+			$('.modal-inner-data-'+dataId).find('.formatted-textarea').each(function() {
+				$(this).tinymce({
+					menubar: false,
+					plugins: ['lists link'],
+					toolbar1: 'bold italic underline link | bullist numlist outdent indent | alignleft aligncenter alignright alignjustify'
+				});
+			});
+		}
 	});
 
 	// Once the SAVE button is clicked, gather the updated information and toss it to the controller.
 	$('.btn-action-update').on('click', function() {
-
+		saveUpdateModal($(this), $(this).data('update-url'), typeArray, fieldNameArray);
 	});
 
 	// Once the ADD button is clicked, fill the modal.
@@ -93,11 +106,6 @@ $(document).ready(function() {
 	});
 
 	var data = {};
-	var fieldNameArray = [];
-
-	$('.field').each(function() {
-		fieldNameArray.push($(this).data('field'));
-	});
 
 	// Delete Button clicked
 	$(document).on('click', '.btn-delete', function() {
@@ -123,53 +131,6 @@ $(document).ready(function() {
 		}		
 	});
 
-	// Once the Modal's Update button has been clicked, gather all the information and update
-	$(document).on('click', '.btn-action-update', function() {
-		data = {};
-		data['id'] = $(this).data('id');
-		$(this).parent().parent().find('.form-group').each(function(index, value) {
-			var fieldType = typeArray[index];
-			var result = "";
-
-			switch(fieldType) {
-				case "text":
-					result = $(this).find('.form-control').val();
-					break;
-				case "textarea":
-					result = $(this).find('.form-control').text();
-					break;
-				case "formatted-textarea":
-					result = $(this).find('iframe').contents().find('html').find('.mce-content-body').html();
-					break;
-				case "image-upload":
-					result = $(this).find('img').attr('src');
-					break;
-				case "dropdown":
-					result = $(this).find('.form-control').val();
-					break;
-				default:
-					alert("NONE>>>"+fieldType);
-					break;
-			}
-			data[fieldNameArray[index]] = result;
-		});
-
-		$.ajax({
-			type: 'POST',
-			url: $(this).data('update-url'),
-			data: data,
-			success: function(msg){
-				// alert(msg);
-				location.reload();
-			},
-			error: function(msg){
-				alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
-				// alert("An unknown error has occured. Press OK to reload.");
-				// location.reload();
-			}
-		});
-	});
-
 	// Inserting a new entry
 	$(document).on('click', '.btn-action-add', function() {
 		data = {};
@@ -179,10 +140,10 @@ $(document).ready(function() {
 
 			switch(fieldType) {
 				case "text":
-					result = $(this).find('.form-control').val();
+					result = $(this).find('.form-element').val();
 					break;
 				case "textarea":
-					result = $(this).find('.form-control').text();
+					result = $(this).find('.form-element').text();
 					break;
 				case "formatted-textarea":
 					result = $(this).find('iframe').contents().find('html').find('.mce-content-body').html();
@@ -265,11 +226,62 @@ $(document).ready(function() {
 	})
 });
 
+function saveUpdateModal(buttonElement, actionUrl, typeArray, fieldNameArray) {
+	data = {};
+	data['id'] = $(buttonElement).data('id');
+	alert($(buttonElement).parent().parent().html());
+	$(buttonElement).parent().parent().find('.form-group').each(function(index, value) {
+		var fieldType = typeArray[index];
+		var result = "";
+
+		switch(fieldType) {
+			case "text":
+				alert("Text>>>"+$(this).html());
+				result = $(this).find('.form-control').val();
+				break;
+			case "textarea":
+				result = $(this).find('.form-control').text();
+				break;
+			case "formatted-textarea":
+				alert("FormattedTextArea>>>"+$(this).html());
+				result = $(this).find('iframe').contents().find('html').find('.mce-content-body').html();
+				break;
+			case "image-upload":
+				result = $(this).find('img').attr('src');
+				break;
+			case "dropdown":
+				result = $(this).find('.form-control').val();
+				break;
+			default:
+				alert("NONE>>>"+fieldType);
+				break;
+		}
+		data[fieldNameArray[index]] = result;
+	});
+
+	$.ajax({
+		type: 'POST',
+		url: actionUrl,
+		data: data,
+		success: function(msg){
+			alert(msg);
+			// location.reload();
+		},
+		error: function(msg){
+			alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
+			// alert("An unknown error has occured. Press OK to reload.");
+			// location.reload();
+		}
+	});
+}
+
 function fillUpdateModal(dataId, index, value, fieldArray, typeArray) {
+
 	var trueIndex = index % fieldArray.length; // Used for getting which fieldText to use
 	var valueText = $(value).text().trim(); // e.g.: "banner_zazen.jpg"
 	var fieldText = fieldArray[trueIndex]; // e.g.: "Banner Image"
 	var fieldType = typeArray[trueIndex];
+	var newElement = '';
 
 	var selector = ".admin-form-text";
 	
@@ -280,24 +292,31 @@ function fillUpdateModal(dataId, index, value, fieldArray, typeArray) {
 		case "text":
 			selector = ".admin-form-text";
 			$(selector).find('.form-control').attr('value', valueText);
+			newElement = $(selector).find('.form-content').html();
 			break;
 		case "textarea":
 			selector = ".admin-form-textarea";
 			$(selector).find('.form-control').text(valueText);
+			newElement = $(selector).find('.form-content').html();
 			break;
 		case "formatted-textarea":
 			selector = ".admin-form-formatted";
 			valueText = $(value).html().trim();
 
-			$(selector).find('.form-controllol').html($(selector).find('.form-control-source').html());
-			$(selector).find('.form-controllol').find('textarea').text(valueText);
-			$(selector).find('.form-controllol').find('textarea').froalaEditor();
+			$(selector).find('.form-element').html($(selector).find('.form-control-source').html());
+			$(selector).find('.form-element').find('textarea').text(valueText);
+			$(selector).find('.form-element').find('textarea').addClass('formatted-textarea');
+			newElement = $(selector).find('.form-label').html()
+				+"<br/>"
+				+$(selector).find('.form-element').html()
+				+"<br/>";
 			break;
 		case "image-upload":
 			selector = ".admin-form-image";
 			$(selector).find('img').attr('src', $(value).find('img').attr('src'));
 			$(selector).find('img').attr('class', $(value).find('img').attr('class'));
 			$(selector).find('img').addClass('max-width-100');
+			newElement = $(selector).find('.form-content').html();
 			break;
 		case "dropdown":
 			selector = ".admin-form-dropdown";
@@ -310,6 +329,7 @@ function fillUpdateModal(dataId, index, value, fieldArray, typeArray) {
 					text : value 
 				}));
 			});
+			newElement = $(selector).find('.form-content').html();
 			break;
 		default:
 			alert("NONE>>>"+fieldType);
@@ -320,5 +340,6 @@ function fillUpdateModal(dataId, index, value, fieldArray, typeArray) {
 	$(selector).find('.control-label').text(fieldText);
 	$(selector).find('input').attr('id', formId);
 
-	$('.modal-inner-data-'+dataId).append($(selector).find('.form-content').html());
+	alert(newElement);
+	$('.modal-inner-data-'+dataId).append(newElement);
 }

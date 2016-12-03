@@ -93,4 +93,3 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 		Modal::end();
 	?>
 </div>
-

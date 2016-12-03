@@ -28,12 +28,13 @@ class AjaxController extends SamuraiController
         ]);
     }
     public function actionUpdateFaq() {
-        $this->update($_POST['id'], new Faq(), [
-            'question_en' => $_POST['question_en'], 
-            'question_jp' => $_POST['question_jp'],
-            'answer_en' => $_POST['answer_en'], 
-            'answer_jp' => $_POST['answer_jp']
-        ]);
+        echo json_encode($_POST);
+        // $this->update($_POST['id'], new Faq(), [
+        //     'question_en' => $_POST['question_en'], 
+        //     'question_jp' => $_POST['question_jp'],
+        //     'answer_en' => $_POST['answer_en'], 
+        //     'answer_jp' => $_POST['answer_jp']
+        // ]);
     }
     public function actionDeleteFaq() {
         $this->delete($_POST['id'], new Faq());

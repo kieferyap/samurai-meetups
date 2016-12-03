@@ -22,5 +22,4 @@ $(document).ready(function() {
 		}
 	});
 
-	$('textarea.formatted-editor').froalaEditor();
 });
