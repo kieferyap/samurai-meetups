@@ -20,188 +20,46 @@ $(document).ready(function() {
 	// Once the UPDATE button is clicked, fill the modal.
 	$('.btn-update').on('click', function() {
 		var dataId = $(this).data('id');
-		if ($('.modal-inner-data-'+dataId).html().trim() == ""){
+		var modalSelector = '.modal-inner-data-'+dataId;
+		if ($(modalSelector).html().trim() == ""){
 			$(this).parent().parent().find('.value').each(function(index, value) {
-				// alert($(this).html());
-				fillUpdateModal($(this), dataId, index, value, fieldArray, typeArray);
+				fillModal($(this), dataId, index, value, fieldArray, typeArray);
 			});
 
-			// All newly-added formattable textarea in the modal must be editable
-			$('.modal-inner-data-'+dataId).find('.formatted-textarea').each(function() {
-				$(this).tinymce({
-					menubar: false,
-					plugins: ['lists link'],
-					toolbar1: 'bold italic underline link | bullist numlist outdent indent | alignleft aligncenter alignright alignjustify'
-				});
-			});
+			makeModalTextAreaEditable(modalSelector);
 		}
 	});
 
 	// Once the SAVE button is clicked, gather the updated information and toss it to the controller.
 	$('.btn-action-update').on('click', function() {
-		saveUpdateModal($(this), $(this).data('update-url'), typeArray, fieldNameArray);
+		saveUpdateModal($(this), $(this).data('update-url'), typeArray, fieldNameArray, false);
 	});
 
 	// Once the ADD button is clicked, fill the modal.
 	$('.btn-add').on('click', function() {
-
+		var modalSelector = '.modal-inner-data-new';
+		if ($(modalSelector).html().trim() == ""){
+			$('.row-fields').first().find('.field').each(function(index, value) {
+				fillModalAdd($(this), index, value, fieldArray, typeArray);
+			});
+			makeModalTextAreaEditable(modalSelector);
+		}
 	});
 
 	// Once the INSERT button is clicked, gather the newly-added information and toss it to the controller.
 	$('.btn-action-add').on('click', function() {
+		saveUpdateModal($(this), $(this).data('add-url'), typeArray, fieldNameArray, true);
 
 	});
 
 	// Once the DELETE button is clicked, confirm the destructive action, and delete if the user has approved it.
 	$(document).on('click', '.btn-delete', function() {
-		var confirmed = confirm("This action cannot be undone. Are you sure?");
-		if (confirmed) {
-			var row = $(this).parent().parent();
-			var hideDelay = 500;
-			$.ajax({
-				type: 'POST',
-				url: $(this).data('delete-url'),
-				data: {
-					'id': $(this).data('id')
-				},
-				success: function(msg){
-					row.hide(hideDelay);
-				},
-				error: function(msg){
-					// alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
-					alert("An unknown error has occured. Press OK to reload.");
-					location.reload();
-				}
-			});
-		}		
+		deleteElement($(this));		
 	});
 
-	//=====================================================
-
-	// Once the Modal's Add button has been clicked, gather all the information and update
-	$('.row-fields').first().find('.field').each(function(index, value) {
-		var fieldText = fieldArray[index]; // e.g.: "Banner Image"
-		var fieldType = typeArray[index]; // e.g.: "image-upload"
-		var selector = ".admin-form-text";
-		var formId = 'form-'+fieldText;
-		var controlId = '';
-
-		switch(fieldType) {
-			case "text":
-				selector = ".admin-form-text";
-				$(selector).find('.form-control').attr('value', '');
-				break;
-			case "textarea":
-				selector = ".admin-form-textarea";
-				$(selector).find('.form-control').text('');
-				break;
-			case "formatted-textarea":
-				selector = ".admin-form-formatted";
-				$(selector).find('.form-control').attr('data-content', '');
-				break;
-			case "image-upload":
-				selector = ".admin-form-image";
-				$(selector).find('img').attr('src', $(value).find('img').attr('src'));
-				$(selector).find('img').attr('class', $(value).find('img').attr('class'));
-				$(selector).find('img').addClass('max-width-100');
-				break;
-			case "dropdown":
-				selector = ".admin-form-dropdown";
-				$(selector).find('.form-control').find('option').remove();
-
-				var dropdownOptions = $(this).data('dropdown-options');
-				alert(dropdownOptions);
-				$.each(dropdownOptions, function(index, value){
-					$(selector).find('.form-control').append($('<option/>', { 
-						value: index,
-						text : value 
-					}));
-				});
-				break;
-			default:
-				alert("NONE>>>"+fieldType);
-				break;
-		}
-
-		$(selector).find('.control-label').attr('for', formId);
-		$(selector).find('.control-label').text(fieldText);
-		$(selector).find('input').attr('id', formId);
-
-		$('.modal-inner-data-new').append($(selector).html());
-	});
+	//=====================================================	
 
 	var data = {};
-
-	// Delete Button clicked
-	$(document).on('click', '.btn-delete', function() {
-		var confirmed = confirm("This action cannot be undone. Are you sure?");
-		if (confirmed) {
-			var row = $(this).parent().parent();
-			var hideDelay = 500;
-			$.ajax({
-				type: 'POST',
-				url: $(this).data('delete-url'),
-				data: {
-					'id': $(this).data('id')
-				},
-				success: function(msg){
-					row.hide(hideDelay);
-				},
-				error: function(msg){
-					// alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
-					alert("An unknown error has occured. Press OK to reload.");
-					location.reload();
-				}
-			});
-		}		
-	});
-
-	// Inserting a new entry
-	$(document).on('click', '.btn-action-add', function() {
-		data = {};
-		$(this).parent().parent().find('.form-group').each(function(index, value) {
-			var fieldType = typeArray[index];
-			var result = "";
-
-			switch(fieldType) {
-				case "text":
-					result = $(this).find('.form-element').val();
-					break;
-				case "textarea":
-					result = $(this).find('.form-element').text();
-					break;
-				case "formatted-textarea":
-					result = $(this).find('iframe').contents().find('html').find('.mce-content-body').html();
-					break;
-				case "image-upload":
-					alert("D:");
-					break;
-				case "dropdown":
-					alert("D:");
-					break;
-				default:
-					alert("NONE>>>"+fieldType);
-					break;
-			}
-
-			data[fieldNameArray[index]] = result;
-		});
-
-		$.ajax({
-			type: 'POST',
-			url: $(this).data('add-url'),
-			data: data,
-			success: function(msg){
-				location.reload();
-			},
-			error: function(msg){
-				// alert(msg);
-				// alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
-				alert("An unknown error has occured. Press OK to reload.");
-				location.reload();
-			}
-		});
-	});
 
 	// File upload
 	$('.browse-file-modal').on('change', function() {
@@ -251,9 +109,51 @@ $(document).ready(function() {
 	})
 });
 
-function saveUpdateModal(buttonElement, actionUrl, typeArray, fieldNameArray) {
+function makeModalTextAreaEditable(modalSelector) {
+	// All newly-added formattable textarea in the modal must be editable
+	$(modalSelector).find('.formatted-textarea').each(function() {
+		$(this).tinymce({
+			menubar: false,
+			plugins: ['lists link'],
+			toolbar1: 'bold italic underline link | bullist numlist outdent indent | alignleft aligncenter alignright alignjustify'
+		});
+	});
+}
+
+function fillModalAdd(dataElement, index, value, fieldArray, typeArray) {
+	var newDataId = -1;
+	fillModal(dataElement, newDataId, index, value, fieldArray, typeArray);
+}
+
+function deleteElement(rowElement) {
+	var confirmed = confirm("This action cannot be undone. Are you sure?");
+	if (confirmed) {
+		var row = $(rowElement).parent().parent();
+		var hideDelay = 500;
+		$.ajax({
+			type: 'POST',
+			url: $(rowElement).data('delete-url'),
+			data: {
+				'id': $(rowElement).data('id')
+			},
+			success: function(msg){
+				row.hide(hideDelay);
+			},
+			error: function(msg){
+				// alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
+				alert("An unknown error has occured. Press OK to reload.");
+				location.reload();
+			}
+		});
+	}
+}
+
+function saveUpdateModal(buttonElement, actionUrl, typeArray, fieldNameArray, isNewEntry) {
 	data = {};
-	data['id'] = $(buttonElement).data('id');
+	if (isNewEntry == false) {
+		data['id'] = $(buttonElement).data('id');
+	}
+	
 	$(buttonElement).parent().parent().find('.form-group').each(function(index, value) {
 		var fieldType = typeArray[index];
 		var result = "";
@@ -286,8 +186,8 @@ function saveUpdateModal(buttonElement, actionUrl, typeArray, fieldNameArray) {
 		url: actionUrl,
 		data: data,
 		success: function(msg){
-			alert(msg);
-			// location.reload();
+			// alert(msg);
+			location.reload();
 		},
 		error: function(msg){
 			alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
@@ -297,21 +197,21 @@ function saveUpdateModal(buttonElement, actionUrl, typeArray, fieldNameArray) {
 	});
 }
 
-function fillUpdateModal(dataElement, dataId, index, value, fieldArray, typeArray) {
+function fillModal(dataElement, dataId, index, value, fieldArray, typeArray) {
 
 	var trueIndex = index % fieldArray.length; // Used for getting which fieldText to use
 	var valueText = $(dataElement).text().trim(); // e.g.: "banner_zazen.jpg"
 	var fieldText = fieldArray[trueIndex]; // e.g.: "Banner Image"
 	var fieldType = typeArray[trueIndex];
 
-	var selector = ".admin-form-text";
-	
+	var selector = '.admin-form-text';
+	var targetSelector = '.modal-inner-data-'+dataId;
 	var formId = 'form-'+fieldText;
-	var controlId = '';
 
-	$(selector).find('.control-label').attr('for', formId);
-	$(selector).find('.control-label').text(fieldText);
-	$(selector).find('input').attr('id', formId);
+	if (dataId == -1) {
+		valueText = '';
+		targetSelector = '.modal-inner-data-new';
+	}
 
 	switch(fieldType) {
 		case "text":
@@ -324,7 +224,13 @@ function fillUpdateModal(dataElement, dataId, index, value, fieldArray, typeArra
 			break;
 		case "formatted-textarea":
 			selector = ".admin-form-formatted";
-			valueText = $(value).html().trim();
+
+			if (dataId == -1) {
+				valueText = '';
+			}
+			else {
+				valueText = $(value).html().trim();
+			}
 
 			$(selector).find('.form-element').html($(selector).find('.form-control-source').html());
 			$(selector).find('.form-element').find('textarea').text(valueText);
@@ -353,5 +259,9 @@ function fillUpdateModal(dataElement, dataId, index, value, fieldArray, typeArra
 			break;
 	}
 
-	$('.modal-inner-data-'+dataId).append($(selector).find('.form-content').html());
+	$(selector).find('.control-label').attr('for', formId);
+	$(selector).find('.control-label').text(fieldText);
+	$(selector).find('input').attr('id', formId);
+
+	$(targetSelector).append($(selector).find('.form-content').html());
 }
