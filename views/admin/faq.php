@@ -23,7 +23,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 	</thead>
 	<tbody>
 		<?php foreach($faq as $element):?>
-			<tr class="row-content" id="<?=$element['id']?>">
+			<tr class="row-content" id="row-<?=$element['id']?>">
 				<td class="value"><?=$element['question_en']?></td>
 				<td class="value"><?=$element['answer_en']?></td>
 				<td class="value"><?=$element['question_jp']?></td>

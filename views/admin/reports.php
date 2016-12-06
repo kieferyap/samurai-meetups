@@ -15,7 +15,22 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 <h1>
 	<div class="col-md-9"><?=Yii::t('app', 'Reports')?></div>
 	<div class="col-md-3 text-align-right">
-		<button type="button" class="btn btn-success"><?= Yii::t('app', 'Add Report')?></button>
+		<?php 
+			$addNewItem = Yii::t('app', 'Add New Item');
+			Modal::begin([
+				'header' => '<h3>'.$addNewItem.'</h3>',
+				'toggleButton' => [
+					'label' => $addNewItem,
+					'class' => 'btn btn-success btn-add col-md-2 col-md-offset-5'
+				],
+				'footer' => '<button 
+					type="button" 
+					class="btn btn-success btn-action-add"
+					data-add-url="'.Url::toRoute('ajax/create-faq').'">'
+					.$addNewItem
+					.'</button>',
+			]);
+		?>
 	</div>
 </h1>
 </div>
@@ -42,7 +57,8 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 					'header' => '<h3>'.$update.'</h3>',
 					'toggleButton' => [
 						'label' => $update,
-						'class' => 'btn btn-primary btn-update'
+						'class' => 'btn btn-primary btn-update',
+						'data-id' => $element['id']
 					],
 					'footer' => '<button  
 						type="button"  
@@ -66,7 +82,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 </div>
 
 <div class="row margin-top-20">
-<table class="table table-striped table-bordered row-content row-fields" id="<?=$element['id']?>">
+<table class="table table-striped table-bordered row-content row-fields" id="row-<?=$element['id']?>">
 	<tr>
 		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="sidebar_image_url"><?= Yii::t('app', 'Sidebar Image')?></td>
 		<td class="value"><img class="border-radius-10 report-sidebar-element-photo" src="<?=Url::base().'images/'.$element['sidebar_image_url']?>"/></td>
@@ -131,8 +147,16 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 					'header' => '<h3>'.$update.'</h3>',
 					'toggleButton' => [
 						'label' => $update,
-						'class' => 'btn btn-primary btn-update'
+						'class' => 'btn btn-primary btn-update',
+						'data-id' => $element['id']
 					],
+					'footer' => '<button 
+						type="button" 
+						class="btn btn-primary btn-action-update" 
+						data-id="'.$element['id'].'"
+						data-update-url="'.Url::toRoute('ajax/update-report').'">'
+						.$update
+						.'</button>',
 				]);
 			?>
 			

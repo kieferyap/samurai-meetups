@@ -22,7 +22,7 @@ $(document).ready(function() {
 		var dataId = $(this).data('id');
 		var modalSelector = '.modal-inner-data-'+dataId;
 		if ($(modalSelector).html().trim() == ""){
-			$(this).parent().parent().find('.value').each(function(index, value) {
+			$('#row-'+dataId).find('.value').each(function(index, value) {
 				fillModal($(this), dataId, index, value, fieldArray, typeArray);
 			});
 
@@ -57,12 +57,8 @@ $(document).ready(function() {
 		deleteElement($(this));		
 	});
 
-	//=====================================================	
-
-	var data = {};
-
 	// File upload
-	$('.browse-file-modal').on('change', function() {
+	$(document).on('change', '.browse-file-modal', function() {
 		// Change the photo
 		var file = this.files[0];
 		var name = file.name;
