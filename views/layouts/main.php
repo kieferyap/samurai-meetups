@@ -63,6 +63,7 @@ Form HTML constants
 <div class="hidden">
 	<div id="ajax-upload-image" data-url="<?=Url::toRoute('ajax/upload-image')?>"></div>
 	<div id="ajax-loading-image" data-url="<?=Url::base().'images/loading.gif'?>"></div>
+	<div id="no-image" data-url="<?=Url::base().'images/'.Yii::$app->params['noImage']?>"></div>
 
 	<div class="admin-form-text">
 		<div class="form-content">

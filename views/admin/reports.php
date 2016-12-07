@@ -12,27 +12,32 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 ?>
 
 <div class="row">
-<h1>
-	<div class="col-md-9"><?=Yii::t('app', 'Reports')?></div>
-	<div class="col-md-3 text-align-right">
+	<div class="col-md-9"><h4><?=Yii::t('app', 'Reports')?></h4></div>
+	<div class="col-md-3">
 		<?php 
 			$addNewItem = Yii::t('app', 'Add New Item');
 			Modal::begin([
 				'header' => '<h3>'.$addNewItem.'</h3>',
 				'toggleButton' => [
 					'label' => $addNewItem,
-					'class' => 'btn btn-success btn-add col-md-2 col-md-offset-5'
+					'class' => 'btn btn-success btn-add'
 				],
 				'footer' => '<button 
 					type="button" 
 					class="btn btn-success btn-action-add"
-					data-add-url="'.Url::toRoute('ajax/create-faq').'">'
+					data-add-url="'.Url::toRoute('ajax/create-report').'">'
 					.$addNewItem
 					.'</button>',
 			]);
 		?>
+		
+		<div class="modal-inner-data-new">
+		</div>
+
+		<?php
+			Modal::end();
+		?>
 	</div>
-</h1>
 </div>
 <hr/>
 
@@ -84,19 +89,19 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 <div class="row margin-top-20">
 <table class="table table-striped table-bordered row-content row-fields" id="row-<?=$element['id']?>">
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="sidebar_image_url"><?= Yii::t('app', 'Sidebar Image')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="sidebar_image_url" data-class="border-radius-10 report-sidebar-element-photo"><?= Yii::t('app', 'Sidebar Image')?></td>
 		<td class="value"><img class="border-radius-10 report-sidebar-element-photo" src="<?=Url::base().'images/'.$element['sidebar_image_url']?>"/></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="worker_image_url"><?= Yii::t('app', 'Left Image')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="worker_image_url" data-class="height-150-px"><?= Yii::t('app', 'Left Image')?></td>
 		<td class="value"><img class="height-150-px" src="<?=Url::base().'images/'.$element['worker_image_url']?>"/></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="experience_image_url"><?= Yii::t('app', 'Center Image')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="experience_image_url" data-class="height-150-px"><?= Yii::t('app', 'Center Image')?></td>
 		<td class="value"><img class="height-150-px" src="<?=Url::base().'images/'.$element['experience_image_url']?>"/></td>
 	</tr>
 	<tr>
-		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="set_image_url"><?= Yii::t('app', 'Right Image')?></td>
+		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="set_image_url" data-class="height-150-px"><?= Yii::t('app', 'Right Image')?></td>
 		<td class="value"><img class="height-150-px" src="<?=Url::base().'images/'.$element['set_image_url']?>"/></td>
 	</tr>
 	<tr>
@@ -186,7 +191,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 			'footer' => '<button 
 				type="button" 
 				class="btn btn-success btn-action-add"
-				data-add-url="'.Url::toRoute('ajax/create-faq').'">'
+				data-add-url="'.Url::toRoute('ajax/create-report').'">'
 				.$addNewItem
 				.'</button>',
 		]);

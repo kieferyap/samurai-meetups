@@ -38,7 +38,7 @@ $(document).ready(function() {
 	// Once the ADD button is clicked, fill the modal.
 	$('.btn-add').on('click', function() {
 		var modalSelector = '.modal-inner-data-new';
-		if ($(modalSelector).html().trim() == ""){
+		if ($(this).parent().find(modalSelector).html().trim() == ""){
 			$('.row-fields').first().find('.field').each(function(index, value) {
 				fillModalAdd($(this), index, value, fieldArray, typeArray);
 			});
@@ -203,8 +203,9 @@ function fillModal(dataElement, dataId, index, value, fieldArray, typeArray) {
 	var selector = '.admin-form-text';
 	var targetSelector = '.modal-inner-data-'+dataId;
 	var formId = 'form-'+fieldText;
+	var isNewEntry = dataId == -1;
 
-	if (dataId == -1) {
+	if (isNewEntry) {
 		valueText = '';
 		targetSelector = '.modal-inner-data-new';
 	}
@@ -221,7 +222,7 @@ function fillModal(dataElement, dataId, index, value, fieldArray, typeArray) {
 		case "formatted-textarea":
 			selector = ".admin-form-formatted";
 
-			if (dataId == -1) {
+			if (isNewEntry) {
 				valueText = '';
 			}
 			else {
@@ -234,15 +235,24 @@ function fillModal(dataElement, dataId, index, value, fieldArray, typeArray) {
 			break;
 		case "image-upload":
 			selector = ".admin-form-image";
-			$(selector).find('img').attr('src', $(value).find('img').attr('src'));
-			$(selector).find('img').attr('class', $(value).find('img').attr('class'));
-			$(selector).find('img').addClass('max-width-100');
+
+			if (isNewEntry) {
+				$(selector).find('img').attr('src', $('#no-image').data('url'));
+				$(selector).find('img').attr('class', $(value).data('class'));
+				$(selector).find('img').addClass('max-width-100');
+			}
+			else {
+				$(selector).find('img').attr('src', $(value).find('img').attr('src'));
+				$(selector).find('img').attr('class', $(value).find('img').attr('class'));
+				$(selector).find('img').addClass('max-width-100');
+			}
+			
 			break;
 		case "dropdown":
 			selector = ".admin-form-dropdown";
 			$(selector).find('.form-control').find('option').remove();
 
-			var dropdownOptions = $(this).data('dropdown-options');
+			var dropdownOptions = $(dataElement).data('dropdown-options');
 			$.each(dropdownOptions, function(index, value){
 				$(selector).find('.form-control').append($('<option/>', { 
 					value: index,
