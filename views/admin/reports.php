@@ -81,7 +81,14 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 			<?php
 				Modal::end();
 			?>
-			<button type="button" class="btn btn-danger margin-left-10"><?= Yii::t('app', 'Delete')?></button>
+			<button 
+				type="button" 
+				data-delete-url="<?=Url::toRoute('ajax/delete-report')?>"
+				class="btn btn-danger btn-delete margin-left-10"
+				data-id="<?=$element['id']?>"
+			>
+				<?= Yii::t('app', 'Delete')?>
+			</button>
 		</div>
 	</h4>
 </div>
@@ -171,7 +178,14 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 			<?php
 				Modal::end();
 			?>
-			<button type="button" class="btn btn-danger margin-left-10"><?= Yii::t('app', 'Delete')?></button>
+			<button 
+				type="button" 
+				data-delete-url="<?=Url::toRoute('ajax/delete-report')?>"
+				class="btn btn-danger btn-delete margin-left-10"
+				data-id="<?=$element['id']?>"
+			>
+				<?= Yii::t('app', 'Delete')?>
+			</button>
 		</td>
 	</tr>
 </table>

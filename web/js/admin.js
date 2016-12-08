@@ -49,12 +49,11 @@ $(document).ready(function() {
 	// Once the INSERT button is clicked, gather the newly-added information and toss it to the controller.
 	$('.btn-action-add').on('click', function() {
 		saveUpdateModal($(this), $(this).data('add-url'), typeArray, fieldNameArray, true);
-
 	});
 
 	// Once the DELETE button is clicked, confirm the destructive action, and delete if the user has approved it.
 	$(document).on('click', '.btn-delete', function() {
-		deleteElement($(this));		
+		deleteElement('#row-'+$(this).data('id'), $(this).data('delete-url'), $(this).data('id'));
 	});
 
 	// File upload
@@ -121,19 +120,19 @@ function fillModalAdd(dataElement, index, value, fieldArray, typeArray) {
 	fillModal(dataElement, newDataId, index, value, fieldArray, typeArray);
 }
 
-function deleteElement(rowElement) {
+function deleteElement(selectorToDelete, deleteUrl, id) {
 	var confirmed = confirm("This action cannot be undone. Are you sure?");
 	if (confirmed) {
-		var row = $(rowElement).parent().parent();
 		var hideDelay = 500;
 		$.ajax({
 			type: 'POST',
-			url: $(rowElement).data('delete-url'),
+			url: deleteUrl,
 			data: {
-				'id': $(rowElement).data('id')
+				'id': id
 			},
 			success: function(msg){
-				row.hide(hideDelay);
+				$(selectorToDelete).hide(hideDelay);
+				location.reload();
 			},
 			error: function(msg){
 				// alert('Whoops, looks like something went wrong... \n\n Message: '+msg['responseText']+'\n Refreshing...');
