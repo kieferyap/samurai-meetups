@@ -88,6 +88,48 @@ class AjaxController extends SamuraiController
         $this->delete($_POST['id'], new Reports());
     }
 
+    // Tours
+    // Reports
+    public function actionCreateTour() {
+        // Data processing
+        // Image
+        $imageUrl = end(explode("/", $_POST['image_url']));
+        $topImageUrl = end(explode("/", $_POST['top_image_url']));
+
+        // Tour Type
+        $this->create(new Tours(), [
+            'event_summary' => $_POST['event_summary'], 
+            'meeting_time_and_place' => $_POST['meeting_time_and_place'],
+            'place_for_visit_and_tips' => $_POST['place_for_visit_and_tips'], 
+            'time_schedule' => $_POST['time_schedule'],
+            'price' => $_POST['price'],
+            'samurai_information' => $_POST['samurai_information'],
+            'image_url' => $imageUrl,
+            'top_image_url' => $topImageUrl
+        ]);
+    }
+    public function actionUpdateTour() {
+        // Data processing
+        // Image
+        $imageUrl = end(explode("/", $_POST['image_url']));
+        $topImageUrl = end(explode("/", $_POST['top_image_url']));
+
+        // Tour Type
+        $this->update($_POST['id'], new Tours(), [
+            'event_summary' => $_POST['event_summary'], 
+            'meeting_time_and_place' => $_POST['meeting_time_and_place'],
+            'place_for_visit_and_tips' => $_POST['place_for_visit_and_tips'], 
+            'time_schedule' => $_POST['time_schedule'],
+            'price' => $_POST['price'],
+            'samurai_information' => $_POST['samurai_information'],
+            'image_url' => $imageUrl,
+            'top_image_url' => $topImageUrl
+        ]);
+    }
+    public function actionDeleteTour() {
+        $this->delete($_POST['id'], new Tours());
+    }
+
     private function update($id = 0, $modelObject = null, $newValues = []) {
         $model = $modelObject::findOne(['id' => $id]);
         foreach ($newValues as $key => $value) {
