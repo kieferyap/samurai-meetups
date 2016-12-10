@@ -130,6 +130,33 @@ class AjaxController extends SamuraiController
         $this->delete($_POST['id'], new Tours());
     }
 
+    // Site Settings
+    public function actionUpdateSiteSettings() {
+        // Get the key type based on the ID
+        $id = $_POST['id'];
+
+        // Gather information about the setting.
+        $inputType = SiteSettings::find()
+            ->select(['key_type'])
+            ->where(['id' => $id])
+            ->asArray()
+            ->one();
+
+        // If the data is an image, process it as an image. Else, process it normally.
+        $valueEn = $_POST['value_en'];
+        $valueJp = $_POST['value_jp'];
+        if ($inputType[0]['key_type'] == 'image-upload') {
+            $valueEn = end(explode("/", $_POST['value_en']));
+            $valueJp = end(explode("/", $_POST['value_jp']));
+        }
+
+        // Update the database
+        $this->update($_POST['id'], new SiteSettings(), [
+            'value_en' => $valueEn,
+            'value_jp' => $valueJp
+        ]);
+    }
+
     private function update($id = 0, $modelObject = null, $newValues = []) {
         $model = $modelObject::findOne(['id' => $id]);
         foreach ($newValues as $key => $value) {

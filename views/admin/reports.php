@@ -94,7 +94,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 </div>
 
 <div class="row margin-top-20">
-<table class="table table-striped table-bordered row-content row-fields" id="row-<?=$element['id']?>">
+<table class="table table-striped table-bordered row-fields" id="row-<?=$element['id']?>">
 	<tr>
 		<td class="col-md-3 font-weight-bold field" data-type="image-upload" data-field="sidebar_image_url" data-class="border-radius-10 report-sidebar-element-photo"><?= Yii::t('app', 'Sidebar Image')?></td>
 		<td class="value"><img class="border-radius-10 report-sidebar-element-photo" src="<?=Url::base().'images/'.$element['sidebar_image_url']?>"/></td>

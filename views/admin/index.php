@@ -10,6 +10,23 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 ?>
 
 <h1><?= Yii::t('app', 'Site Settings')?></h1>
+<?php 
+	$update = Yii::t('app', 'Update');
+	Modal::begin([
+		'header' => '<h3>'.$update.'</h3>',
+		'toggleButton' => [
+			'label' => $update,
+			'class' => 'btn btn-primary btn-update'
+		],
+	]);
+?>
+
+<div class="modal-inner-data-1">
+</div>
+
+<?php
+	Modal::end();
+?> 
 <hr/>
 
 <div class="row">
@@ -18,7 +35,6 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 		<th class="col-md-3">Key</th>
 		<th class="col-md-4 field" data-type="text">Value (EN)</th>
 		<th class="col-md-4 field" data-type="text">Value (JP)</th>
-		<th class="col-md-1">Actions</th>
 	</tr>
 	<?php foreach($siteSettings as $index => $element): ?>
 		<tr class="row-content" id="<?=$index?>">
@@ -33,30 +49,10 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 					$value_jp = '<img class="max-width-250" src="'
 						.Url::base().'images/'.$element['value_jp'].'"/>';
 				}
-
 			?>
 			<td><?=$element['key']?></td>
 			<td class="value" data-type="<?=$element['key_type']?>"><?=$value_en?></td>
 			<td class="value" data-type="<?=$element['key_type']?>"><?=$value_jp?></td>
-			<td>
-				<?php 
-					$update = Yii::t('app', 'Update');
-					Modal::begin([
-						'header' => '<h3>'.$update.'</h3>',
-						'toggleButton' => [
-							'label' => $update,
-							'class' => 'btn btn-primary btn-update'
-						],
-					]);
-				?>
-				
-				<div class="modal-inner-data-<?=$index?>">
-				</div>
-
-				<?php
-					Modal::end();
-				?> 
-			</td>
 		</tr>
 	<?php endforeach;?>
 	</table>

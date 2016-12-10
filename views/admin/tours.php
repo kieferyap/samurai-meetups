@@ -39,7 +39,7 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Tours');
 
 <div class="row">
 	<?php foreach($tours as $index => $element):?>
-	<table class="table table-striped table-bordered row-content row-content row-fields" id="row-<?=$index?>">
+	<table class="table table-striped table-bordered row-fields" id="row-<?=$index?>">
 		<tr>
 			<td 
 				class="col-md-3 font-weight-bold field" 
