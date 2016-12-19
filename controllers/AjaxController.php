@@ -145,7 +145,8 @@ class AjaxController extends SamuraiController
         // If the data is an image, process it as an image. Else, process it normally.
         $valueEn = $_POST['value_en'];
         $valueJp = $_POST['value_jp'];
-        if ($inputType[0]['key_type'] == 'image-upload') {
+
+        if ($inputType['key_type'] == 'image-upload') {
             $valueEn = end(explode("/", $_POST['value_en']));
             $valueJp = end(explode("/", $_POST['value_jp']));
         }

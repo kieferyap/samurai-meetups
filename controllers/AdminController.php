@@ -17,6 +17,7 @@ use yii\web\UploadedFile;
 
 class AdminController extends SamuraiController
 {
+
 	private function renderAdminView($view = '', $parameters = array()) {
 		if ($this->isLoggedIn()) {
             $this->addCssFile('admin.css');
@@ -48,8 +49,21 @@ class AdminController extends SamuraiController
         }
     }
 
+    /*
+        $dataTypeSource:
+            "field": the "data-type" attribute can be found in the class, "field"
+            "value": the "data-type" attribute can be found in the class, "value"
+
+        $dataIndexSource:
+            "cell": the index of the cell will be used in getting its field type
+            "row": the index of the row will be used in getting its field type
+    */
+
 	public function actionIndex()
     {
+        $dataTypeSource = 'value';
+        $dataIndexSource = 'row';
+
         $languageId = $this->getSessionLanguageCode() == 'en' ? 
             'key_description_en': 
             'key_description_jp';
@@ -64,6 +78,8 @@ class AdminController extends SamuraiController
     	return $this->renderAdminView('index', [
             'siteSettings' => $siteSettings,
             'sitePolicies' => $sitePolicies,
+            'dataTypeSource' => $dataTypeSource,
+            'dataIndexSource' => $dataIndexSource,
         ]);
     }
 
@@ -71,6 +87,7 @@ class AdminController extends SamuraiController
     {
         return SiteSettings::find()
             ->select([
+                'id',
                 'key' => $languageId, 
                 'key_type',
                 'value_en',
@@ -84,24 +101,34 @@ class AdminController extends SamuraiController
 
     public function actionTours()
     {
+        $dataTypeSource = 'field';
+        $dataIndexSource = 'cell';
+
         $tours = Tours::find()
             ->asArray()
             ->all();
 
     	return $this->renderAdminView('tours', [
-            'tours' => $tours
+            'tours' => $tours,
+            'dataTypeSource' => $dataTypeSource,
+            'dataIndexSource' => $dataIndexSource,
         ]);
     }
 
     public function actionReports()
     {
+        $dataTypeSource = 'field';
+        $dataIndexSource = 'cell';
+
         $this->addCssFile('reports.css');
         $reports = Reports::find()
             ->asArray()
             ->all();
 
     	return $this->renderAdminView('reports', [
-            'reports' => $reports
+            'reports' => $reports,
+            'dataTypeSource' => $dataTypeSource,
+            'dataIndexSource' => $dataIndexSource,
         ]);
     }
 
@@ -112,18 +139,25 @@ class AdminController extends SamuraiController
             ->all();
             
         return $this->renderAdminView('admins', [
-            'admins' => $admins
+            'admins' => $admins,
+            'dataTypeSource' => $dataTypeSource,
+            'dataIndexSource' => $dataIndexSource,
         ]);
     }
 
     public function actionFaq()
     {    
+        $dataTypeSource = 'field';
+        $dataIndexSource = 'cell';
+
     	$faq = Faq::find()
 			->asArray()
 			->all();
 
     	return $this->renderAdminView('faq', [
-			'faq' => $faq
+			'faq' => $faq,
+            'dataTypeSource' => $dataTypeSource,
+            'dataIndexSource' => $dataIndexSource,
 		]);
     }
 

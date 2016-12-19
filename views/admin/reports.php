@@ -11,6 +11,9 @@ $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Reports');
 
 ?>
 
+<div id="data-type-source" class="hidden"><?=$dataTypeSource?></div>
+<div id="data-index-source" class="hidden"><?=$dataIndexSource?></div>
+
 <div class="row">
 	<div class="col-md-9"><h4><?=Yii::t('app', 'Reports')?></h4></div>
 	<div class="col-md-3">

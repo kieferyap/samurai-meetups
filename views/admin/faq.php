@@ -9,6 +9,9 @@ use yii\bootstrap\Modal;
 $this->title = Yii::t('app', 'Samurai Meetups').': '.Yii::t('app', 'Admin');
 ?>
 
+<div id="data-type-source" class="hidden"><?=$dataTypeSource?></div>
+<div id="data-index-source" class="hidden"><?=$dataIndexSource?></div>
+
 <h1><?= Yii::t('app', 'FAQ')?></h1>
 <hr/>
 <table class="table table-striped table-bordered">

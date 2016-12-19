@@ -7,11 +7,12 @@ $(document).ready(function() {
 	*/	
 
 	// Gather all the fields
+	var dataTypeSource = "."+$('#data-type-source').html();
 	var fieldArray = []; // "Question (EN)"
 	var typeArray = []; // "text", "textarea", "formatted-textarea", etc.
 	var fieldNameArray = []; // "question_en"
 
-	$('.row-fields').first().find('.field').each(function() {
+	$('.row-fields').first().find(dataTypeSource).each(function() {
 		fieldArray.push($(this).text());
 		typeArray.push($(this).data('type'));
 		fieldNameArray.push($(this).data('field'));
@@ -39,7 +40,7 @@ $(document).ready(function() {
 	$('.btn-add').on('click', function() {
 		var modalSelector = '.modal-inner-data-new';
 		if ($(this).parent().find(modalSelector).html().trim() == ""){
-			$('.row-fields').first().find('.field').each(function(index, value) {
+			$('.row-fields').first().find(dataTypeSource).each(function(index, value) {
 				fillModalAdd($(this), index, value, fieldArray, typeArray);
 			});
 			makeModalTextAreaEditable(modalSelector);
@@ -158,7 +159,7 @@ function saveUpdateModal(buttonElement, actionUrl, typeArray, fieldNameArray, is
 				result = $(this).find('.form-control').val();
 				break;
 			case "textarea":
-				result = $(this).find('.form-control').text();
+				result = $(this).find('.form-control').val();
 				break;
 			case "formatted-textarea":
 				result = $(this).find('iframe').contents().find('html').find('.mce-content-body').html();
@@ -194,10 +195,16 @@ function saveUpdateModal(buttonElement, actionUrl, typeArray, fieldNameArray, is
 
 function fillModal(dataElement, dataId, index, value, fieldArray, typeArray) {
 
-	var trueIndex = index % fieldArray.length; // Used for getting which fieldText to use
 	var valueText = $(dataElement).text().trim(); // e.g.: "banner_zazen.jpg"
-	var fieldText = fieldArray[trueIndex]; // e.g.: "Banner Image"
-	var fieldType = typeArray[trueIndex];
+	var fieldText = fieldArray[index]; // e.g.: "Banner Image"
+	var fieldType = typeArray[index];
+
+	if ($('#data-index-source').html() == 'row') {
+		fieldType = $(dataElement).data('type');
+		fieldText = $(dataElement).data('field');
+		typeArray[index] = fieldType;
+		fieldArray[index] = fieldText;
+	}
 
 	var selector = '.admin-form-text';
 	var targetSelector = '.modal-inner-data-'+dataId;
